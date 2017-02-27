@@ -10,7 +10,7 @@ plt.rcParams['image.cmap'] = 'BrBG'
 
 # Basic parameters
 a = 0.5                # Diffusion constant
-timesteps = 500        # Number of time-steps to evolve system
+timesteps = 200        # Number of time-steps to evolve system
 image_interval = 4000  # Write frequency for png files
 
 # Grid spacings

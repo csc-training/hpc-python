@@ -7,12 +7,13 @@ import matplotlib.pyplot as plt
 
 from evolve_mod import evolve
 
-
 # Set the colormap
 plt.rcParams['image.cmap'] = 'BrBG'
 
-# Basic variables
-a = 0.5          # Diffusion constant.
+# Basic parameters
+a = 0.5                # Diffusion constant
+timesteps = 200        # Number of time-steps to evolve system
+image_interval = 4000  # Write frequency for png files
 
 # Grid spacings
 dx = 0.01
@@ -37,7 +38,6 @@ def write_field(field, step):
     plt.savefig('heat_{0:03d}.png'.format(step))
 
 def iterate(field, field0, timesteps, image_interval):
-
     nx, ny = field.shape
     for m in range(1, timesteps+1):
         field, field0 = evolve(field, field0, a, dt, dx2, dy2, nx, ny)
@@ -46,17 +46,15 @@ def iterate(field, field0, timesteps, image_interval):
 
 
 def main():
-    timesteps = 200  # Number of time-steps to evolve system.
-    image_interval = 4000 # write frequency for png files
-
+    # Initialise the temperature field
     field, field0 = init_fields('bottle.dat')
-    # Write initial field
+    # Plot/save initial field
     write_field(field, 0)
-    # iterate
+    # Iterate
     t0 = time.time()
     iterate(field, field0, timesteps, image_interval)
     t1 = time.time()
-    # Write final field
+    # Plot/save final field
     write_field(field, timesteps)
 
     print("Running time: {0}".format(t1-t0))
