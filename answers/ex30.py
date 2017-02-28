@@ -78,7 +78,7 @@ def exchange(field):
 
 def iterate(field, local_field, local_field0, timesteps, image_interval):
     for m in range(1, timesteps+1):
-        exchange(local_field)
+        exchange(local_field0)
         evolve(local_field, local_field0, a, dt, dx2, dy2)
         if m % image_interval == 0:
             comm.Gather(local_field[1:-1,:], field, root=0)
@@ -125,6 +125,7 @@ def main():
     iterate(field, local_field, local_field0, timesteps, image_interval)
     t1 = time.time()
     # Plot/save final field
+    comm.Gather(local_field[1:-1,:], field, root=0)
     if rank == 0:
         write_field(field, timesteps)
         print("Running time: {0}".format(t1-t0))
