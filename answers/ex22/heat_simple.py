@@ -40,7 +40,7 @@ def iterate(field, field0, timesteps, image_interval):
 
     nx, ny = field.shape
     for m in range(1, timesteps+1):
-        field, field0 = evolve(field, field0, a, dt, dx2, dy2, nx, ny)
+        evolve(field, field0, a, dt, dx2, dy2, nx, ny)
         if m % image_interval == 0:
             write_field(field, m)
 
@@ -53,6 +53,9 @@ def main():
     # Write initial field
     write_field(field, 0)
     # iterate
+    # Arrays need to be Fortran contiguous
+    field = np.asfortranarray(field)
+    field0 = np.asfortranarray(field0)
     t0 = time.time()
     iterate(field, field0, timesteps, image_interval)
     t1 = time.time()
