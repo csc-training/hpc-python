@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 from cffi import FFI
 
 ffi = FFI()
-lib = ffi.dlopen("./evolve.so")
+lib = ffi.dlopen("./libevolve.so")
 ffi.cdef("""
          void evolve(double *u, double *u_previous, int nx, int ny,
                      double a, double dt, double dx2, double dy2);
