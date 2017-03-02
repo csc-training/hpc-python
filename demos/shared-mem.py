@@ -9,5 +9,5 @@ p = Process(target=squared, args=(numbers, ))
 p.start()
 p.join()
 
-print numbers[:]
+print(numbers[:])
 

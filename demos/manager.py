@@ -11,5 +11,5 @@ p = Process(target=f, args=(fruits, ))
 p.start()
 p.join()
 
-print fruits
+print(fruits)
 

@@ -5,7 +5,7 @@ def f(q):
         x = q.get()
         if x is None:
             break
-        print x**2
+        print(x**2)
 
 q = Queue()
 for i in range(10):

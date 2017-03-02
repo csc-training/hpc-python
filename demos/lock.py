@@ -5,7 +5,7 @@ import time
 def hello(lock, id):
     lock.acquire()
     time.sleep(random.uniform(1, id % 4))
-    print 'Hello world! My ID is', id
+    print('Hello world! My ID is {0}'.format(id))
     lock.release()
 
 lock = Lock()
