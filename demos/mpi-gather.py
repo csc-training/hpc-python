@@ -1,20 +1,33 @@
 from mpi4py import MPI
-from numpy import arange, zeros
+import numpy as np
 
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 size = comm.Get_size()
 
-data = arange(10, dtype=float) * (rank + 1)
-buffer = zeros(size * 10, float)
+assert size == 4
+
+data = np.arange(2) / 10. + rank
+
 if rank == 0:
-    n = comm.gather(rank, root=0)
+    recv_buf = np.zeros(8)
 else:
-    comm.gather(rank, root=0)
-
-comm.Gather(data, buffer, root=0)
+    recv_buf = None
 
 if rank == 0:
-    print(n)
-    print(buffer)
+    print("Original data")
+comm.Barrier()
+
+print("rank ", rank, data)
+
+comm.Gather(data, recv_buf, root=0)
+
+comm.Barrier()
+if rank == 0:
+    print()
+    print("Final data")
+comm.Barrier()
+
+print("rank ", rank, recv_buf)
+
 

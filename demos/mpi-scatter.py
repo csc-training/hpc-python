@@ -1,21 +1,33 @@
 from mpi4py import MPI
-from numpy import arange, empty
+import numpy as np
 
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 size = comm.Get_size()
 
-buffer = empty(size, float)    # prepare a receive buffer
-if rank == 0:
-    n = range(size)
-    data = arange(size**2, dtype=float)
-    comm.scatter(n, root=0)
-    comm.Scatter(data, buffer, root=0)
-else:
-    n = comm.scatter(None, root=0)      # returns the value
-    comm.Scatter(None, buffer, root=0)  # in-place modification
+assert size == 4
 
-if rank == 1:
-    print("Rank 1: n=" + str(n))
-    print("Rank 1: buffer=" + str(buffer))
+if rank == 0:
+    data = np.arange(8) / 10.
+else:
+    data = None
+
+recv_buf = np.zeros(2)
+
+if rank == 0:
+    print("Original data")
+comm.Barrier()
+
+print("rank ", rank, data)
+
+comm.Scatter(data, recv_buf, root=0)
+
+comm.Barrier()
+if rank == 0:
+    print()
+    print("Final data")
+comm.Barrier()
+
+print("rank ", rank, recv_buf)
+
 

@@ -1,16 +1,35 @@
 from mpi4py import MPI
-from numpy import arange, empty
+import numpy as np
 
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 size = comm.Get_size()
 
-data = arange(size, dtype=float) * (rank + 1)
-buffer = empty(size, float)
+assert size == 4
 
-obj = comm.alltoall(data)    # returns the value
-comm.Alltoall(data, buffer)  # in-place modification
+data = np.arange(8) / 10. + rank
+recv_buf = np.zeros(8)
 
-print("Rank %d: obj=%s" % (rank, str(obj)))
-print("Rank %d: buffer=%s" % (rank, str(buffer)))
+if rank == 0:
+    print("Original data")
+comm.Barrier()
+
+for r in range(size):
+    if rank == r:
+        print("rank ", rank, data)
+    comm.Barrier()
+
+comm.Alltoall(data, recv_buf)
+
+comm.Barrier()
+if rank == 0:
+    print()
+    print("Final data")
+comm.Barrier()
+
+for r in range(size):
+    if rank == r:
+        print("rank ", rank, recv_buf)
+    comm.Barrier()
+
 

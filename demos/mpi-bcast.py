@@ -1,20 +1,31 @@
 from mpi4py import MPI
-import numpy
+import numpy as np
 
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
+size = comm.Get_size()
+
+assert size == 4
 
 if rank == 0:
-    n = 100
-    data = numpy.arange(n, dtype=float)
-    comm.bcast(n, root=0)
-    comm.Bcast(data, root=0)
+    data = np.arange(8) / 10.
 else:
-    n = comm.bcast(None, root=0)
-    data = numpy.zeros(n, float)
-    comm.Bcast(data, root=0)
+    data = np.zeros(8)
 
-if rank == 1:
-    print(n)
-    print(data)
+if rank == 0:
+    print("Original data")
+comm.Barrier()
+
+print("rank ", rank, data)
+
+comm.Bcast(data, root=0)
+
+comm.Barrier()
+if rank == 0:
+    print()
+    print("Final data")
+comm.Barrier()
+
+print("rank ", rank, data)
+
 
