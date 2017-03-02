@@ -8,8 +8,11 @@ def hello(name):
 
 # Create a new process
 p = Process(target=hello, args=('Alice', ))
-p.start()  # start the process
-p.join()   # end the process
 
+# Start the process
+p.start()
 print('Spawned a new process from PID {0}'.format(os.getpid()))
+
+# End the process
+p.join()
 
