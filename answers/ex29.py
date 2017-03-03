@@ -1,5 +1,6 @@
 from mpi4py import MPI
 import numpy
+from sys import stdout
 
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
@@ -31,6 +32,7 @@ else:
                 (rank, len(data), tgt))
 
 # ... wait for every rank to finish ...
+stdout.flush()
 comm.barrier()
 if rank == 0:
     print("")
@@ -53,6 +55,7 @@ else:
                 (rank, len(data), tgt))
 
 # ... wait for every rank to finish ...
+stdout.flush()
 comm.barrier()
 if rank == 0:
     print("")
@@ -78,6 +81,7 @@ else:
             (rank, len(data), tgt))
 
 # ... wait for every rank to finish ...
+stdout.flush()
 comm.barrier()
 if rank == 0:
     print("")

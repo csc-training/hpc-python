@@ -1,5 +1,6 @@
 from mpi4py import MPI
 import numpy
+from sys import stdout
 
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
@@ -26,6 +27,7 @@ data += rank * 8
 buff = numpy.full(8, -1, int)
 
 # ... wait for every rank to finish ...
+stdout.flush()
 comm.barrier()
 if rank == 0:
     print('')
@@ -33,6 +35,7 @@ if rank == 0:
     print('')
     print('Data vectors:')
 print('  Task {0}: {1}'.format(rank, data))
+stdout.flush()
 comm.barrier()
 if rank == 0:
     print('')
@@ -44,6 +47,7 @@ print('  Task {0}: {1}'.format(rank, buff))
 
 # ... wait for every rank to finish ...
 buff[:] = -1
+stdout.flush()
 comm.barrier()
 if rank == 0:
     print('')
@@ -58,6 +62,7 @@ print('  Task {0}: {1}'.format(rank, buff))
 
 # ... wait for every rank to finish ...
 buff[:] = -1
+stdout.flush()
 comm.barrier()
 if rank == 0:
     print('')

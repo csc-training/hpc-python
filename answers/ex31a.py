@@ -1,5 +1,6 @@
 from mpi4py import MPI
 import numpy
+from sys import stdout
 
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
@@ -30,6 +31,7 @@ if rank > 0:
     print("  Rank %d: received an array filled with %ds." % (rank, buff[0]))
 
 # ... wait for every rank to finish ...
+stdout.flush()
 comm.barrier()
 if rank == 0:
     print("")
@@ -51,6 +53,7 @@ if rank > 0:
     print("  Rank %d: received an array filled with %ds." % (rank, buff[0]))
 
 # ... wait for every rank to finish ...
+stdout.flush()
 comm.barrier()
 if rank == 0:
     print("")
