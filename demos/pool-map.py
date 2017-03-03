@@ -12,6 +12,8 @@ print(pool.map(f, range(10)))
 # non-blocking alternative
 result = pool.map_async(f, range(10))
 while not result.ready():
+    print("waiting...")
     time.sleep(1)
+
 print(result.get())
 
