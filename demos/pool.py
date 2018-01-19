@@ -15,6 +15,5 @@ result = pool.apply_async(f, (12,))
 while not result.ready():
     print("waiting...")
     time.sleep(1)
-
-print(result.get(timeout=1))
+print(result.get())
 
