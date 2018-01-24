@@ -1,45 +1,63 @@
-from multiprocessing import Process, Queue
-from Queue import Empty
+from multiprocessing import Pool, Queue, Process
 from pdb import PDB
-from numpy import array, zeros
+from numpy import array
 
-def average(q, r, size):
+def average(chunk):
+    '''Calculate the average of multiple coordinates. Returns a tuple of
+       (average, weight) where
+           average -- average coordinate
+           weight  -- no. of coordinates averaged over'''
+    return (sum(chunk) / len(chunk), len(chunk))
+
+def worker(q, r):
+    '''Work through tasks in the queue, calculating the average coordinate
+       and relative weight for each chunk of coordinates.
+         q -- input queue containing arrays of coordinates
+         r -- output queue for partial results'''
     while True:
-        try:
-            chunk = q.get(timeout=1)
-        except Empty:
+        chunk = q.get()
+        if chunk is None:
             break
-        avg = sum(chunk) / size
-        r.put(avg)
+        r.put(average(chunk))
 
+size = 10
 q = Queue()
 r = Queue()
-
 pdb = PDB('5ire.pdb')
 n = 100
 
-i = n
-while i < len(pdb):
-    q.put(pdb.coordinates[i-n:i].copy())
-    i += n
+# split into tasks
+tasks = []
+for i in range(0, len(pdb), n):
+    chunk = pdb.coordinates[i:i+n].copy()
+    tasks.append(chunk)
 
-p = [Process(target=average, args=(q, r, n)) for x in range(10)]
-for i in range(10):
+# add tasks into the queue
+for chunk in tasks:
+    q.put(chunk)
+
+# create parallel processes
+p = []
+for i in range(size):
+    p.append(Process(target=worker, args=(q, r)))
+    q.put(None)  # add sentinels to signal STOP
     p[i].start()
-for i in range(10):
+
+# wait for all tasks to finish
+for i in range(size):
     p[i].join()
 
-todo = len(pdb) % n
-extra = pdb.coordinates[-1*todo:].copy()
-extra = sum(extra)
-
-results = []
+# collect results
+averages = []
+weights = []
 while not r.empty():
-    avg = r.get()
-    results.append(avg)
-results = array(results) * n
+    avg, w = r.get()
+    averages.append(avg)
+    weights.append(w)
+averages = array(averages)
+weights = array(weights, ndmin=2)
 
-origo = ( sum(results) + extra ) / len(pdb)
-
+# calculate the center of coordinates
+origo = sum(averages * weights.T) / len(pdb)
 print origo
 

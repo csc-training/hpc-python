@@ -9,8 +9,10 @@ def average(chunk):
            weight  -- no. of coordinates averaged over'''
     return (sum(chunk) / len(chunk), len(chunk))
 
-size = 10
-pool = Pool(size)
+# TODO: if using Queue, write a new worker() function that processes tasks
+#       from one queue and puts results in another
+
+# TODO: setup a Pool of Workers or Queue(s)
 pdb = PDB('5ire.pdb')
 n = 100
 
@@ -20,23 +22,14 @@ for i in range(0, len(pdb), n):
     chunk = pdb.coordinates[i:i+n].copy()
     tasks.append(chunk)
 
-# submit each task to the pool
-results = []
+# TODO: process all tasks in parallel
 for chunk in tasks:
-    res = pool.apply_async(average, (chunk,))
-    results.append(res)
+    ...
 
-# wait for all tasks to finish
-pool.close()
-pool.join()
-
-# collect results
+# TODO: collect results from each task
 averages = []
-weights = []
-for res in results:
-    avg, w = res.get()
-    averages.append(avg)
-    weights.append(w)
+weights = [] # no. of coordinates in each chunk
+...
 averages = array(averages)
 weights = array(weights, ndmin=2)
 
