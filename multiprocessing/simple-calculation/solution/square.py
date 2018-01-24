@@ -1,7 +1,7 @@
 from multiprocessing import Process
 
 def squared(x):
-    print x**2
+    print(x**2)
 
 # create parallel processes
 procs = [Process(target=squared, args=(x,)) for x in range(10)]
