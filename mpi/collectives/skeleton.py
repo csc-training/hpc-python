@@ -52,11 +52,7 @@ if rank == 0:
 
 # TODO: how to get the desired receive buffer using a single collective
 #       communication routine?
-#       Hint: the receive buffer for Gatherv() is of the form:
-#             [buffer, count, offset, MPI.INT64_T], where count and offset
-#             are tuples of integers for each MPI task giving the number of
-#             elements to receive and the displacement from the beginning of
-#             the receive buffer, respectively
+
 ...
 print('  Task {0}: {1}'.format(rank, buff))
 
