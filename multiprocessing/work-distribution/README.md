@@ -12,11 +12,11 @@ the tasks in worker processes, combine the results in the master process.
 If needed, figure out also how to deal with any coordinates left out of the
 neat uniform-sized chunks.
 
-a) Use a Pool of Workers to distribute the tasks to worker processes.
+a) Use a **Pool of Workers** to distribute the tasks to worker processes.
    *Hint: if you return also the weight of each chunk, you can process also
    non-uniform sized chunks.*
 
 OR
 
-b) Use a Queue to distribute the tasks to worker processes. Store the results
-   for each chunk in a separate queue.
+b) Use a **Queue** to distribute the tasks to worker processes. Store the
+   results for each chunk in a separate queue.
