@@ -2,7 +2,8 @@
 
 In this exercise we test different routines for collective communication. 
 
-First, write a program where rank 0 sends an array containing numbers from 0 to 7 to all the other ranks using collective communication.
+First, write a program where rank 0 sends an array containing numbers from 0
+to 7 to all the other ranks using collective communication.
 
 Next, we continue with four MPI tasks with following initial data vectors:
 
@@ -13,7 +14,12 @@ Next, we continue with four MPI tasks with following initial data vectors:
 |Task 2: | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 |
 |Task 3: | 24 | 25 | 26 | 27 | 28 | 29 | 30 | 31 |
 
-In addition, each task has a receive buffer for eight elements and the values in the buffer are initialized to -1. Implement a program that sends and receives values from the data vectors to receive buffers using a single collective communication routine for each case, so that the receive buffers will have the following values. You can start from the skeleton file [skeleton.py](skeleton.py).
+In addition, each task has a receive buffer for eight elements and the values
+in the buffer are initialized to -1. Implement a program that sends and
+receives values from the data vectors to receive buffers using a single
+collective communication routine for each case, so that the receive buffers
+will have the following values. You can start from the skeleton file
+[skeleton.py](skeleton.py).
 
 ### Case 1
 

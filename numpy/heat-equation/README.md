@@ -8,7 +8,9 @@ Heat (or diffusion) equation is
 
 ![img](http://quicklatex.com/cache3/d2/ql_b3f6b8bdc3a8862c73c5a97862afb9d2_l3.png)
 
-where **u(x, y, t)** is the temperature field that varies in space and time, and α is thermal diffusivity constant. The two dimensional Laplacian can be discretized with finite differences as
+where **u(x, y, t)** is the temperature field that varies in space and time,
+and α is thermal diffusivity constant. The two dimensional Laplacian can be
+discretized with finite differences as
 
 <!--- Equation
 \begin{align*}
@@ -19,7 +21,8 @@ where **u(x, y, t)** is the temperature field that varies in space and time, and
 
 ![img](http://quicklatex.com/cache3/2d/ql_59f49ed64dbbe76704e0679b8ad7c22d_l3.png)
 
-Given an initial condition (u(t=0) = u0) one can follow the time dependence of the temperature field with explicit time evolution method:
+Given an initial condition (u(t=0) = u0) one can follow the time dependence of
+the temperature field with explicit time evolution method:
 
 <!--- Equation
 u^{m+1}(i,j) = u^m(i,j) + \Delta t \alpha \nabla^2 u^m(i,j) 
@@ -35,5 +38,9 @@ Note: Algorithm is stable only when
 
 ![img](http://quicklatex.com/cache3/d1/ql_0e7107049c9183d11dbb1e81174280d1_l3.png)
 
-Implement two dimensional heat equation with NumPy using the initial temperature field in the file [bottle.dat](bottle.dat) (the file consists of a header and 200 x 200 data array). As a boundary condition use fixed values as given in the initial field. You can start from the skeleton code in the file [skeleton.py](skeleton.py).
+Implement two dimensional heat equation with NumPy using the initial
+temperature field in the file [bottle.dat](bottle.dat) (the file consists of a
+header and 200 x 200 data array). As a boundary condition use fixed values as
+given in the initial field. You can start from the skeleton code in the file
+[skeleton.py](skeleton.py).
 
