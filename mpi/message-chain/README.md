@@ -14,7 +14,7 @@ process. Your program should work as follows:
 - Each receiver prints out their myid, and the first element in the received
   array.
 
-- a) Implement the program described above using `Send` and `Recv`. 
-- b) Use `Sendrecv` instead of `Send` and `Recv`.
-- c) Can the code be simplified using `MPI.PROC_NULL`?
+1. Implement the program described above using `Send` and `Recv`.
+2. Use `Sendrecv` instead of `Send` and `Recv`.
+3. Can the code be simplified using `MPI.PROC_NULL`?
 
