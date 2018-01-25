@@ -24,7 +24,8 @@ print('  Task {0}: {1}'.format(rank, data))
 data = numpy.arange(8)
 data += rank * 8
 # .. and receive buffers
-buff = numpy.full(8, -1, int)
+buff = numpy.zeros(8, int)
+buff[:] = -1
 
 # ... wait for every rank to finish ...
 stdout.flush()
@@ -51,13 +52,10 @@ stdout.flush()
 comm.barrier()
 if rank == 0:
     print('')
-    print('Gatherv:')
+    print('Gather:')
 
-# Gather unequal amount of data from each MPI task
-count = (1,1,2,4)  # number of elements for each MPI task
-offset = (0,1,2,4) # displacement for storing data from each MPI task
-sbuf = data[:count[rank]]  # limit the size of send buffer to match count
-comm.Gatherv(sbuf, [buff, count, offset, MPI.INT64_T], root=1)
+# Gather equal amount of data from each MPI task
+comm.Gather(data[:2], buff, root=1)
 print('  Task {0}: {1}'.format(rank, buff))
 
 # ... wait for every rank to finish ...
