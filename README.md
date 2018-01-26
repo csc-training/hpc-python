@@ -9,7 +9,7 @@ Exercise material and model answers for the CSC course "Python in High Performan
 
 ### Basic array manipulation
 
- - Reference vs. copy
+ - [Reference vs. copy](numpy/reference-copy)
  - [Array creation](numpy/array-creation)
  - [Array slicing](numpy/array-slicing)
  - [Split and combine arrays](numpy/split-combine)
@@ -33,34 +33,34 @@ Exercise material and model answers for the CSC course "Python in High Performan
 
 ### Performance analysis
 
- - Using cProfile
+ - [Using cProfile](performance/cprofile)
 
 ### Optimising with Cython
 
- - Optimising heat equation
+ - i[Optimising heat equation](cython/heat-equation)
 
 ### Interfacing with libraries
 
- - C libraries
- - Fortran libraries
+ - [C libraries](interface/c)
+ - [Fortran libraries](interface/fortran)
 
 ### Multiprocessing
 
- - Simple calculation
- - Work distribution
+ - [Simple calculation](multiprocessing/simple-calculation)
+ - [Work distribution](multiprocessing/work-distribution)
 
 ### Parallel programming with mpi4py
 
- - Hello World
- - Simple message exchange
- - Message chain
- - Non-blocking comunication
- - Collective operations
+ - [Hello World](mpi/hello-world)
+ - [Simple message exchange](mpi/message-exchange)
+ - [Message chain](mpi/message-chain)
+ - [Non-blocking comunication](mpi/non-blocking)
+ - [Collective operations](mpi/collectives)
 
 ### Bonus exercises
 
- - Game of life
- - Rotation with broadcasting
- - Two dimensional heat equation
- - Parallel heat equation
+ - [Game of life](numpy/game-of-life)
+ - [Rotation with broadcasting](numpy/broadcast-rotation)
+ - [Two dimensional heat equation](numpy/heat-equation)
+ - [Parallel heat equation](mpi/heat-equation)
 

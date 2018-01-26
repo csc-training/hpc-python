@@ -12,8 +12,7 @@ In [4]: help(numpy)
 ```
 
 It is not necessary to complete all the exercises, instead you may leave some
-for further study at home. Also, some Bonus exercises are provided in the end
-of the sheet.
+for further study at home. Also, some Bonus exercises are provided in the end.
 
 ### Visualisation
 
@@ -34,7 +33,7 @@ In [7]: plt.plot(x,y, ’ro’)  # individual points in red
 ```
 Look matplotlib documentation for additional information for visualisation.
 
-### Parallel calculation
+### Parallel calculations
 
 In class room workstations, one needs to load the MPI environment before using
 mpi4py:
