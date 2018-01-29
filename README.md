@@ -37,7 +37,7 @@ Exercise material and model answers for the CSC course "Python in High Performan
 
 ### Optimising with Cython
 
- - i[Optimising heat equation](cython/heat-equation)
+ - [Optimising heat equation](cython/heat-equation)
 
 ### Interfacing with libraries
 
