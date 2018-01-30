@@ -1,9 +1,12 @@
 ## Optimising with Cython
 
+### Creating a Cython extension
+Based on the profile in the performance measurement [exercise](../../performance/cprofile) 
+write a `setup.py` for creating a Cython module for the most time consuming part of the heat equation solver. 
+If you did not finish the profiling exercise, you can look at example profile [here](profile.md).
+
 ### Type declarations
-Create a `setup.py` file in order to speed up the heat equation solver with
-Cython. Based on the profile in the previous exercise, insert static type
-declarations to proper locations. Investigate the effect on performance. You
+Insert static type declarations to proper locations. Investigate the effect on performance. You
 can use applications own timers and/or **timeit**. Annotated HTML-report with
 `cython –a …` can be useful when tuning performance
 
