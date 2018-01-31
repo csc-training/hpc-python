@@ -1,8 +1,8 @@
 ## Message chain
 
-Write a simple program where every processor sends data to the next one. Let
+Write a simple program where every MPI task sends data to the next one. Let
 **ntasks** be the number of the tasks, and **myid** the rank of the current
-process. Your program should work as follows:
+task. Your program should work as follows:
 
 - Every task with a rank less than ntasks-1 sends a message to task myid+1.
   For example, task 0 sends a message to task 1.
