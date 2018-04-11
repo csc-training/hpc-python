@@ -14,6 +14,6 @@ task. Your program should work as follows:
   array.
 
 1. Implement the program described above using `Send` and `Recv`.
-2. Use `Sendrecv` instead of `Send` and `Recv`.
+2. Use `Sendrecv` instead of `Send` and `Recv` when sending and receiving.
 3. Can the code be simplified using `MPI.PROC_NULL`?
 
