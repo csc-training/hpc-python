@@ -9,3 +9,7 @@ print(c)
 
 d = np.linspace(0.5, 1.5, 11)
 print(d)
+
+dna = 'ACGAATGCAACCGATC'
+e = np.array(dna, dtype='c')
+print(e)

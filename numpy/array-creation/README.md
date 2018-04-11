@@ -9,3 +9,6 @@ function.
 
 Generate another 1D NumPy array containing 11 equally spaced values between
 0.5 and 1.5. Extract every second element of the array.
+
+Take some Python string and construct from it NumPy array consisting of single
+characters (a character array).
