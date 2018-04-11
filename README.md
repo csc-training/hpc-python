@@ -1,8 +1,11 @@
 # Python in High Performance Computing
 
-Exercise material and model answers for the CSC course "Python in High Performance Computing". The course is part of PRACE Advanced Training Center (PATC) activity at CSC.
+Exercise material and model answers for the CSC course "Python in High Performance Computing". The course is part of PRACE Training activity at CSC.
 
-## Exercises 29.-31.1.2018
+This master branch contains always the material for latest course, past
+courses are stored in tags.
+
+## Exercises
 
 [General instructions](exercise-instructions.md)
 
@@ -25,6 +28,7 @@ Exercise material and model answers for the CSC course "Python in High Performan
 ### Advanced NumPy
 
  - [Advanced indexing](numpy/advanced-indexing)
+ - [Mutating DNA sequence](numpy/dna-mutation)
  - [Translation with broadcasting](numpy/broadcast-translation)
  - [Finite-difference](numpy/finite-difference)
  - [Numerical integration](numpy/integration)
