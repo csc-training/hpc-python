@@ -8,8 +8,7 @@ task. Your program should work as follows:
   For example, task 0 sends a message to task 1.
 - The message content is an integer array where each element is initialized to
   myid.
-- The message tag is the receiver’s id number.
-- The sender prints out the number of elements it sends and the tag number.
+- The sender prints out the number of elements it sends.
 - All tasks with rank ≥ 1 receive messages.
 - Each receiver prints out their myid, and the first element in the received
   array.

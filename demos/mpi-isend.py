@@ -13,16 +13,16 @@ size = comm.Get_size()
 
 if rank == 0:
     data = arange(size, dtype=float) * (rank + 1)
-    req = comm.Isend(data, dest=1, tag=0)   # start a send
-    calculate_something(rank)               # .. do something else ..
-    req.Wait()                              # wait for send to finish
+    req = comm.Isend(data, dest=1)    # start a send
+    calculate_something(rank)         # .. do something else ..
+    req.Wait()                        # wait for send to finish
     # safe to read/write data again
 
 elif rank == 1:
     data = empty(size, float)
-    req = comm.Irecv(data, source=0, tag=0) # post a receive
-    calculate_something(rank)               # .. do something else ..
-    req.Wait()                              # wait for send to finish
+    req = comm.Irecv(data, source=0)  # post a receive
+    calculate_something(rank)         # .. do something else ..
+    req.Wait()                        # wait for send to finish
     # data is now ready for use
 
 if rank == 1:

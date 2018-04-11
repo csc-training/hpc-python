@@ -20,12 +20,11 @@ if rank == 0:
 
 # Message chain using Send and Recv
 if rank > 0:
-    req_recv = comm.Irecv(buff, source=src, tag=rank)
+    req_recv = comm.Irecv(buff, source=src)
 if rank < size - 1:
-    req_send = comm.Isend(data, dest=tgt, tag=tgt)
+    req_send = comm.Isend(data, dest=tgt)
     req_send.Wait()
-    print("  Rank %d: sent %d elements using tag '%d'." % \
-            (rank, len(data), tgt))
+    print("  Rank %d: sent %d elements." % (rank, len(data)))
 if rank > 0:
     req_recv.Wait()
     print("  Rank %d: received an array filled with %ds." % (rank, buff[0]))

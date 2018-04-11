@@ -7,11 +7,9 @@ rank = comm.Get_rank()
 data = numpy.arange(10, dtype=float) * (rank + 1) # send buffer
 buffer = numpy.empty(10, float)                   # receive buffer
 if rank == 0:
-    comm.Sendrecv(data, dest=1, sendtag=8,
-                  recvbuf=buffer, source=1, recvtag=22)
+    comm.Sendrecv(data, dest=1, recvbuf=buffer, source=1)
 elif rank == 1:
-    comm.Sendrecv(data, dest=0, sendtag=22,
-                  recvbuf=buffer, source=0, recvtag=8)
+    comm.Sendrecv(data, dest=0, recvbuf=buffer, source=0)
 
 print("Rank %d: %s" % (rank, str(buffer)))
 

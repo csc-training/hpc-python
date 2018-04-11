@@ -9,13 +9,12 @@ n = 10
 data = empty(n, float)
 if rank == 0:
     data = arange(n, dtype=float)
-tag = 1
 
 if rank == 0:
     for i in range(1, size):
-        comm.Send(data, i, tag)
+        comm.Send(data, i)
 else:
-    comm.Recv(data, 0, tag)
+    comm.Recv(data, 0)
 
 if rank == 1:
     print("Received: " + str(data))

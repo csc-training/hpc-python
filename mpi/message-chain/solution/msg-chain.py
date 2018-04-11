@@ -20,16 +20,14 @@ if rank == 0:
 
 # Message chain using Send and Recv
 if rank == 0:
-    comm.Send(data, dest=tgt, tag=tgt)
-    print("  Rank %d: sent %d elements using tag '%d'." % \
-            (rank, len(data), tgt))
+    comm.Send(data, dest=tgt)
+    print("  Rank %d: sent %d elements." % (rank, len(data)))
 else:
-    comm.Recv(buff, source=src, tag=rank)
+    comm.Recv(buff, source=src)
     print("  Rank %d: received an array filled with %ds." % (rank, buff[0]))
     if rank < size - 1:
-        comm.Send(data, dest=tgt, tag=tgt)
-        print("  Rank %d: sent %d elements using tag '%d'." % \
-                (rank, len(data), tgt))
+        comm.Send(data, dest=tgt)
+        print("  Rank %d: sent %d elements." % (rank, len(data)))
 
 # ... wait for every rank to finish ...
 stdout.flush()
@@ -92,20 +90,15 @@ if rank == 0:
 # Destination and source for messages (using PROC_NULL for out-of-bounds)
 tgt = rank + 1
 src = rank - 1
-send_tag = tgt
 if tgt >= size:
     tgt = MPI.PROC_NULL
-    send_tag = 0
 if src < 0:
     src = MPI.PROC_NULL
 
 # Use a single MPI call to do communication
 info = MPI.Status()
-comm.Sendrecv(data, dest=tgt, sendtag=send_tag,
-        recvbuf=buff, source=src, recvtag=rank,
-        status=info)
-print("  Rank %d: sent %d elements using tag '%d'." % \
-        (rank, len(data), send_tag))
+comm.Sendrecv(data, dest=tgt, recvbuf=buff, source=src, status=info)
+print("  Rank %d: sent %d elements." % (rank, len(data)))
 print("  Rank %d: received a message from rank %d." % \
         (rank, info.Get_source()))
 print("  Rank %d: received an array filled with %ds." % (rank, buff[0]))
