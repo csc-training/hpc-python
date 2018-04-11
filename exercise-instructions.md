@@ -21,7 +21,7 @@ Python package. Interactive plotting is most convenient with the IPython
 enhanced interpreter. For enabling interactive plotting, start IPython with
 --matplotlib argument:
 ```
-% ipython –matplotlib
+% ipython --matplotlib
 ```
 Simple x-y plots can then be done as:
 
