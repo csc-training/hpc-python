@@ -40,7 +40,6 @@ def evolve(u, u_previous, a, dt):
 plt.imshow(field)
 plt.axis('off')
 plt.savefig('heat_{0:03d}.png'.format(0))
-plt.hold(False)
 
 # TODO: Implement the main iteration loop and write the figure 
 # (to a new) file after each 'image_interval' iteration
