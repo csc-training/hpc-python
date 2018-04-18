@@ -7,7 +7,7 @@ manager = Manager()
 numbers = manager.list()
 numbers.extend(range(10))
 
-p = [Process(target=squared, args=(numbers, i, )) for i in range(10)]
+p = [Process(target=squared, args=[numbers, i]) for i in range(10)]
 
 for i in range(10):
     p[i].start()

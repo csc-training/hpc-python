@@ -9,7 +9,7 @@ def count(pipe, letter):
 
 left, right = Pipe()
 
-p = Process(target=count, args=(right, 'W'))
+p = Process(target=count, args=[right, 'W'])
 p.start()
 
 fasta = Fasta('5ire.fasta.txt')

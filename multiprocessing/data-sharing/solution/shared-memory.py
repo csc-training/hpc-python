@@ -6,7 +6,7 @@ def squared(a, i):
     a.release()
 
 numbers = Array('i', range(10))
-p = [Process(target=squared, args=(numbers, i, )) for i in range(10)]
+p = [Process(target=squared, args=[numbers, i]) for i in range(10)]
 
 for i in range(10):
     p[i].start()

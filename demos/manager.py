@@ -7,7 +7,7 @@ def f(x):
 manager = Manager()
 fruits = manager.dict()
 
-p = Process(target=f, args=(fruits, ))
+p = Process(target=f, args=[fruits])
 p.start()
 p.join()
 

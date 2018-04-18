@@ -16,7 +16,7 @@ for i in range(100):
 n = 3   # no. of processes
 p = []  # list of processes
 for i in range(n):
-    p.append(Process(target=f, args=(q, i, )))
+    p.append(Process(target=f, args=[q, i]))
     q.put(None)  # add sentinels to signal STOP
 
 # start work on all processes

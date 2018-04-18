@@ -7,7 +7,7 @@ def hello(name):
     print("My parent's PID is {0}".format(os.getppid()))
 
 # Create a new process
-p = Process(target=hello, args=('Alice', ))
+p = Process(target=hello, args=['Alice'])
 
 # Start the process
 p.start()

@@ -23,7 +23,7 @@ for i in range(0, len(pdb), n):
 # submit each task to the pool
 results = []
 for chunk in tasks:
-    res = pool.apply_async(average, (chunk,))
+    res = pool.apply_async(average, [chunk])
     results.append(res)
 
 # wait for all tasks to finish

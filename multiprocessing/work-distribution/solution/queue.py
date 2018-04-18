@@ -39,7 +39,7 @@ for chunk in tasks:
 # create parallel processes
 p = []
 for i in range(size):
-    p.append(Process(target=worker, args=(q, r)))
+    p.append(Process(target=worker, args=[q, r]))
     q.put(None)  # add sentinels to signal STOP
     p[i].start()
 

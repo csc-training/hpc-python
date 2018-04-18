@@ -10,5 +10,5 @@ def hello(lock, id):
 
 lock = Lock()
 for i in range(10):
-    Process(target=hello, args=(lock, i)).start()
+    Process(target=hello, args=[lock, i]).start()
 
