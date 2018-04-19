@@ -102,7 +102,7 @@ def main():
         raise ValueError('Number of rows in the temperature field (' \
                 + str(shape[0]) + ') needs to be divisible by the number ' \
                 + 'of MPI tasks (' + str(size) + ').')
-    n = shape[0] / size  # number of rows for each MPI task
+    n = int(shape[0] / size)  # number of rows for each MPI task
     m = shape[1]         # number of columns in the field
     buff = np.zeros((n, m), dtype)
     comm.Scatter(field, buff, 0)  # scatter the data
