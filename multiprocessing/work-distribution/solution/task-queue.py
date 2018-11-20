@@ -59,5 +59,5 @@ weights = array(weights, ndmin=2)
 
 # calculate the center of coordinates
 origo = sum(averages * weights.T) / len(pdb)
-print origo
+print(origo)
 
