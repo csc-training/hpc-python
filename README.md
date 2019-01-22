@@ -41,12 +41,12 @@ courses are stored in tags.
 
 ### Optimising with Cython
 
+ - [Creating simple extension](cython/simple-extension)
  - [Optimising heat equation](cython/heat-equation)
 
 ### Interfacing with libraries
 
  - [C libraries](interface/c)
- - [Fortran libraries](interface/fortran)
 
 ### Multiprocessing
 
