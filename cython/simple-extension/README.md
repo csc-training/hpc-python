@@ -20,7 +20,7 @@ types.
 
 ### Type declarations
 
-Declare the function arguments as **int** and rebuild the extension.
+Declare the function arguments as **int** and rebuild the extension (Note: if working with interactive interpreter you need to exit or reload the module).
 What happens if you call now the subtract function with floating point
 arguments?
 

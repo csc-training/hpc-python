@@ -7,7 +7,7 @@ as:
 f'(x_i) = \frac{f(x_i + \Delta x)- f(x_i - \Delta x)}{2 \Delta x}
 --->
 
-![img](http://quicklatex.com/cache3/67/ql_b349045037df5af0f84b6e34eb14cf67_l3.png)
+![img](https://quicklatex.com/cache3/0a/ql_d10c99a114e66c7ed0535e0aeb041d0a_l3.png)
 
 Construct 1D Numpy array containing the values of xi in the interval [0,π/2]
 with spacing Δx=0.1. Evaluate numerically the derivative of **sin** in this
