@@ -16,9 +16,13 @@ def main(version='py'):
 
     # choose pure Python or Cython version
     if version == 'py':
+        print("Using pure Python")
         mandel_func = compute_mandel_py
-    else: 
+    elif version == 'cyt': 
+        print("Using Cython")
         mandel_func = compute_mandel_cyt
+    else:
+        raise RuntimeError("Unknown version")
 
     mandel_set, runtime = mandel_func(**kwargs)
     return mandel_set, runtime

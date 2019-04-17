@@ -58,7 +58,7 @@ courses are stored in tags.
  - [Hello World](mpi/hello-world)
  - [Simple message exchange](mpi/message-exchange)
  - [Message chain](mpi/message-chain)
- - [Non-blocking comunication](mpi/non-blocking)
+ - [Non-blocking communication](mpi/non-blocking)
  - [Collective operations](mpi/collectives)
 
 ### Bonus exercises
