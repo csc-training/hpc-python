@@ -68,8 +68,8 @@ processes that participate in communication. When a MPI routine is called, the
 communication will involve some or all of the processes in a communicator.
 
 All processes start in a global communicator called `MPI_COMM_WORLD` (or
-`MPI.COMM_WORLD` in mpi4py), but the user can define custom communicators as
-needed.
+`MPI.COMM_WORLD` in mpi4py), but the user can also define their own custom
+communicators as needed.
 
 In C and Fortran, all MPI routines expect a communicator as one of the
 arguments. In Python, most MPI routines are implemented as methods of a
