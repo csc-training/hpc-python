@@ -9,6 +9,3 @@ command. Use **cffi** for utilizing the library function instead of the Python
 function in [heat_simple.py](heat_simple.py). Compare the performance to
 Cython implementation
 
-### Using Cython
-
-Repeat the previous exercise, but use now Cython for interfacing.

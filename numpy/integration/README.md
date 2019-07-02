@@ -7,7 +7,7 @@ sum
 S = \sum_{i=1}^n f(x'_i) \Delta x
 --->
 
-![img](http://quicklatex.com/cache3/e2/ql_30419670e67bc2b3d039e8a9d8653de2_l3.png)
+![img](https://quicklatex.com/cache3/e2/ql_30419670e67bc2b3d039e8a9d8653de2_l3.png)
 
 with
 
@@ -15,7 +15,7 @@ with
 x'_i = (x_i + x_{i-1}) / 2
 --->
 
-![img](http://quicklatex.com/cache3/09/ql_f124fd5c831e873c6abd41160fae2d09_l3.png)
+![img](https://quicklatex.com/cache3/09/ql_f124fd5c831e873c6abd41160fae2d09_l3.png)
 
 Use the same interval as in the first exercise and investigate how much the
 Riemann sum of **sin** differs from 1.0. Avoid `for` loops. Investigate also
