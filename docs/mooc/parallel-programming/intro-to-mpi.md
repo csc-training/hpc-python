@@ -83,8 +83,7 @@ complete separation of data. Each process has its own *separate memory space*,
 i.e. all variables and data structures are local to the process. To exchange
 information, processes need to explicitly *send and receive messages*.
 
-FIXME: missing figure
-
+![](../../img/mpi-data-model.png)
 
 
 ## Getting started
