@@ -112,7 +112,7 @@ MPI.Request.waitall(req)
 
 ## Overlapping computation and communication
 
-FIXME: add missing figure (typical usage pattern)
+![](../../img/non-blocking-pattern.png)
 
 ```python
 request_in = comm.Irecv(ghost_data)
