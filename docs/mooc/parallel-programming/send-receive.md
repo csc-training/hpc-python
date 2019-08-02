@@ -11,7 +11,7 @@ time. [Collective communication](one-to-many.md) will be discussed in more
 detail later, but let us focus now on sending and receiving data between two
 processes.
 
-FIXME: missing figure
+![](../../img/communication-schematic.png)
 
 
 # Point-to-point communication
@@ -74,7 +74,7 @@ a risk of a *deadlock*. For example, if both processes call `recv()` first
 there is no-one left to call a corresponding `send()` and the program is
 stuck forever.
 
-
-FIXME: missing figure
-FIXME: caption: Typical point-to-point communication patterns. Incorrect
+Typical point-to-point communication patterns are shown below. Incorrect
 ordering of sends and receives may result in a deadlock.
+
+![](../../img/communication-patterns.png)
