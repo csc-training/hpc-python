@@ -42,7 +42,7 @@ Broadcast sends the same data from one process to all the other processes. In
 effect, it replicates the data to all processes, so that they all have it
 available locally.
 
-FIXME: missing figure
+![](../../img/mpi-bcast.png)
 
 An example of broadcasting a dictionary and a numpy array:
 ```python
@@ -69,7 +69,7 @@ comm.Bcast(data, root=0)
 Scatter sends an equal amount of data from one process to all the other
 processes. It allows one to distribute data equally among the processes.
 
-FIXME: missing figure
+![](../../img/mpi-scatter.png)
 
 Segments A, B, etc. may contain multiple elements.
 
