@@ -11,7 +11,7 @@ communicator object.
 A single process can belong to multiple communicators and will have an
 *unique* ID (rank) in each of the communicators.
 
-FIXME: missing figure
+![](../../img/communicators.png)
 
 
 ## User-defined communicators
