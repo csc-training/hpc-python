@@ -15,7 +15,7 @@ The datatype of a NumPy array is called **ndarray**. If one looks into what an
   - indexing scheme: how to locate an element
   - data type descriptor: how to interpret an element
 
-FIXME: missing figure
+![](../../img/ndarray-in-memory.png)
 
 ## NumPy indexing
 
@@ -24,7 +24,13 @@ array in a 1-dimensional block (i.e. memory). NumPy uses **striding** where a
 N-dimensional index (n[0], n[1], ..., n[-1]) corresponds to the offset from
 the beginning of a 1-dimensional block.
 
-FIXME: missing figure
+If n[k] is the index in dimension k for an element and s[k] is the stride in
+that dimension, then the offset for an element is:
+```python
+offset = sum(s[k] * n[k] for k in range(N))
+```
+
+![](../../img/ndarray-in-memory-offset.png)
 
 
 ## Attributes of an ndarray
