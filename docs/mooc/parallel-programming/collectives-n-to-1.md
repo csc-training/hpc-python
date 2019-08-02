@@ -10,7 +10,7 @@ Gather collects an equal amount of data from all the processes in a
 communicator to one process. One can think of it as an inverse scatter
 operation that allows one e.g. to collect partial results from the tasks.
 
-FIXME: missing figure
+![](../../img/mpi-gather.png)
 
 Segments A, B, etc. may contain multiple elements just like in scatter.
 
@@ -40,7 +40,7 @@ operation on the data before storing the result in a single process.
 Essentially, it is just like gather, but with an additional operation applied
 to the gathered data.
 
-FIMXE: missing figure
+![](../../img/mpi-reduce.png)
 
 The operation that is applied on the data can be anything from a sum to a
 logical XOR and anything in between. MPI supports a wide variety of operations
