@@ -28,6 +28,9 @@ for i in range(1, len(arr)):
 ```
 
 can be re-written as a vectorised operation:
+
+![](../../img/vectorised-difference.png)
+
 ```python
 # vectorised operation
 arr = numpy.arange(1000)
@@ -36,5 +39,3 @@ dif = arr[1:] - arr[:-1]
 
 The first brute force approach using a for loop is approx. 80 times slower
 than the second vectorised form!
-
-FIXME: add missing figure
