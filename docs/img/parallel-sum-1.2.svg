@@ -148,8 +148,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.3478035"
-     inkscape:cx="378.72327"
-     inkscape:cy="315.32792"
+     inkscape:cx="368.92208"
+     inkscape:cy="315.32786"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -180,9 +180,9 @@
      id="layer1"
      transform="translate(9.1742082,-176.17408)">
     <g
-       id="g17854">
+       id="g2843">
       <rect
-         y="242.17648"
+         y="256.99316"
          x="70.733246"
          height="44.240826"
          width="100.48982"
@@ -190,17 +190,17 @@
          style="fill:#f2f2f2;fill-opacity:1;stroke:#000000;stroke-width:0.19017388;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
       <text
          id="text1400"
-         y="252.3698"
+         y="267.18646"
          x="75.010979"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444447px;line-height:1.25;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
          xml:space="preserve"><tspan
            style="stroke-width:0.26458332"
-           y="252.3698"
+           y="267.18646"
            x="75.010979"
            id="tspan1398"
            sodipodi:role="line">Timeline</tspan></text>
       <g
-         transform="translate(0,1.5875)"
+         transform="translate(0,16.404171)"
          id="g1854">
         <rect
            style="fill:#5599ff;fill-opacity:1;stroke:#282828;stroke-width:0.2;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -223,28 +223,28 @@
       </g>
       <text
          id="text1143-2"
-         y="264.93127"
+         y="279.74796"
          x="77.661423"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444447px;line-height:1.25;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
          xml:space="preserve"><tspan
            style="stroke-width:0.26458332"
-           y="264.93127"
+           y="279.74796"
            x="77.661423"
            id="tspan1141-0"
            sodipodi:role="line">P0</tspan></text>
       <text
          id="text1143-2-1"
-         y="278.93127"
+         y="293.74796"
          x="77.66143"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444447px;line-height:1.25;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
          xml:space="preserve"><tspan
            style="stroke-width:0.26458332"
-           y="278.93127"
+           y="293.74796"
            x="77.66143"
            id="tspan1141-0-1"
            sodipodi:role="line">P1</tspan></text>
       <g
-         transform="translate(0,1.5875)"
+         transform="translate(0,16.404171)"
          id="g1859">
         <rect
            style="fill:#5599ff;fill-opacity:1;stroke:#282828;stroke-width:0.2;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -268,11 +268,11 @@
       <path
          inkscape:connector-curvature="0"
          id="path83"
-         d="m 102.25864,267.56843 11.3553,4.36742"
+         d="m 102.25864,282.3851 11.3553,4.36742"
          style="fill:#ff7f2a;fill-opacity:1;stroke:#000000;stroke-width:0.60000002;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Mend)" />
     </g>
     <g
-       id="g17830">
+       id="g2882">
       <rect
          y="181.27409"
          x="-4.0741992"
@@ -295,7 +295,7 @@
          id="rect1105"
          style="fill:#cccccc;fill-opacity:1;stroke:#282828;stroke-width:0.2348114;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
       <g
-         id="g17791">
+         id="g2412">
         <rect
            style="fill:#ffffff;fill-opacity:1;stroke:#282828;stroke-width:0.2;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
            id="rect10"
@@ -513,41 +513,52 @@
     </g>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444447px;line-height:1.25;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444447px;line-height:1.25;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        x="70.880699"
-       y="190.41426"
+       y="190.41422"
        id="text1645"><tspan
          sodipodi:role="line"
          id="tspan1643"
          x="70.880699"
-         y="190.41426"
-         style="fill:#cccccc;stroke-width:0.26458332">Step 1.1: Receive operation for scatter</tspan></text>
+         y="190.41422"
+         style="stroke-width:0.26458332">Step 1: Scatter the data</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444447px;line-height:1.25;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="70.880699"
-       y="198.6617"
+       x="79.347374"
+       y="206.4642"
        id="text1645-8"><tspan
          sodipodi:role="line"
          id="tspan1643-3"
-         x="70.880699"
-         y="198.6617"
-         style="stroke-width:0.26458332">Step 1.2: Send operation for scatter</tspan></text>
+         x="79.347374"
+         y="206.4642"
+         style="stroke-width:0.26458332">1.2:  send operation for scatter</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444447px;line-height:1.25;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        x="72.735542"
-       y="299.82343"
+       y="314.64032"
        id="text1709"><tspan
          sodipodi:role="line"
          id="tspan1707"
          x="72.735542"
-         y="299.82343"
+         y="314.64032"
          style="stroke-width:0.26458332">P0 posts a send to send the lower</tspan><tspan
          sodipodi:role="line"
          x="72.735542"
-         y="306.87897"
+         y="321.69586"
          style="stroke-width:0.26458332"
-         id="tspan17856">part of the array to P1</tspan></text>
+         id="tspan2825">part of the array to P1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444447px;line-height:1.25;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="79.347374"
+       y="198.43921"
+       id="text1645-7"><tspan
+         sodipodi:role="line"
+         id="tspan1643-82"
+         x="79.347374"
+         y="198.43921"
+         style="fill:#cccccc;stroke-width:0.26458332">1.1:  receive operation for scatter</tspan></text>
   </g>
 </svg>
