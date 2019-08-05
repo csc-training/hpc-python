@@ -20,63 +20,48 @@ calculating the sum of all values in an array.
 Assume we have an array A that contains a large number of floating point
 numbers. The values have been read from a file by the first MPI task (rank 0).
 
+![](../../img/parallel-sum-0.png)
+
 ## Goal
 
 Calculate the total sum of all elements in array A in parallel.
 
 ## Parallel algorithm
 
-Our parallel algorithm consist of three main steps: 1) distribute the data,
-2) compute local sums, and 3) gather and combine the partial results. Steps 1
-and 3 can be further broken down into sub-steps to better illustrate the MPI
-communication needed.
+Our parallel algorithm consist of four main steps: 1) distribute the data,
+2) compute local sums, 3) gather the partial results, and 4) compute the total
+sum. Steps 1 and 3 can be further broken down into sub-steps to better
+illustrate the MPI communication needed.
 
 1. Scatter the data
-  1. receive operation in scatter
-  2. send operation in scatter
+  1. receive operation for scatter
+  2. send operation for scatter
 2. Compute partial sums in parallel
-3. Reduce partial sums
-  1. Partial sum on P1 sent to P0
-- Step 3.1: Receive operation in reduction
-- Step 3.2: send operation in reduction
-- Step 3.3: compute final answer
-  2. P0 sums the partial sums
-
-FIXME: missing figure
-
+3. Gather the partial sums
+  1. receive operation for gather
+  2. send operation for gather
+4. Compute the total sum
 
 ### Step 1.1: Receive operation for scatter
 
-P1 posts a receive to receive half of the array from P0
-
-FIXME: missing figure
+![](../../img/parallel-sum-1.1.png)
 
 ### Step 1.2: Send operation for scatter
 
-P0 posts a send to send the lower part of the array to P1
+![](../../img/parallel-sum-1.2.png)
 
-FIXME: missing figure
+### Step 2: Compute partial sums in parallel
 
-### Step 2: Compute the partial sums in parallel
+![](../../img/parallel-sum-2.png)
 
-P0 & P1 computes their parallel sums and store them locally
+### Step 3.1: Receive operation for gather
 
-FIXME: missing figure
+![](../../img/parallel-sum-3.1.png)
 
-### Step 3.1: Receive operation for reduction
+### Step 3.2: Send operation for gather
 
-P0 posts a receive to receive partial sum
+![](../../img/parallel-sum-3.2.png)
 
-FIXME: missing figure
+### Step 4: Compute the total sum
 
-### Step 3.2: Send operation for reduction
-
-P1 posts a send with partial sum
-
-FIXME: missing figure
-
-### Step 3.3: Combine the partial sums
-
-P0 sums the partial sums
-
-FIXME: missing figure
+![](../../img/parallel-sum-4.png)
