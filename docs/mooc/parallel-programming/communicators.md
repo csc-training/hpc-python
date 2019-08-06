@@ -1,3 +1,13 @@
+<!-- Title: Communicators -->
+
+<!-- Short description:
+
+In this article we discuss MPI communicators in more detail and show how to
+create user-defined communicators.
+
+-->
+
+
 # Communicators
 
 In MPI context, a *communicator* is a special object representing a group of

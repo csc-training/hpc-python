@@ -1,3 +1,13 @@
+<!-- Title: Case study: Parallel sum -->
+
+<!-- Short description:
+
+In this article we walk through an example parallel algorithm that calculates
+the total sum of all elements in an array in parallel.
+
+-->
+
+
 # Case study: parallel sum
 
 How can a problem be split into smaller pieces that can be executed in

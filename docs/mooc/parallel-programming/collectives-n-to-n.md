@@ -1,3 +1,13 @@
+<!-- Title: Collective communication: many to many -->
+
+<!-- Short description:
+
+In this article we discuss how to use collective communication to exchange
+data between all the processes in a communicator.
+
+-->
+
+
 # Collective communication: many to many
 
 Collective communication routines in MPI include also routines for global

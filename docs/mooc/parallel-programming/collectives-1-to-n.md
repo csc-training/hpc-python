@@ -1,3 +1,14 @@
+<!-- Title: Collective communication: one to many -->
+
+<!-- Short description:
+
+In this article we discuss the basic idea of collective communication and how
+to use collective communication to distribute data from one task to all the
+others.
+
+-->
+
+
 # Collective communication: one to many
 
 Collective communication transfers data between all the processes in a

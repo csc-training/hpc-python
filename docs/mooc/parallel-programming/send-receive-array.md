@@ -1,4 +1,13 @@
-# Fast communication of large data arrays
+<!-- Title: Fast communication of large arrays -->
+
+<!-- Short description:
+
+In this article we discuss how to send and receive NumPy arrays using MPI.
+
+-->
+
+
+# Fast communication of large arrays
 
 MPI for Python offers very convenient and flexible routines for sending and
 receiving general Python objects. Unfortunately, this flexibility comes with

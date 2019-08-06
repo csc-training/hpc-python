@@ -1,3 +1,12 @@
+<!-- Title: MPI communication -->
+
+<!-- Short description:
+
+In this article we discuss how to send and receive Python objects using MPI.
+
+-->
+
+
 # MPI communication
 
 Since MPI processes are independent, in order to coordinate work, they need to

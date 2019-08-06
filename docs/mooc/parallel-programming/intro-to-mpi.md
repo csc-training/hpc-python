@@ -1,3 +1,14 @@
+<!-- Title: Introduction to MPI -->
+
+<!-- Short description:
+
+In this article we give a brief introduction to the most widely used approach
+for distributed parallel computing called MPI and discuss the most important
+concepts to get started with parallel programming in Python.
+
+-->
+
+
 # Message passing interface
 
 Message Passing Interface (MPI) is an application programming interface (API)

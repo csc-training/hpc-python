@@ -1,3 +1,13 @@
+<!-- Title: Collective communication: many to one -->
+
+<!-- Short description:
+
+In this article we discuss how to use collective communication to collect data
+from all tasks to a single task.
+
+-->
+
+
 # Collective communication: many to one
 
 Next step is to look into how to use collective communication to collect data

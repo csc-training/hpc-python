@@ -1,3 +1,13 @@
+<!-- Title: Non-blocking communication -->
+
+<!-- Short description:
+
+In this article we discuss how to do non-blocking communication in the
+background while continuing to do non-related computation in the foreground.
+
+-->
+
+
 # Non-blocking communication
 
 So far, we have been looking at communication routines that are blocking, i.e.
