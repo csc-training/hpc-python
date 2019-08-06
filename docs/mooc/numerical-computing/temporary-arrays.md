@@ -14,13 +14,13 @@ In complex expressions, NumPy stores intermediate values in temporary arrays.
 This means that the memory consumption can be higher than expected. Consider
 e.g. the following example:
 
-```python
+~~~python
 import numpy
 a = numpy.random.random((1024, 1024, 50))
 b = numpy.random.random((1024, 1024, 50))
 
 c = 2.0 * a - 4.5 * b
-```
+~~~
 
 In order to calculate the last line, two temporary arrays will be created to
 store the intermediate results (`2.0 * a` and `4.5 * b`). If the arrays are
@@ -30,34 +30,37 @@ for the unwary.
 Luckily, NumPy is smart enough to reuse temporary arrays when possible. Thus,
 even if we have additional terms in the addition, only two temporary arrays
 are needed:
-```python
+
+~~~python
 c = 2.0 * a - 4.5 * b + numpy.sin(a) + numpy.cos(b)
-```
+~~~
 
 Now, if one adds some (unnecessary) parenthesis, the situation changes and
 *three* temporary arrays are needed:
-```python
+
+~~~python
 c = 2.0 * a - 4.5 * b + (numpy.sin(a) + numpy.cos(b))
-```
+~~~
 
 To alleviate for this, we could either remove the unnecessary parenthesis or
 we could move the parenthesis to be first term in the addition, which would
 allow for better reuse of the temporary arrays:
-```python
+
+~~~python
 c = (numpy.sin(a) + numpy.cos(b)) + 2.0 * a - 4.5 * b
-```
+~~~
 
 Sometimes it is hard to see how many temporary arrays are needed, but if one
 wants to conserve memory (when working with very, very large arrays), it is
 usually a good idea to do apply operations on an existing array one by one
 instead.
 
-```python
+~~~python
 c = 2.0 * a
 c -= 4.5 * b
 c += np.sin(a)
 c += np.cos(b)
-```
+~~~
 
 ### Broadcasting and temporary arrays
 
@@ -68,9 +71,9 @@ points in three dimensions.
 Input data is a M x 3 array and output is a M x M array containing the
 distances between points i and j.
 
-```python
+~~~python
 X = np.random.random((1000, 3))
 D = np.sqrt(((X[:, np.newaxis, :] - X) ** 2).sum(axis=-1))
 #            ^^^^^^^^^^^^^^^^^^^^^^^^^
 #           temporary 1000x1000x3 array
-```
+~~~

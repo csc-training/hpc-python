@@ -18,11 +18,12 @@ regarded as a very good pseudo-random number generator (for non-cryptographic
 purposes).
 
 Several functions for constructing random arrays are provided, including:
+
   - random: uniform random numbers
   - normal: normal distribution
   - choice: random sample from given array
 
-```python
+~~~python
 a = numpy.random.random((2,2))
 
 print(a)
@@ -34,4 +35,4 @@ b = numpy.random.choice(numpy.arange(4), 10)
 
 print(b)
 # output: [0 1 1 2 1 1 2 0 2 3]
-```
+~~~

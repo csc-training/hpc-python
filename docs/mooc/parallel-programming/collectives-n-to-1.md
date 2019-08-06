@@ -27,7 +27,8 @@ Segments A, B, etc. may contain multiple elements just like in scatter.
 An example of gathering a list of single values (`rank`) from each process as
 well as a numpy array of multiple elements (`data`) that are then stored in a
 larger receive array (`buffer`):
-```python
+
+~~~python
 from mpi4py import MPI
 from numpy import arange, zeros
 
@@ -40,7 +41,7 @@ buffer = zeros(size * 10, float)
 
 n = comm.gather(rank, root=0)     # returns the value
 comm.Gather(data, buffer, root=0) # in-place modification
-```
+~~~
 
 
 ## Reduce
@@ -59,7 +60,8 @@ that can be used, including e.g. maximum value (MPI.MAX), minimum value
 
 An example of reduction using MPI.SUM to calculate the total sum of all
 received values:
-```python
+
+~~~python
 from mpi4py import MPI
 from numpy import arange, empty
 
@@ -73,13 +75,10 @@ buffer = zeros(size * 10, float)
 n = comm.reduce(rank, op=MPI.SUM, root=0) # returns the value
 
 comm.Reduce(data, buffer, op=MPI.SUM, root=0) # in-place modification
-```
+~~~
 
 
 ## Other common collective operations
 
-Scatterv
-  : each process receives different amount of data
-
-Gatherv
-  : each process sends different amount of data
+- Scatterv (each process receives different amount of data)
+- Gatherv (each process sends different amount of data)

@@ -38,24 +38,27 @@ the details.
 
 To send, one basically just needs to use the upper case method `Send()`
 giving the NumPy array and destination rank as arguments:
-```python
+
+~~~python
 Send(data, dest)
-```
+~~~
 
 To receive, one needs to first prepare a NumPy array to receive the data to
 and then use the upper case method `Recv()` giving the array and source rank
 as arguments:
-```python
+
+~~~python
 data = numpy.empty(shape, dtype)
 Recv(data, source)
-```
+~~~
 
 Note the difference between the upper/lower case methods on the receive side!
 Upper case `Recv()` *does not* return the data, but instead copies it to an
 existing array.
 
 Example:
-```python
+
+~~~python
 from mpi4py import MPI
 import numpy
 
@@ -68,7 +71,7 @@ if rank == 0:
     comm.Send(data, dest=1)
 elif rank == 1:
     comm.Recv(data, source=0)
-```
+~~~
 
 
 ## Combined send and receive
@@ -85,10 +88,11 @@ single MPI call and be done with it.
 The combined routine `Sendrecv()` is similar to the separate `Send()` and
 `Recv()` routines. It basically just combines the two and the arguments
 reflect this:
-```python
+
+~~~python
 buffer = numpy.empty(data.shape, dtype=data.dtype)
 Sendrecv(data, dest=tgt, recvbuf=buffer, source=src)
-```
+~~~
 
 The destination (`tgt`) and source (`src`) ranks can be the same or they can
 be different. If no destination or source is desired (e.g. on boundaries) one
@@ -97,7 +101,7 @@ case receive, the receive buffer (`buffer`) needs to exist before the call and
 be sufficiently large to hold all the data to be received.
 
 
-```python
+~~~python
 data = numpy.arange(10, dtype=float) * (rank + 1)
 buffer = numpy.empty(10, float)
 
@@ -107,7 +111,7 @@ elif rank == 1:
     tgt, src = 0, 0
 
 comm.Sendrecv(data, dest=tgt, recvbuf=buffer, source=src)
-```
+~~~
 
 
 ## Communicate any contiguous array
@@ -120,6 +124,7 @@ double precision). If needed, one can also define custom datatypes, which can
 be handy e.g. to use non-contiguous data buffers.
 
 MPI has e.g. the following pre-defined datatypes available:
+
   - MPI.INT for an integer (`int`)
   - MPI.DOUBLE for a floating point number (`float`)
   - MPI.CHAR for a single character (`str`)
@@ -136,17 +141,20 @@ a single datatype), you have to do it manually instead.
 
 The data buffer argument for the upper case methods is actually expected to
 yield three pieces of information:
+
   - location in memory
   - number of elements
   - datatype of the elements
+
 These can be automatically obtained from a NumPy array, but now we need to
 define them manually as a list of three items: `[buffer, count, datatype]`.
 
 For example, assuming `data` contains an array of 100 integers, we could send
 it like this:
-```python
+
+~~~python
 comm.Send([data, 100, MPI.INT], dest=tgt)
-```
+~~~
 
 If one is working with simple contiguous arrays, the number of elements in an
 array can also be inferred from the byte size of the buffer (`data`) and the
@@ -156,7 +164,8 @@ trivially known, it is a good idea to simply stick with the 3-element syntax.
 
 An example of sending and receiving a manually defined memory buffer (using a
 NumPy array for the buffer just for simplicity):
-```python
+
+~~~python
 from mpi4py import MPI
 import numpy
 
@@ -169,4 +178,4 @@ if rank == 0:
     comm.Send([data, 100, MPI.DOUBLE], dest=1)
 elif rank == 1:
     comm.Recv([data, 100, MPI.DOUBLE], source=0)
-```
+~~~

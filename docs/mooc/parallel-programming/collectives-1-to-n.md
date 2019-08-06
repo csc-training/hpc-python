@@ -2,9 +2,8 @@
 
 <!-- Short description:
 
-In this article we discuss the basic idea of collective communication and how
-to use collective communication to distribute data from one task to all the
-others.
+In this article we discuss how to use collective communication to distribute
+data from one task to all the others.
 
 -->
 
@@ -30,18 +29,20 @@ collective communication is usually the smart way of doing MPI communication.
 
 For example, communicating a numpy array of 1M elements from task 0 to all
 the other tasks is simplified from something like this:
-```python
+
+~~~python
 if rank == 0:
     for i in range(1, size):
         comm.Send(data, i)
 else:
     comm.Recv(data, 0)
-```
+~~~
 
 into a single line of code:
-```python
+
+~~~python
 comm.Bcast(data, 0)
-```
+~~~
 
 Let us first look into how to use collective communication to distribute data
 from one task to all the other tasks, i.e. how to move data from *one to many*.
@@ -56,7 +57,8 @@ available locally.
 ![](../../img/mpi-bcast.png)
 
 An example of broadcasting a dictionary and a numpy array:
-```python
+
+~~~python
 from mpi4py import MPI
 import numpy
 
@@ -72,7 +74,7 @@ else:
 
 new_data = comm.bcast(py_data, root=0)
 comm.Bcast(data, root=0)
-```
+~~~
 
 
 ## Scatter
@@ -86,7 +88,8 @@ Segments A, B, etc. may contain multiple elements.
 
 An example of scattering a list of numbers (one number to each task) and a
 numpy array (multiple elements to each task):
-```python
+
+~~~python
 from mpi4py import MPI
 from numpy import arange, empty
 
@@ -104,4 +107,4 @@ new_data = comm.scatter(py_data, root=0)  # returns the value
 
 buffer = empty(size, float)         # prepare a receive buffer
 comm.Scatter(data, buffer, root=0)  # in-place modification
-```
+~~~

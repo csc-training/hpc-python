@@ -12,7 +12,7 @@ Simple calculations are very straightforward with NumPy arrays. Basic
 arithmetic operations (`+ - * / **`) can all be used with arrays. The main
 thing to keep in mind is that most operations are done **element-wise**.
 
-```python
+~~~python
 a = numpy.array([1.0, 2.0, 3.0])
 b = 2.0
 
@@ -24,7 +24,7 @@ print(a + b)
 
 print(a * a)
 # output: [ 1.  4.  9.]
-```
+~~~
 
 # Elementary functions
 
@@ -32,7 +32,7 @@ NumPy provides also a wide range of elementary mathematical functions (sin,
 cos, exp, sqrt, log, ...) that work with arrays (as well as single values). In
 many ways it can be used as a drop-in replacement for the `math` module.
 
-```python
+~~~python
 import numpy, math
 a = numpy.linspace(-math.pi, math.pi, 8)
 
@@ -50,4 +50,4 @@ print(math.sin(a))
 Traceback (most recent call last):
   File "<stdin>", line 1, in ?
 TypeError: only length-1 arrays can be converted to Python scalars
-```
+~~~

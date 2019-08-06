@@ -19,23 +19,24 @@ on the whole array (slice) at one go.
 
 For example, the following code for calculating the difference of neighbouring
 elements in an array:
-```python
+
+~~~python
 # brute force using a for loop
 arr = numpy.arange(1000)
 dif = numpy.zeros(999, int)
 for i in range(1, len(arr)):
     dif[i-1] = arr[i] - arr[i-1]
-```
+~~~
 
 can be re-written as a vectorised operation:
 
-![](../../img/vectorised-difference.png)
-
-```python
+~~~python
 # vectorised operation
 arr = numpy.arange(1000)
 dif = arr[1:] - arr[:-1]
-```
+~~~
+
+![](../../img/vectorised-difference.png)
 
 The first brute force approach using a for loop is approx. 80 times slower
 than the second vectorised form!

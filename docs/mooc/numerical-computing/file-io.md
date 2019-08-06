@@ -6,7 +6,7 @@ In this article we show how to read and write numeric data to simple files.
 
 -->
 
-# I/O with Numpy
+# File I/O
 
 NumPy provides functions for reading and writing numeric data to simple files
 in a regular column layout. These I/O functions offer a very convenient way to
@@ -18,7 +18,8 @@ read any data file in a column layout into a NumPy array.
 Assume we the following measurement data in a called `xy-coordinates.dat`. As
 you can see it also contains an invalid data point that is commented out as
 well as one data point with an undefined value (`nan`).
-```
+
+~~~
 # x          y
  -5.000000  25.131953
  -3.888889  15.056032
@@ -30,11 +31,12 @@ well as one data point with an undefined value (`nan`).
   2.777778  nan
   3.888889  14.979309
   5.000000  25.299547
-```
+~~~
 
 One can read the data into a NumPy array with a single **loadtxt()** function
 call:
-```python
+
+~~~python
 xy = numpy.loadtxt('xy-coordinates.dat')
 
 print(xy)
@@ -48,7 +50,7 @@ print(xy)
 #    [  2.777778        nan]
 #    [  3.888889  14.979309]
 #    [  5.        25.299547]]
-```
+~~~
 
 Comment lines are stripped away (both the header as well as the invalid data
 row) and the undefined value (`nan`) is automatically recognised. The datatype
@@ -59,18 +61,19 @@ If we want to write the data back to another file, this can be done with the
 header comment (`header`) or by defining the number format (`fmt`) or column
 delimiter (`delimiter`).
 
-```python
+~~~python
 args = {
   'header': 'XY coordinates',
   'fmt': '%7.3f',
   'delimiter': ','
 }
 numpy.savetxt('output.dat', xy, **args)
-```
+~~~
 
 If we look into the output file, we can see that data has been written in a
 nicely formatted column layout with the header we provided:
-```
+
+~~~
 # XY coordinates
  -5.000, 25.132
  -3.889, 15.056
@@ -81,4 +84,4 @@ nicely formatted column layout with the header we provided:
   2.778,    nan
   3.889, 14.979
   5.000, 25.300
-```
+~~~

@@ -37,7 +37,7 @@ A new communicator is created as a collective operation of an existing
 communicator. For example, to split the processes in a communicator into
 smaller sub-groups, one could do the following:
 
-```python
+~~~python
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 
@@ -47,7 +47,7 @@ local_comm = comm.Split(color)
 local_rank = local_comm.Get_rank()
 
 print("Global rank: %d Local rank: %d" % (rank, local_rank))
-```
+~~~
 
 A distinct label (called `color`, which is actually just an integer number
 between 0-3) is assigned to each process based on its rank in the original

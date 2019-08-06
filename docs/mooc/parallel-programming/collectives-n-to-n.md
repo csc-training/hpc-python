@@ -38,10 +38,12 @@ Some common mistakes to avoid when using collectives include:
 
 1. Using a collective operation within one branch of an if-else test based on
    the rank of the process
-   ```python
+
+   ~~~python
    if rank == 0:
        comm.bcast(...)
-   ```
+   ~~~
+
    All processes in a communicator must call a collective routine!
 
 2. Assuming that all processes making a collective call would complete at
@@ -55,8 +57,9 @@ Some common mistakes to avoid when using collectives include:
    to continue from a collective call *even before communication happens*.
 
 3. Using the input buffer also as an output buffer.
-   ```python
+
+   ~~~python
    comm.Scatter(a, a, MPI.SUM)
-   ```
+   ~~~
 
    Always use different memory locations (arrays) for input and output!

@@ -24,6 +24,7 @@ means doing some local calculations while waiting for some synchronisation
 with neighbouring processes to be finished.
 
 The key differences are:
+
   - methods are called `isend`, `irecv`, `Isend`, etc.
   - call will return immediately (communication happens in the background)
   - return value is a `Request` object
@@ -57,7 +58,7 @@ it is perfectly fine to receive a message sent with `isend()` using `recv()`.
 
 ## Example: non-blocking send/receive
 
-```python
+~~~python
 rank = comm.Get_rank()
 size = comm.Get_size()
 
@@ -74,7 +75,7 @@ elif rank == 1:
     calculate_something(rank)         # .. do something else ..
     req.wait()                        # wait for receive to finish
     # data is now ready for use
-```
+~~~
 
 
 ## Multiple non-blocking operations
@@ -86,15 +87,16 @@ and *waitany* will wait for one of the initiated requests to complete.
 
 For example, assuming `requests` is a list of request objects, one can wait
 for all of them to be finished with:
-```python
+
+~~~python
 MPI.Request.waitall(requests)
-```
+~~~
 
 Similar functions are also available for testing multiple requests.
 
 ### Example: non-blocking message chain
 
-```python
+~~~python
 from mpi4py import MPI
 import numpy
 
@@ -117,18 +119,18 @@ req.append(comm.Isend(data, dest=tgt))
 req.append(comm.Irecv(buffer, source=src))
 
 MPI.Request.waitall(req)
-```
+~~~
 
 
 ## Overlapping computation and communication
 
-![](../../img/non-blocking-pattern.png)
-
-```python
+~~~python
 request_in = comm.Irecv(ghost_data)
 request_out = comm.Isend(border_data)
 compute(ghost_independent_data)
 request_in.wait()
 compute(border_data)
 request_out.wait()
-```
+~~~
+
+![](../../img/non-blocking-pattern.png)

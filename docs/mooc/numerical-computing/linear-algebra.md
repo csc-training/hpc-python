@@ -14,7 +14,7 @@ example, NumPy can calculate matrix and vector products efficiently (`dot`,
 `vdot`), solve eigenproblems (`linalg.eig`, `linalg.eigvals`), solve linear
 systems (`linalg.solve`), and do matrix inversion (`linalg.inv`).
 
-```python
+~~~python
 A = numpy.array(((2, 1), (1, 3)))
 B = numpy.array(((-2, 4.2), (4.2, 6)))
 
@@ -34,7 +34,7 @@ x = numpy.linalg.solve(C, b)
 
 print(x)
 # output: [ 0.04453441  0.06882591]
-```
+~~~
 
 Normally, NumPy utilises high performance numerical libraries in linear
 algebra operations. This means that the performance of NumPy is actually quite
@@ -50,7 +50,7 @@ fitting, find the roots of a polynomial, and evaluate a polynomial.
 A polynomial *f(x)* is defined by an 1D array of coefficients (*p*) with
 length *N*, such that $f(x) = p[0] x^{N-1} + p[1] x^{N-2} + ... + p[N-1]$.
 
-```python
+~~~python
 # f(x) = x^2 + random noise (between 0,1)
 x = numpy.linspace(-4, 4, 7)
 f = x**2 + numpy.random.random(x.shape)
@@ -60,4 +60,4 @@ p = numpy.polyfit(x, f, 2)
 print(p)
 # output: [ 0.96869003  -0.01157275  0.69352514]
 #   f(x) =  p[0] * x^2 + p[1] * x  + p[2]
-```
+~~~

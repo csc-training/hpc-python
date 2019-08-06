@@ -21,19 +21,20 @@ can lead into suboptimal performance. Effectively, one carries out multiple
 
 Numexpr package provides tools for fast evaluation of array expressions.
 
-```python
+~~~python
 x = numpy.random.random((1000000, 1))
 y = numpy.random.random((1000000, 1))
 
 import numexpr
 poly = numexpr.evaluate("((.25*x + .75)*x - 1.5)*x - 2")
-```
+~~~
 
 The expression is enclosed in quotes and will be evaluated using a single
 C-loop. Speed-ups in comparison to NumPy are typically between 0.95 and 4.
 Works best on arrays that do not fit in CPU cache.
 
 Supported operators and functions include e.g.:
+
   - +, -, \*, /, \*\*
   - sin, cos, tan
   - exp, log, sqrt
@@ -42,9 +43,10 @@ Supported operators and functions include e.g.:
 
 By default, *numexpr* tries to use multiple threads, which can also speed up
 the execution. The number of threads can be queried and set with:
-```python
+
+~~~python
 numexpr.set_num_threads(n)
-```
+~~~
 
 The number of threads can also be controlled by the environment variables
 `OMP_NUM_THREADS` or `NUMEXPR_NUM_THREADS`.

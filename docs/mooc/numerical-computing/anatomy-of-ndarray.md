@@ -26,9 +26,10 @@ the beginning of a 1-dimensional block.
 
 If n[k] is the index in dimension k for an element and s[k] is the stride in
 that dimension, then the offset for an element is:
-```python
+
+~~~python
 offset = sum(s[k] * n[k] for k in range(N))
-```
+~~~
 
 ![](../../img/ndarray-in-memory-offset.png)
 

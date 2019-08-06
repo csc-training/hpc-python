@@ -3,8 +3,7 @@
 <!-- Short description:
 
 In this article we give a brief introduction to the most widely used approach
-for distributed parallel computing called MPI and discuss the most important
-concepts to get started with parallel programming in Python.
+for distributed parallel computing called MPI and its key concepts.
 
 -->
 
@@ -29,6 +28,7 @@ contains over 300 procedures, but often only a handfull of procedures are
 actually needed in a single program.
 
 MPI contains routines for:
+
 - Communication between processes
     - sending and receiving messages between two processes
     - sending and receiving messages between several processes
@@ -63,14 +63,14 @@ called *rank*. It is possible to query the rank within a program and to
 perform different tasks based on it. In fact this is the basis on which all
 logic for parallelism is built on in a MPI program.
 
-```python
+~~~python
 if (rank == 0):
     # do something
 elif (rank == 1):
     # do something else
 else:
     # all other processes do something different
-```
+~~~
 
 ### MPI communicator
 
@@ -113,7 +113,7 @@ belong to multiple communicators and have a different rank in each one.
 
 ### Simple example: Hello world
 
-```python
+~~~python
 from mpi4py import MPI
 
 comm = MPI.COMM_WORLD # communicator object containing all processes
@@ -122,15 +122,15 @@ size = comm.Get_size()
 rank = comm.Get_rank()
 
 print("I am rank %d in group of %d processes" % (rank, size))
-```
+~~~
 
 ### Running the example program
 
-```bash
+~~~bash
 $ mpirun -np 4 python3 hello.py
 
 I am rank 2 in group of 4 processes
 I am rank 0 in group of 4 processes
 I am rank 3 in group of 4 processes
 I am rank 1 in group of 4 processes
-```
+~~~

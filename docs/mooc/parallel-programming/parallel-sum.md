@@ -43,14 +43,16 @@ Our parallel algorithm consist of four main steps: 1) distribute the data,
 sum. Steps 1 and 3 can be further broken down into sub-steps to better
 illustrate the MPI communication needed.
 
+~~~
 1. Scatter the data
-  1. receive operation for scatter
-  2. send operation for scatter
+   1.1. receive operation for scatter
+   1.2. send operation for scatter
 2. Compute partial sums in parallel
 3. Gather the partial sums
-  1. receive operation for gather
-  2. send operation for gather
+   3.1. receive operation for gather
+   3.2. send operation for gather
 4. Compute the total sum
+~~~
 
 ### Step 1.1: Receive operation for scatter
 

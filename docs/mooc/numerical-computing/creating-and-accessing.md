@@ -22,10 +22,10 @@ to use the **array** constructor and provide the data directly as an
 argument. For example, in order to generate a one-dimensional array containing
 the numbers 1,2,3,4 one can use:
 
-```python
+~~~python
 import numpy
 x = numpy.array((1, 2, 3, 4))
-```
+~~~
 
 This will generate a NumPy array containing four elements of integer type.
 
@@ -45,7 +45,7 @@ one of the more precise datatypes used internally by NumPy (`numpy.int8`,
 `numpy.float128` etc.). If the second argument is not given, a datatype that
 can represent all the input data is selected automatically.
 
-```python
+~~~python
 x = numpy.array((1, 2, 3, 4), float)
 
 print(x)
@@ -64,7 +64,7 @@ print(y.shape)
 
 print(y.size)
 # output: 6
-```
+~~~
 
 ### Using helper functions
 
@@ -78,12 +78,12 @@ Two extremely helpful functions for generating ranges of numbers are called
 Similar to the regular `range()` function, `numpy.arange()` creates an array
 containing evenly spaces values within a given interval.
 
-```python
+~~~python
 a = numpy.arange(10)
 
 print(a)
 # output: [0 1 2 3 4 5 6 7 8 9]
-```
+~~~
 
 Optionally, one can also specify start and stop values (instead of just stop)
 as well as a step between the values. It is also not limited to integers, but
@@ -92,17 +92,17 @@ can handle floating point numbers just as well.
 Another common need is to generate a fixed number of evenly spaced values
 within an interval, which is exactly what `numpy.linspace()` does.
 
-```python
+~~~python
 b = numpy.linspace(-4.5, 4.5, 5)
 
 print(b)
 # output: [-4.5  -2.25  0.    2.25  4.5]
-```
+~~~
 
 One can also create an array of a given shape and initialise it to zeros or
 ones using the handy functions **zeros** or **ones**.
 
-```python
+~~~python
 c = numpy.zeros((4, 6), float)
 d = numpy.ones((2, 4))
 
@@ -112,7 +112,7 @@ print(d)
 #   (4, 6)
 #   [[ 1.  1.  1.  1.]
 #    [ 1.  1.  1.  1.]]
-```
+~~~
 
 To initialise to another value than 1, one can simply multiply the array
 created by `ones()` with the desired value.
@@ -129,7 +129,7 @@ strings. For strings, the largest element determines the item size, so in
 practice arbitrary strings are not that suitable, but character arrays can be
 sometimes useful.
 
-```python
+~~~python
 s = numpy.array(['foo', 'foo-bar'])
 
 print(repr(s))
@@ -143,7 +143,7 @@ print(repr(c))
 # output:
 #   array([b'A', b'A', b'A', b'G', b'T', b'C', b'T', b'G', b'A', b'C'],
 #         dtype='|S1')
-```
+~~~
 
 
 ## Accessing arrays
@@ -156,19 +156,19 @@ in a NumPy array can have multiple index values (one for each dimension).
 To access a single element in a 2D array, one should use the index value in
 each dimension separated by a comma:
 
-```python
+~~~python
 data = numpy.array([[1, 2, 3], [4, 5, 6]])
 x = data[0,2]
 y = data[1,-2]
 
 print(x, y)
 # output: 3 5
-```
+~~~
 
 Slicing syntax can also be used with NumPy arrays to select only some part of
 the array.
 
-```python
+~~~python
 a = numpy.arange(10)
 
 print(a[2:])
@@ -179,13 +179,13 @@ print(a[:-1])
 
 print(a[1:7:2])
 # output: [1 3 5]
-```
+~~~
 
 Multi-dimensional arrays can be sliced, too, and in multiple dimensions as
 well. One can also assign values to only some part of an array using the
 slicing syntax.
 
-```python
+~~~python
 a = numpy.arange(10)
 a[1:3] = -1
 
@@ -200,7 +200,7 @@ print(b)
 #    [ 0.  2.  2.  0.]
 #    [ 0.  2.  2.  0.]
 #    [ 0.  0.  0.  0.]]
-```
+~~~
 
 ### Views and copies of arrays
 
@@ -209,11 +209,12 @@ Python object. Thus, if you modify the array using the new reference, the
 changes are visible also via any old reference to the same array.
 
 To make a true copy of an array, one should use the *copy()* method:
-```python
+
+~~~python
 a = np.arange(10)
 b = a              # reference, changing values in b changes a
 b = a.copy()       # true copy
-```
+~~~
 
 In contrast, slicing an array will create something called a *view* to the
 array. It is like a window showing only a some part of the full array. Any
@@ -222,8 +223,9 @@ original array. In fact, no real copy is made and as such any manipulation
 will just change the original array.
 
 Once again, to make a true copy, one should use the *copy()* method:
-```python
+
+~~~python
 a = np.arange(10)
 c = a[1:4]         # view, changing c changes elements [1:4] of a
 c = a[1:4].copy()  # true copy of subarray
-```
+~~~
