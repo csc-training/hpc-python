@@ -59,7 +59,7 @@ outside the allocated memory gives an error), and allowing negative indexing.
 If negative indexing is not needed, and programmer is certain that there are no
 out of bounds errors in indexing, performance can be enhanced even more by
 disabling negative indexing and bounds checking for all indexing operations 
-within the function:
+within the function by using cython decorators before the function as follows:
 
 ~~~python
 import numpy as np   # Normal NumPy import
