@@ -1,4 +1,4 @@
-<!-- Title: Using static typing -->
+	<!-- Title: Using static typing -->
 
 !-- Short description:
 
@@ -144,9 +144,9 @@ def kernel(double zr, double zi, double cr, double ci, double lim, int cutoff):
 
 When measuring now the performance, we obtain the following results:
 
-  - Pure Python:  0.6 s
-  - Static type declarations in the kernel: 20.2 ms
+  - Pure Python:  0.57 s
+  - Static type declarations in the kernel: 14 ms
 
-Thus, we obtained a speed up of ~30 !
+Thus, we obtained a speed up of ~40 !
 
 
