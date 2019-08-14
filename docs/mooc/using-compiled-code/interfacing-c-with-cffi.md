@@ -1,9 +1,9 @@
-<!-- Title: Interfacing C code with Cython -->
+<!-- Title: Interfacing C code with CFFI -->
 
 !-- Short description:
 
 In this article we discuss how external code written in C can be utilized
-from Python code with the help of Cython.
+from Python code with the help of CFFI.
 
 -->
 
