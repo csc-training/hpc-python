@@ -18,13 +18,15 @@ The following software will be used during the course:
 - Numexpr 
 - Matplotlib 
 - Cython
+- Cffi
 - Mpi4py
 - Optionally, iPython and Scipy
 
 In Ubuntu based Linux environments installation can be done (admin rights needed) as
 
 ~~~bash
-sudo apt install python3-numpy python3-numexpr python3-matplotlib cython3 python3-mpi4py python3-scipy ipython3 
+sudo apt install python3-numpy python3-numexpr python3-matplotlib cython3
+python3-cffi python3-mpi4py python3-scipy ipython3 
 ~~~
 
 We provide also a Virtual Machine image containing proper software environment.
