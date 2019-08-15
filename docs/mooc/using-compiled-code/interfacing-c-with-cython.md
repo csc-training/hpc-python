@@ -1,6 +1,6 @@
 <!-- Title: Interfacing C code with Cython -->
 
-!-- Short description:
+<!-- Short description:
 
 In this article we discuss how external code written in C can be utilized
 from Python code with the help of Cython.
