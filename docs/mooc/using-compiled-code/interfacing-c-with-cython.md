@@ -74,7 +74,7 @@ setup(ext_modules=cythonize(ext))
 
 ## Passing NumPy arrays from Cython to C
 
-Similarly as when using cffi to pass NumPy arrays into C, also in case of
+Similarly as when using CFFI to pass NumPy arrays into C, also in case of
 Cython one needs to be able to pass a pointer to the "data area" of array.
 For arrays that are declared as type of `ndarray`, Cython supports similar
 `&` syntax as in C:
@@ -94,10 +94,5 @@ def add_py(np.ndarray[cnp.double_t,ndim=1] a,
 
     add(&a[0], &b[0], &c[0], len(a))
 ~~~
-
-
-
-
-
 
 

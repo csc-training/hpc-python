@@ -12,25 +12,26 @@ can thus be used directly from Python code. However, sometimes one might want
 to utilize library that does not have a Python interface, or utilize own code
 written in C or Fortran. 
 
-Python standard defines C Application Programmer’s Interface (API) which is to
+Python standard defines C Application Programmer Interface (API) which is to
 most comprehensive way to interact with external code written in C or C++. 
-However, in many cases one can interact with C/C++ more easily by using **cffi**
-package or Cython. We start by looking how to use **cffi**.
+However, in many cases one can interact with C/C++ more easily by using
+[CFFI](https://cffi.readthedocs.io) package or Cython. We start by looking how 
+to use CFFI.
 
-Cffi is an external package providing C Foreign Function Interface for Python.
-Cffi allows one to interact with almost any C code from Python, however, C++ 
+CFFI is an external package providing C Foreign Function Interface for Python.
+CFFI allows one to interact with almost any C code from Python, however, C++ 
 is not currently supported. User needs to add C-like declarations to a Python
 code, and even though the declarations can often be directly copy-pasted from
 C headers or documentation, some understanding of C is normally required.
 
-Cffi has two different main modes, "ABI" and "API". In ABI mode one accesses
+CFFI has two different main modes, "ABI" and "API". In ABI mode one accesses
 the library in binary level, while in API mode a separate compilation step with
 C compiler is utilized. ABI  mode can be easier to start with, but API is 
 faster and more robust, and is thus normally the recommended mode. 
 
 ## Calling a C library function
 
-For illustrating how to utilize cffi in the API mode, let's see how one can 
+For illustrating how to utilize CFFI in the API mode, let's see how one can 
 call functions from C math library within Python code. The approach works
 for any shared object i.e .dll (Windows) or .so (Linux and others) or .dylib 
 (OS X). To start with, we create a Python file which we will call 
@@ -61,7 +62,7 @@ ffibuilder.set_source("_my_math",
 ffibuilder.compile(verbose=True)
 ~~~
 
-When we execute the script, cffi creates a Python extension module called in 
+When we execute the script, CFFI creates a Python extension module called in 
 this case `_my_math` which exposes the selected functions:
 
 ~~~bash
@@ -84,7 +85,7 @@ b = lib.sin(1.2)
 ~~~
 
 The library functions assume C double precision numbers as input arguments, but
-cffi takes care of converting Python float objects into C numbers, as well as
+CFFI takes care of converting Python float objects into C numbers, as well as
 converting the returned C doubles into Python floats.
 
 ## Creating Python extension from C source
@@ -93,7 +94,7 @@ Sometimes one might want to utilize direct C source code instead of existing
 library. Assume the above `sqrt` and `sin` functions would be implemented in a
 file `mymath.c` instead of the C math library. Procedure for generating the 
 Python extension module is almost the same as before, only difference is that 
-we provide `sources` argument to `set_sources` function of cffi. If the C code
+we provide `sources` argument to `set_source` function. If the C code
 utilizes some libraries, these are still provided in the `libraries` argument, 
 and **build_mymath.py** could look like:
 
@@ -143,10 +144,10 @@ void add(double *a, double *b, double *c, int n)
 }
 ~~~
 
-If we want to use this function from Python, we can use cffi for creating 
+If we want to use this function from Python, we can use CFFI for creating 
 extension module just as previously. When we use the module and the function, 
-cffi's `cast` and `from_buffer` functions can be used for obtaining pointers 
-to the "data" areas of NumPy arrays:
+`cast` and `from_buffer` functions can be used for obtaining pointers 
+to the "data areas" of NumPy arrays:
 
 ~~~python
 from add_module import ffi, lib
@@ -155,17 +156,11 @@ a = np.random.random((1000000,1))
 b = np.random.random((1000000,1))
 c = np.zeros_like(a)
 
-# “Pointer” objects need to be passed to library
+# Pointer objects need to be passed to library
 aptr = ffi.cast("double *", ffi.from_buffer(a))
 bptr = ffi.cast("double *", ffi.from_buffer(b))
 bptr = ffi.cast("double *", ffi.from_buffer(b))
 
 lib.add(aptr, bptr, cptr, len(a))
 ~~~
-
-
-
-
-
-
 
