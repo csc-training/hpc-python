@@ -37,7 +37,7 @@ cdef extern from "mylib.h"
 
 Now, **mylib.h** header is included in the generated .c file, while the
 statements in the following block specify that functions `add` and `subtract` 
-can be used within the .pyx file. It’s important to understand that Cython 
+can be used within the .pyx file. It is important to understand that Cython 
 does not itself read the C header file, so you still need to provide 
 declarations from it that you use. 
 
