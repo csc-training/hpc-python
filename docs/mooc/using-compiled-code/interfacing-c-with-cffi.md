@@ -12,7 +12,8 @@ can thus be used directly from Python code. However, sometimes one might want
 to utilize library that does not have a Python interface, or utilize own code
 written in C or Fortran. 
 
-Python standard defines C Application Programmer Interface (API) which is to
+Python standard defines [C Application Programmer Interface
+(API)](https://docs.python.org/3/c-api/) which is the
 most comprehensive way to interact with external code written in C or C++. 
 However, in many cases one can interact with C/C++ more easily by using
 [CFFI](https://cffi.readthedocs.io) package or Cython. We start by looking how 
