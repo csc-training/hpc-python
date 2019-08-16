@@ -22,14 +22,57 @@ all the processes in a communicator, i.e. how to move data from
 
 
 ## Allreduce
-  : all processes receive the results of reduction
+
+Allreduce is in principle just a Reduce operation followed by Broadcast, so
+that in the end of the operation all processes have the results of reduction.
+The MPI library can, however, implement the operation more efficiently than
+when using two successive calls. 
+
+Only difference in the function call compared to Reduce is that there is no
+root argument, as seen in the following example:
+
+~~~python
+from mpi4py import MPI
+from numpy import arange, empty
+
+comm = MPI.COMM_WORLD
+rank = comm.Get_rank()
+size = comm.Get_size()
+
+data = arange(10 * size, dtype=float) * (rank + 1)
+buffer = zeros(size * 10, float)
+
+n = comm.allreduce(rank, op=MPI.SUM) # returns the value
+
+comm.Allreduce(data, buffer, op=MPI.SUM) # in-place modification
+~~~
+
 
 ## Alltoall
-  : each process sends and receives to/from each other
 
-## Alltoallv
-  : each process sends and receives different amount of data to/from
-    each other
+In Alltoall operation each process sends and receives to/from each other, and
+can be considered as combination of Scatter and Gather. The operation can be 
+also viewed as "transpose".
+
+![Alltoall operation](https://ugc.futurelearn.com/uploads/assets/5d/99/5d99758f-70db-4056-9734-63572ce50330.png)
+
+An example of Alltoall both with a Python list and a NumPy array:
+~~~python
+from mpi4py import MPI
+from numpy import arange, empty, zeros_like
+
+comm = MPI.COMM_WORLD
+rank = comm.Get_rank()
+size = comm.Get_size()
+
+py_data = range(size)
+data = arange(size**2, dtype=float)
+
+new_data = comm.alltoall(py_data)  # returns the value
+
+buffer = zeros_like(data) # prepare a receive buffer
+comm.Alltoall(data, buffer)  # in-place modification
+~~~
 
 
 # Collective communication: common mistakes
