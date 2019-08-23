@@ -29,12 +29,14 @@ sudo apt install python3-numpy python3-numexpr python3-matplotlib cython3
 python3-cffi python3-mpi4py python3-scipy ipython3 
 ~~~
 
-We provide also a Virtual Machine image containing proper software environment.
+If you are installing the Python packages yourself, you can continue to 
+the section **Downloading exercise material** in the end of this article. 
+Otherwise proceed with the below instructions for utilizing the virtual machine.
 
 ## Setting up the Virtual Machine for the course
  
-1. Download the Virtual Machine [image](https://kannu.csc.fi/s/fKaGEfrfHWLANJ2)  
-   Size of download is about 1.8 GB
+1. Download the Virtual Machine [image](http://www.nic.funet.fi/pub/csc/courses/hpc-python/HPCPython.ova)(By the way, we are using the same server where Linux was first released to the world in 1991.)
+   Size of download is about 1.9 GB
 2. Install the VirtualBox software 
      - Download the installation file for your operating system (Windows,
        Mac, and Linux are all supported) https://www.virtualbox.org/
@@ -61,7 +63,39 @@ We provide also a Virtual Machine image containing proper software environment.
      - Log in with user `Monty Python` and password `hpc1python`
 ![Log in](https://ugc.futurelearn.com/uploads/assets/68/93/68930db0-c0e0-4ed5-bb9e-105557b7e96e.png "Log in")
 
+## Downloading the exercise material
 
+Material is hosted in GitHub at: <https://github.com/csc-training/hpc-python>
+You have three options for downloading the material to your own Linux system
+or to the Virtual Machine:
+
+1. Recommended approach: Fork the GitHub repository and clone then your fork
+     - You need to have a GitHub user account for forking
+     - After Forking clone the repository e.g. with  
+       `git clone https://github.com/my-github-username/hpc-python.git`  
+       The URL for cloning can be copied via the **Clone or download** button.
+     - You can now push back to GitHub any work you do during the course
+2. Clone the repository directly
+     - You can clone the repository directly with  
+       `git clone https://github.com/csc-training/hpc-python.git`  
+     - However, you cannot push back any changes
+3. (Not recommended): You can download all the material via **Clone or download**
+   as Zip-file. However, you loose all the benefits of version control
+
+Skeleton code snippets and model solutions to hands-on exercises are in
+individual subdirectories under hpc-python.
+
+### Testing the software installation 
+
+Open a terminal and go into the `test` subdirectory and execute the test set:
+
+~~~bash
+pythonuser@ubuntu:~/hpc-python$ cd test
+pythonuser@ubuntu:~/hpc-python/test$ python3 test.py
+~~~
+
+If everything is fine, you should see **Test set passed** printed on the
+screen.
 
 
 
