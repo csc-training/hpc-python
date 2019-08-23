@@ -35,7 +35,8 @@ Otherwise proceed with the below instructions for utilizing the virtual machine.
 
 ## Setting up the Virtual Machine for the course
  
-1. Download the Virtual Machine [image](http://www.nic.funet.fi/pub/csc/courses/hpc-python/HPCPython.ova)(By the way, we are using the same server where Linux was first released to the world in 1991.)
+1. Download the Virtual Machine [image](http://www.nic.funet.fi/pub/csc/courses/hpc-python/HPCPython.ova) (By the way, we are using the same server where 
+Linux was first released to the world in 1991.)
    Size of download is about 1.9 GB
 2. Install the VirtualBox software 
      - Download the installation file for your operating system (Windows,
