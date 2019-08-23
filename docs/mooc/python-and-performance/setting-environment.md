@@ -45,8 +45,11 @@ the required software.
 
 ## Use the Virtual Machine prepared for this course
 
-1. Download the Virtual Machine [image](https://kannu.csc.fi/s/fKaGEfrfHWLANJ2)
-   Size of download is about 1.8 GB
+1. Download the Virtual Machine
+   [image](http://www.nic.funet.fi/pub/csc/courses/hpc-python/HPCPython.ova)
+   (By the way, we are using the same server where Linux was first released to
+   the world in 1991.)
+   Size of download is about 1.9 GB
 2. Install the VirtualBox software
      - Download the installation file for your operating system (Windows,
        Mac, and Linux are all supported): https://www.virtualbox.org/
