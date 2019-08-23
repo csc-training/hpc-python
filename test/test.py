@@ -1,7 +1,7 @@
 from importlib import import_module
 
 fail = False
-required_modules = ['numpy', 'mpi4py', 'matplotlib', 'cython']
+required_modules = ['numpy', 'mpi4py', 'matplotlib', 'cython', 'cffi']
 for mod in required_modules:
     try:
         import_module(mod)
