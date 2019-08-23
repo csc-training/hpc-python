@@ -22,16 +22,16 @@ The following software will be used in this course:
 - Cython
 - Cffi
 - Mpi4py
-- Optionally, iPython and Scipy
+- (optionally) iPython and Scipy
 
 You have two options:
 
-1. Install the software to your Linux machine
+1. Install the software to your own Linux machine
 2. Use a virtual machine image we have prepared that has all the required
    software pre-installed
 
 
-## Install software to your own Linux machine
+## Option 1: Install software to your own Linux machine
 
 In a Ubuntu based Linux distribution, the installation can usually be done
 (admin rights needed) with the following commands:
@@ -45,7 +45,7 @@ For other distributions, please refer to their documentation on how to install
 the required software.
 
 
-## Use the Virtual Machine prepared for this course
+## Option 2: Use the Virtual Machine prepared for this course
 
 1. Download the Virtual Machine
    [image](http://www.nic.funet.fi/pub/csc/courses/hpc-python/HPCPython.ova)
@@ -54,7 +54,7 @@ the required software.
    Size of download is about 1.9 GB
 2. Install the VirtualBox software
      - Download the installation file for your operating system (Windows,
-       Mac, and Linux are all supported): https://www.virtualbox.org/
+       Mac, and Linux are all supported): <https://www.virtualbox.org/>
      - When installing the software you might be asked to install some
        device drivers (Oracle Corporation Universal Serial Bus, Network
        Adapters, Network Service). Install them as well. If you are asked,
@@ -74,8 +74,10 @@ the required software.
 5. You should now see **HPC Python** image listed in VirtualBox. You can start
    it either by double clicking it or via the `Start` button.
 ![Start virtual machine](img src=https://ugc.futurelearn.com/uploads/assets/ff/da/ffda9341-9c0b-4e05-b149-a2da397cf688.png "Start virtual machine")
-6. The system should now boot up and greet you with the login screen
-     - Log in with user `Monty Python` and password `hpc1python`
+6. The system should now boot up. Once you are greeted with a login screen,
+   log in with the following credentials:
+     - username: `Monty Python`
+     - password: `hpc1python`
 ![Log in](https://ugc.futurelearn.com/uploads/assets/68/93/68930db0-c0e0-4ed5-bb9e-105557b7e96e.png "Log in")
 
 
