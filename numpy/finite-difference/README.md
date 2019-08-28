@@ -1,5 +1,7 @@
 ## Finite-difference
 
+Vectorization is crucial for obtaining good performance with NumPy.
+
 Derivatives can be calculated numerically with the finite-difference method
 as:
 
