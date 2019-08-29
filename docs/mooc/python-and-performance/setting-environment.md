@@ -79,6 +79,11 @@ the required software.
      - username: `Monty Python`
      - password: `hpc1python`
 ![Log in](https://ugc.futurelearn.com/uploads/assets/68/93/68930db0-c0e0-4ed5-bb9e-105557b7e96e.png "Log in")
+7. Hands-on exercises are carried out in the command line terminal which you
+   can open from the launcher panel on the left.
+   ![Starting the
+   terminal](https://ugc.futurelearn.com/uploads/assets/91/b1/91b1efa6-88c8-4702-8920-b03f259dc36c.png
+   "Starting the terminal")
 
 
 # Exercise material
