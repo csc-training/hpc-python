@@ -25,10 +25,7 @@ You can test if you have the prerequisite level of skills and knowledge by
 going through the quiz in the next step.
 
 Second, previous knowledge of high-performance computing is not needed, we
-will discuss the relevant topics as we proceed. However, if you are interested
-in learning more about high-performance computing in general, we recommend the
-upcoming PRACE online course on
-[Supercomputing](https://www.futurelearn.com/courses/supercomputing).
+will discuss the relevant topics as we proceed. 
 
 Third, the course duration is four weeks. Each week we discuss a different
 topic related to Python performance. The main aspects of each topic is covered
@@ -37,6 +34,7 @@ exercises on the topic. At least half of your time should be devoted to the
 exercises, since getting your hands dirty and doing it yourself is simply the
 best way to learn programming.
 
-We provide simple instructions for setting up a programming environment for
-the course in your own laptop/workstation, but we provide also some guidance
-on installing the various Python components in a supercomputing cluster.
+We provide simple instructions for setting up a virtual machine with the
+programming environment for the course in your own laptop/workstation. The
+virtual machine is based on Linux, and in order to carry out the exercises 
+some familiarity with the Linux command line is useful.
