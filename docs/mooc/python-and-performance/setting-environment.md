@@ -62,6 +62,9 @@ the required software.
      - After installation you will be notified that the installation is
        complete and you can already start Oracle VM VirtualBox in that step by
        clicking finish.
+     - In some machines virtualization hardware extension may need to be 
+       enable in BIOS. Some instructions on how to achieve this can be found
+       [here](https://docs.fedoraproject.org/en-US/Fedora/13/html/Virtualization_Guide/sect-Virtualization-Troubleshooting-Enabling_Intel_VT_and_AMD_V_virtualization_hardware_extensions_in_BIOS.html).
 3. Start VirtualBox
 4. Import the Virtual Machine image
      - In the File menu choose Import appliance
