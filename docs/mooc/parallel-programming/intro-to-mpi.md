@@ -50,11 +50,7 @@ interconnect is needed for good performance.
 A special MPI launcher is needed to start a MPI program. Different systems
 use different MPI launchers (depending on the MPI implementation and/or
 queueing system in place), but common ones include: `mpirun`, `mpiexec`,
-`aprun` and `srun`.
-
-[Sisu](sisu.csc.fi) is a Cray system and uses `aprun`, whereas
-[Taito](taito.csc.fi) uses SLURM's default `srun`.
-
+and `srun`. In the virtual machine used in the course we use `mpirun`
 
 ### MPI rank
 
