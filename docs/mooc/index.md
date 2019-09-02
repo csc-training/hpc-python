@@ -16,34 +16,41 @@
 1. Welcome to week 2 (video)
 2. Differences between Python lists and NumPy arrays (video)
 3. [Creating and accessing NumPy arrays](numerical-computing/creating-and-accessing.md)
-4. Hands-on exercises (array-creation, array-slicing, split-combine)
+4. [Hands-on: Array creation](../../numpy/array-creation/)
+5. [Hands-on: Array slicing](../../numpy/array-slicing/)
 
 ## Operating with NumPy arrays
 
-5. [Arithmetics and elementary functions](numerical-computing/simple-operations.md)
-6. [Vectorised operations](numerical-computing/vectorised-operations.md)
-7. [Broadcasting](numerical-computing/broadcasting.md)
-8. Hands-on exercises (broadcast-translation, finite-difference,
-   numerical-integration)
+6. [Arithmetics and elementary functions](numerical-computing/simple-operations.md)
+7. [Vectorised operations](numerical-computing/vectorised-operations.md)
+8. [Hands-on: Finite difference](../../numpy/finite-difference/)
+9. [Hands-on: Numerical integration](../../numpy/integration/)
+10. [Broadcasting](numerical-computing/broadcasting.md)
+11. [Hands-on: Split and combine arrays](../../numpy/split-combine/)
+12. [Hands-on: Translation with broadcasting](../../numpy/broadcast-translation/)
+13. Avoiding explicit loops with NumPy arrays (discussion)
 
 ## NumPy tools
 
-9. [File I/O](numerical-computing/file-io.md)
-10. [Random numbers](numerical-computing/random-numbers.md)
-11. [Linear algebra and polynomials](numerical-computing/linear-algebra.md)
-12. Hands-on exercises (input-output, polynomials, random-numbers,
-    linear-algebra)
+14. [File I/O](numerical-computing/file-io.md)
+15. [Hands-on: Input and output](../../numpy/input-output/)
+16. [Random numbers](numerical-computing/random-numbers.md)
+17. [Hands-on: Random numbers](../../numpy/random-numbers/)
+18. [Linear algebra and polynomials](numerical-computing/linear-algebra.md)
+19. [Hands-on: Linear algebra](../../numpy/linear-algebra/)
 
 ## Deeper view into NumPy
 
-13. [Anatomy of NumPy arrays](numerical-computing/anatomy-of-ndarray.md)
-14. [Temporary arrays](numerical-computing/temporary-arrays.md)
-15. [Speeding up complex expressions with Numexpr](numerical-computing/numexpr.md)
-16. Hands-on exercises (temporary-arrays, numexpr)
+20. [Anatomy of NumPy arrays](numerical-computing/anatomy-of-ndarray.md)
+21. [Temporary arrays](numerical-computing/temporary-arrays.md)
+22. [Hands-on: Temporary arrays](../../numpy/temporary-arrays/)
+23. [Speeding up complex expressions with Numexpr](numerical-computing/numexpr.md)
+24. [Hands-on: Numexpr](../../numpy/numexpr/)
 
 ## Revision
 
-17. [Week 2 summary](numerical-computing/summary.md)
+25. [Week 2 summary](numerical-computing/summary.md)
+26. Limitations of NumPy (discussion)
 
 
 # Using compiled code and libraries
