@@ -69,31 +69,35 @@
 1. Welcome to week 4 (video)
 2. [Parallel programming concepts](parallel-programming/concepts.md)
 3. Processes and threads (video)
-4. Quiz
 
 ## Message passing with Python
 
-5. [Introduction to MPI](parallel-programming/intro-to-mpi.md)
-6. MPI execution and data model (video)
-7. [Case study: Parallel sum](parallel-programming/parallel-sum.md)
-8. Hands-on exercises (hello-world)
+4. [Introduction to MPI](parallel-programming/intro-to-mpi.md)
+5. Execution and data model in MPI (video)
+6. [Case study: Parallel sum](parallel-programming/parallel-sum.md)
+7. [Hands-on: Hello world](../../mpi/hello-world/)
 
 ## Point-to-point communication
 
-9. [MPI communication](parallel-programming/send-receive.md)
-10. [Fast communication of large arrays](parallel-programming/send-receive-array.md)
-11. [Non-blocking communication](parallel-programming/non-blocking.md)
-12. [Communicators](parallel-programming/communicators.md)
-13. Hands-on exercises (message-exchange, message-chain, non-blocking)
+8. [MPI communication](parallel-programming/send-receive.md)
+9. [Fast communication of large arrays](parallel-programming/send-receive-array.md)
+10. [Hands-on: Message exchange](../../mpi/message-exchange/)
+11. [Hands-on: Message chain](../../mpi/message-chain/)
+12. [Non-blocking communication](parallel-programming/non-blocking.md)
+13. [Hands-on: Non-blocking communication](../../mpi/non-blocking/)
+14. [Communicators](parallel-programming/communicators.md)
+15. Communication modes (discussion)
 
 ## Collective communication
 
-14. [Collective communication: one to many](parallel-programming/collectives-1-to-n.md)
-15. [Collective communication: many to one](parallel-programming/collectives-n-to-1.md)
-16. [Collective communication: many to many](parallel-programming/collectives-n-to-n.md)
-17. Hands-on exercises (collectives, heat-equation)
+16. [Collective communication: one to many](parallel-programming/collectives-1-to-n.md)
+17. [Collective communication: many to one](parallel-programming/collectives-n-to-1.md)
+18. [Collective communication: many to many](parallel-programming/collectives-n-to-n.md)
+19. Do you understand collective communication? (quiz)
+20. [Hands-on: Collective operations](../../mpi/collectives/)
 
 ## Revision
 
-18. [Week 4 summary](parallel-programming/summary.md)
+21. [Week 4 summary](parallel-programming/summary.md)
+22. [Bonus hands-on: Parallel heat equation solver](../../mpi/heat-equation/)
 
