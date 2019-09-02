@@ -2,11 +2,30 @@
 
 ## Welcome to the course
 
+1. Welcome to Python in High Performance Computing (video)
+2. [Prerequisities and structure of the course](python-and-performance/prerequisities.md)
+3. How well do you know Python? (quiz)
+4. [Setting up the programming environment](python-and-performance/setting-environment.md)
+
 ## Performance challenges in Python
+
+5. Outline of Python performance issues (video)
+6. [Why are Python programs slow?](python-and-performance/performance-bottlenecks.md)
+7. Experiences about performance of Python programs (discussion)
 
 ## Performance analysis
 
+8. [Where program spends time?](python-and-performance/performance-analysis.md)
+9. [Using applications own timers](python-and-performance/using-own-timers.md)
+10. [Measuring small code snippets with timeit](python-and-performance/using-timeit.md)
+11. Using cProfile (video)
+12. [Introducing heat equation](python-and-performance/heat-equation.md)
+13. [Hands-on: Performance analysis of heat equation solver](../../performance/cprofile/)
+14. Pros and cons of various performance analysis approaches (discussion)
+
 ## Revision
+
+15. [Week 1 summary](python-and-performance/summary.md)
 
 
 # Numerical computing
