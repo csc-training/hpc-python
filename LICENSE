@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2017 CSC - IT Center for Science Ltd.
+Copyright (c) 2019 CSC - IT Center for Science Ltd.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +19,12 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---
+
+All material in the directory 'docs/' and its sub-directories is licensed
+under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
+International (CC-BY-NC-SA 4.0) license.
+
+Full text of the license is available in the file 'docs/LICENSE' and at
+<http://creativecommons.org/licenses/by-nc-sa/4.0/>.

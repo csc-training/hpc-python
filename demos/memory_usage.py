@@ -3,9 +3,9 @@ import os
 
 def maxmem():
     # Check maximum memory from /proc/
-    # Based on Python Cookbook 
+    # Based on Python Cookbook
     # http://code.activestate.com/recipes/286222/
-    # Works on most Linux systems but not in Mac OSX or Windows   
+    # Works on most Linux systems but not in Mac OSX or Windows
 
     _scale = {'kB': 1024.0, 'mB': 1024.0 * 1024.0,
               'KB': 1024.0, 'MB': 1024.0 * 1024.0}
@@ -24,9 +24,16 @@ overhead = maxmem()
 
 a = np.random.random((1024, 1024, 10))
 b = np.random.random((1024, 1024, 10))
-c = a + b 
-# c = 1.2*np.cos(b) + 1.2*np.sin(a) +  (2.0*a + 3.0*b)
+c = a - b
+#c = 2.0 * a - 4.5 * b
+#c = 2.0 * a - 4.5 * b + np.sin(a) - np.cos(b)
+#c = 2.0 * a - 4.5 * b + (np.sin(a) - np.cos(b))
+#c = (np.sin(a) - np.cos(b)) + 2.0 * a - 4.5 * b
 
+#c = 2.0 * a
+#c -= 4.5 * b
+#c += np.sin(a)
+#c -= np.cos(b)
 
 mem = maxmem() - overhead
 
