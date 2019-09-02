@@ -43,7 +43,7 @@
 
 ## Revision
 
-17. Summary of week 2
+17. [Week 2 summary](numerical-computing/summary.md)
 
 
 # Using compiled code and libraries
@@ -88,5 +88,5 @@
 
 ## Revision
 
-18. Summary of week 4
+18. [Week 4 summary](parallel-programming/summary.md)
 
