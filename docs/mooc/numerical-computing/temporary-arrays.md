@@ -52,8 +52,7 @@ c = (numpy.sin(a) + numpy.cos(b)) + 2.0 * a - 4.5 * b
 
 Sometimes it is hard to see how many temporary arrays are needed, but if one
 wants to conserve memory (when working with very, very large arrays), it is
-usually a good idea to do apply operations on an existing array one by one
-instead.
+usually a good idea to apply operations on an existing array one by one:
 
 ~~~python
 c = 2.0 * a
@@ -65,7 +64,7 @@ c += np.cos(b)
 ### Broadcasting and temporary arrays
 
 Broadcasting approaches can also lead to unexpected temporary arrays. For
-example, let use consider the calculation of the pairwise distance of **M**
+example, let us consider the calculation of the pairwise distance of **M**
 points in three dimensions.
 
 Input data is a M x 3 array and output is a M x M array containing the

@@ -9,7 +9,7 @@ polynomial functionality.
 
 # Linear algebra
 
-NumPy includes in-built linear algebra routines that can be quite handy. For
+NumPy includes linear algebra routines that can be quite handy. For
 example, NumPy can calculate matrix and vector products efficiently (`dot`,
 `vdot`), solve eigenproblems (`linalg.eig`, `linalg.eigvals`), solve linear
 systems (`linalg.solve`), and do matrix inversion (`linalg.inv`).

@@ -17,7 +17,7 @@ number of elements remains the same.
 
 ### From existing data
 
-NumPy arrays can be created in several different ways. The simplest ways is
+NumPy arrays can be created in several different ways. The simplest way is
 to use the **array** constructor and provide the data directly as an
 argument. For example, in order to generate a one-dimensional array containing
 the numbers 1,2,3,4 one can use:
@@ -36,7 +36,7 @@ number (e.g. [1, 2, 3.1, 4]) then the array created would have used floating
 point type for all elements.
 
 The first argument of `array()` is the data for the array. It can be a single
-list (or tuple), or a nested list of uniformly sized lists that mimicks a
+list (or tuple), or a nested list of uniformly sized lists that mimics a
 multi-dimensional array.
 
 The second argument of `array()` is the datatype to be used for the array. It
@@ -208,7 +208,7 @@ Simple assignment creates a new reference to an array, just like for any other
 Python object. Thus, if you modify the array using the new reference, the
 changes are visible also via any old reference to the same array.
 
-To make a true copy of an array, one should use the *copy()* method:
+To make a true copy of an array, one should use the `copy()` method:
 
 ~~~python
 a = np.arange(10)
@@ -222,7 +222,7 @@ modifications to the elements in the view are directly reflected in the
 original array. In fact, no real copy is made and as such any manipulation
 will just change the original array.
 
-Once again, to make a true copy, one should use the *copy()* method:
+Once again, to make a true copy, one should use the `copy()` method:
 
 ~~~python
 a = np.arange(10)

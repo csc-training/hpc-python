@@ -168,7 +168,7 @@ different number of dimensions. Also, if one of the dimensions is 1, the array
 is "copied" in that dimension to match the other array.
 
 Examples of how the dimensions of arrays are matched when broadcasting
-**succesfully**:
+**successfully**:
 
 ~~~
     a: 8 x 3
@@ -197,7 +197,7 @@ Examples of **failed** broadcasting due to mismatch(es) in the dimensions:
     b:     5 x 1 x 3  # mismatch in the third from last dimension
 ~~~
 
-It is very easy to make wrong assumptions intuitively, so instead careful
+It is very easy to make wrong assumptions intuitively, so careful
 consideration is always needed when broadcasting.
 
 

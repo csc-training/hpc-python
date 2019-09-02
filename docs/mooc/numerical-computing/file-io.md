@@ -15,9 +15,10 @@ load and store data in a human-readable format.
 Comments and column delimiters are handled automatically, so usually one can
 read any data file in a column layout into a NumPy array.
 
-Assume we the following measurement data in a called `xy-coordinates.dat`. As
-you can see it also contains an invalid data point that is commented out as
-well as one data point with an undefined value (`nan`).
+Assume we have the following measurement data in a file called
+`xy-coordinates.dat`. As you can see it also contains an invalid data
+point that is commented out as well as one data point with an
+undefined value (`nan`). 
 
 ~~~
 # x          y

@@ -11,7 +11,7 @@ loops.
 
 For loops in Python are slow. If one needs to apply a mathematical operation
 on multiple (consecutive) elements of an array, it is always better to use a
-vectorised operation if at all possible.
+vectorised operation if possible.
 
 In practice, a vectorised operation means reframing the code in a manner that
 completely avoids a loop and instead uses e.g. slicing to apply the operation

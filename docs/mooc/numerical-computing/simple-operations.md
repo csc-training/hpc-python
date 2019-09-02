@@ -30,7 +30,7 @@ print(a * a)
 
 NumPy provides also a wide range of elementary mathematical functions (sin,
 cos, exp, sqrt, log, ...) that work with arrays (as well as single values). In
-many ways it can be used as a drop-in replacement for the `math` module.
+many ways NumPy can be used as a drop-in replacement for the `math` module.
 
 ~~~python
 import numpy, math

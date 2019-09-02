@@ -31,7 +31,7 @@ poly = numexpr.evaluate("((.25*x + .75)*x - 1.5)*x - 2")
 
 The expression is enclosed in quotes and will be evaluated using a single
 C-loop. Speed-ups in comparison to NumPy are typically between 0.95 and 4.
-Works best on arrays that do not fit in CPU cache.
+Performance improves normaly most with arrays that do not fit in CPU cache.
 
 Supported operators and functions include e.g.:
 
