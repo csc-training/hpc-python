@@ -9,6 +9,9 @@ language? In this article Dr. Jussi Enkovaara discusses the main causes.
 
 # Why are Python programs slow?
 
+Python is very flexible and dynamic language, but the flexibility comes with
+a price.
+
 Computer programs are nowadays practically always written in high-level
 human readable programming languages, and then translated to the machine
 instructions that processor understands. There are two main approaches on how
