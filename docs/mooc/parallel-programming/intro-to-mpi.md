@@ -24,7 +24,7 @@ MPI program can run on a wide array of computers, from laptops to large
 supercomputers.
 
 From a programmer point of view, MPI is both flexible and comprehensive. It
-contains over 300 procedures, but often only a handfull of procedures are
+contains over 300 procedures, but often only a handful of procedures are
 actually needed in a single program.
 
 MPI contains routines for:
@@ -121,6 +121,12 @@ print("I am rank %d in group of %d processes" % (rank, size))
 ~~~
 
 ### Running the example program
+
+As discussed earlier, MPI program is started with a special
+launcher. When working with Python, the executable that is started is the
+Python interpreter. In the example below, we start four Python
+interpreters which all run then the same *hello.py* program. The
+communication between the programs is faciliated with the MPI function calls. 
 
 ~~~bash
 $ mpirun -np 4 python3 hello.py

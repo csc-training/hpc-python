@@ -57,11 +57,13 @@ elif rank == 1:
 
 ## Sending and receiving data
 
-Python objects can be communicated with the `send()` and `receive()` methods
+Python objects can be communicated with the `send()` and `recv()` methods
 of a communicator. It works for any Python object that can be serialised into
 a byte stream, i.e. any object that can be
 [pickled](https://docs.python.org/3/library/pickle.html). This includes all
-standard Python objects and most derived ones as well.
+standard Python objects and most derived ones as well. The basic
+interfaces (check mpi4py documentation for optional arguments) 
+of the methods are: 
 
 `.send(data, dest)`
   : `data`{.input}
