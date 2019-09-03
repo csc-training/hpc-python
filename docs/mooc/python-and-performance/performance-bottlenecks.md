@@ -1,8 +1,13 @@
+<!-- Title: Why are Python programs slow? -->
+
+<!-- Short description:
+
+Why are Python programs sometimes slower than programs written in another
+language? In this article Dr. Jussi Enkovaara discusses the main causes.
+
+-->
+
 # Why are Python programs slow?
-
-Why are Python programs sometimes slower than programs written in another languages? In this article Dr. Jussi Enkovaara discusses the main causes.
-
-## Performance bottlenecks
 
 Computer programs are nowadays practically always written in high-level
 human readable programming languages, and then translated to the machine
