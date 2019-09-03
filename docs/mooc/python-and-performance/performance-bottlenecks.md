@@ -32,7 +32,9 @@ Python is an interpreted language, and many features that make development
 rapid with Python are a result of that, with the price of reduced performance
 in some cases.
 
-Python is also a very dynamic language. As variables get type only during the
+## Dynamic typing
+
+Python is a very dynamic language. As variables get type only during the
 runtime as values (Python objects) are assigned to them, it is more difficult
 for the interpreter to optimize the execution (in comparison, a compiler can
 make extensive analysis and optimization before the execution). Even though,
@@ -40,6 +42,8 @@ in recent years, there has been a lot of progress in just-in-time (JIT)
 compilation techniques that allow programs to be optimized at runtime, the
 inherent, very dynamic nature of the Python programming language remains one
 of its main performance bottlenecks.
+
+## Flexible data structures
 
 The built-in data structures of Python, such as lists and dictionaries,
 are very flexible, but they are also very generic, which makes them not so
@@ -49,6 +53,8 @@ quite efficient when one needs to process different types of data. However,
 when one is processing only a single type of data (e.g. floating point
 numbers), there is a lot of unnecessary overhead due to generic nature of
 these data structures.
+
+## Multithreading
 
 The performance of a single CPU core has stagnated over the last ten years,
 and as such most of the speedup in modern CPUs is coming from using multiple
