@@ -68,25 +68,23 @@ the required software.
 3. Start VirtualBox
 4. Import the Virtual Machine image
      - In the File menu choose Import appliance
-![Import appliance](https://ugc.futurelearn.com/uploads/assets/04/95/0495c4ee-4e02-48c8-a2ef-0f254f9a036c.png "Import appliance")
+![Import appliance](../../img/import-appliance.png "Import appliance")
      - Select the HPCPython.ova image you downloaded in step 1.
-![Select image](https://ugc.futurelearn.com/uploads/assets/49/8f/498f5176-7962-49ef-b21b-7f6d62c7633a.png "Select image")
+![Select image](../../img/import-appliance-2.png "Select image")
      - Default values for memory and number of CPUs should be OK,
        but you can also increase them a bit depending on your system
-![Appliance settings](https://ugc.futurelearn.com/uploads/assets/31/f5/31f573bd-9824-4a3d-8255-f87b655a4775.png "Appliance settings")
+![Appliance settings](../../img/appliance-settings.png "Appliance settings")
 5. You should now see **HPC Python** image listed in VirtualBox. You can start
    it either by double clicking it or via the `Start` button.
-![Start virtual machine](img src=https://ugc.futurelearn.com/uploads/assets/ff/da/ffda9341-9c0b-4e05-b149-a2da397cf688.png "Start virtual machine")
+![Start virtual machine](../../img/start-vm.png "Start virtual machine")
 6. The system should now boot up. Once you are greeted with a login screen,
    log in with the following credentials:
      - username: `Monty Python`
      - password: `hpc1python`
-![Log in](https://ugc.futurelearn.com/uploads/assets/68/93/68930db0-c0e0-4ed5-bb9e-105557b7e96e.png "Log in")
+![Log in](../../img/login.png "Log in")
 7. Hands-on exercises are carried out in the command line terminal which you
    can open from the launcher panel on the left.
-   ![Starting the
-   terminal](https://ugc.futurelearn.com/uploads/assets/91/b1/91b1efa6-88c8-4702-8920-b03f259dc36c.png
-   "Starting the terminal")
+   ![Starting the terminal](../../img/terminal.png "Starting the terminal")
 
 
 # Exercise material
