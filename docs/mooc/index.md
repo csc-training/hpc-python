@@ -76,9 +76,30 @@
 
 ## Using Cython
 
+1. Welcome to week 3 (video)
+2. [What is Cython?](using-compiled-code/what-is-cython.md)
+3. [Creating Cython modules](using-compiled-code/creating-cython-modules.md)
+4. [Hands-on: Creating a simple Cython extension](../../cython/simple-extension/)
+5. [Using static typing](using-compiled-code/using-static-typing.md)
+6. [Avoiding function call overheads](using-compiled-code/avoiding-function-call-overheads.md)
+7. Where to add types? (video)
+8. [Using NumPy with Cython](using-compiled-code/numpy-and-cython.md)
+9. [Hands-on: Cythonizing heat equation solver](../../cython/heat-equation/)
+10. How much speed up is possible with Cython? (discussion)
+11. [Profiling Cython](using-compiled-code/profiling-cython.md)
+
 ## Interfacing with external libraries
 
+12. [Interfacing C code with CFFI](using-compiled-code/interfacing-c-with-cffi.md)
+13. [Hands-on: Utilizing C code](../../interface/c/)
+14. [Interfacing C code with Cython](using-compiled-code/interfacing-c-with-cython.md)
+15. [Interfacing Fortran code](using-compiled-code/interfacing-fortran.md)
+16. [Hands-on: Utilizing Fortran code](../../interface/fortran/)
+
 ## Revision
+
+17. [Week 3 summary](using-compiled-code/summary.md)
+18. Different ways to use compiled code with Python (discussion)
 
 
 # Parallel programming
