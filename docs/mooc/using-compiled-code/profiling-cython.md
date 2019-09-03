@@ -10,7 +10,7 @@ discuss how to enable profiling of Cython code.
 As the first rule of optimization is to measure performance before starting
 any optimization work, one should have made profile of the pure Python code
 before starting any Cythonization. However, in the next optimization cycle one 
-should profile also Cython code.
+should profile also the Cython code.
 
 By default, Cython code does not show up in the measurements of cProfile. One 
 can, however, enable profiling either for the whole module or for individual
@@ -19,6 +19,11 @@ a global directive at the top of a file:
 
 ~~~ python
 # cython: profile=True
+
+import numpy as np
+
+def myfunc():
+...
 ~~~
 
 In order to enable profiling for a single function, one can include the cython
@@ -45,3 +50,4 @@ cimport cython
 def my_func_not_to_profile():
     ...
 ~~~
+
