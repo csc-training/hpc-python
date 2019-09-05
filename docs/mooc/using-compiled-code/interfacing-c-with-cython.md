@@ -7,21 +7,23 @@ from Python code with the help of Cython.
 
 -->
 
+# Interfacing C code with Cython
+
 As Cython code compiles down to C code, it is relatively straightforward to
 utilize also Cython for interfacing with C.
 
 In order to use C functions and variables from the library, one must provide
-external declarations for them in the Cython .pyx file. While normal `cdef` 
-declarations refer to functions and variables that are defined in the same file
-by adding `extern` keyword one can specify that they are defined elsewhere.
-As an exampla, by having in .pyx file a statement 
+external declarations for them in the Cython .pyx file. While normal `cdef`
+declarations refer to functions and variables that are defined in the same
+file, by adding `extern` keyword one can specify that they are defined
+elsewhere. As an example, by having in a .pyx file the statement
 
 ~~~python
 cdef extern void add(double *a, double *b, double *c, int n)
 ~~~
 
-one could call `add` function within that file. In addition, the actual 
-library or source need to be included in **setup.py** when building the 
+one could call `add` function within that file. In addition, the actual
+library or source needs to be included in **setup.py** when building the
 extension module with Cython.
 
 With the above construct, Cython will add the declaration to the generated
@@ -36,16 +38,17 @@ cdef extern from "mylib.h"
 ~~~
 
 Now, **mylib.h** header is included in the generated .c file, while the
-statements in the following block specify that functions `add` and `subtract` 
-can be used within the .pyx file. It is important to understand that Cython 
-does not itself read the C header file, so you still need to provide 
-declarations from it that you use. 
+statements in the following block specify that functions `add` and `subtract`
+can be used within the .pyx file. It is important to understand that Cython
+does not itself read the C header file, so you still need to provide
+declarations from it that you use.
+
 
 ## Including the library in setup.py
 
-Compared to building simple pure Cython modules, one has to provide some extra 
-information in the **setup.py**. If the code to be interfaced is in library 
-(i.e. .so) one can use the following type of **setup.py**:
+Compared to building simple pure Cython modules, one has to provide some
+extra information in the **setup.py**. If the code to be interfaced is in a
+library (i.e. .so) one can use the following type of **setup.py**:
 
 ~~~python
 from distutils.core import setup, Extension
@@ -72,10 +75,11 @@ ext = Extension("module_name",
 setup(ext_modules=cythonize(ext))
 ~~~
 
+
 ## Passing NumPy arrays from Cython to C
 
-Similarly as when using CFFI to pass NumPy arrays into C, also in case of
-Cython one needs to be able to pass a pointer to the "data area" of array.
+Similarly as when using CFFI to pass NumPy arrays into C, also in the case of
+Cython one needs to be able to pass a pointer to the "data area" of an array.
 For arrays that are declared as type of `ndarray`, Cython supports similar
 `&` syntax as in C:
 
@@ -94,5 +98,3 @@ def add_py(np.ndarray[cnp.double_t,ndim=1] a,
 
     add(&a[0], &b[0], &c[0], len(a))
 ~~~
-
-
