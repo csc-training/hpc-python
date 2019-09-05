@@ -12,6 +12,10 @@ used in various hands-on exercises throughout the course
 Heat (or diffusion) equation is a partial differential equation that
 describes how the temperature varies in space over time.
 
+The numerical solution of the heat equation contains performance aspects that
+are present also in many other problems and, as such, the heat equation is
+used as an example in several hands-on exercises throughout the course.
+
 The heat equation can be written as
 
 $$
@@ -42,6 +46,9 @@ $$
 \Delta t < \frac{1}{2 \alpha} \frac{(\Delta x \Delta y)^2}{(\Delta x)^2 (\Delta y)^2}
 $$
 
-The numerical solution of the heat equation contains performance aspects that
-are present also in many other problems and, as such, the heat equation is
-used as an example in several hands-on exercises throughout the course.
+The image below shows a result of numerical simulation where the initial state 
+is a cold object in hot surroundings (for us Finns this would be a soda bottle
+in the sauna) and we follow the time evolution for few hundres of time steps.
+
+![Numerical solution](../../img/heat.png)
+
