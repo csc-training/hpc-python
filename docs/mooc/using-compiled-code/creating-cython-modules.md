@@ -1,15 +1,17 @@
 <!-- Title: Creating Cython modules -->
 
-!-- Short description:
+<!-- Short description:
 
 In this article we show how to turn Python modules into Cythonized ones.
 
 -->
 
-Normally, when working with Cython one does not Cythonize the whole program but
-only selected modules.
+# Creating Cython modules
 
-Let's have a look for a very simple Python module which we could store in 
+Normally, when working with Cython one does not Cythonize the whole program
+but only selected modules.
+
+Let's have a look at a very simple Python module that we could store in
 **my_module.py**:
 
 ~~~python
@@ -18,7 +20,7 @@ def add(x, y):
     return result
 ~~~
 
-The module would then be used from other Python code for example as:
+The module would then be used from some other Python code for example as:
 
 ~~~python
 from my_module import add
@@ -26,24 +28,24 @@ from my_module import add
 z = add(4, 5)
 ~~~
 
-Cython can transform the Python code into equivalent C-code utilizing Python API
-as:
+Cython can transform the Python code into an equivalent C-code utilizing the
+Python API as:
 
 ~~~bash
 $ cython3 my_module.py
 ~~~
 
-The result is a file **my_module.c**, which can be then compiled into Python 
-C-extension. One can investigate the C-file, however, it is not meant for humans
-to read, and the length of file is over 3000 lines!
+The result is a file **my_module.c**, which can then be compiled into a
+Python C-extension. One can investigate the C-file, but it is not really
+meant for humans to read, and the length of the file is over 3000 lines!
 
-Normally, Cython language extensions are used in the modules so that they are no
-longer valid Python, and therefor one normally uses **.pyx** ending in the file
-names of Cython modules, i.e. **my_module.py** would be made into 
-**my_module.pyx**.
+Normally, Cython language extensions are used in the modules so that they are
+no longer valid Python. Therefore one normally uses **.pyx** suffix in the
+file names of Cython modules to indicate this, i.e. **my_module.py** would be
+made into **my_module.pyx**.
 
 In order to make building of C-extensions from Cython easier, one does not
-normally use Cython directly from the command line, but via Python distutils 
+normally use Cython directly from the command line but via Python distutils
 **setup.py** build file:
 
 ~~~python
@@ -55,10 +57,10 @@ setup(
 )
 ~~~
 
-In larger real-world applications, this setup file could contain several 
+In larger real-world applications, this setup file could contain several
 modules.
 
-One can now create the C-extension module with
+One can then create the C-extension module with:
 
 ~~~bash
 $ python3 setup.py build_ext --inplace
@@ -70,8 +72,8 @@ gcc -pthread -Wno-unused-result -Wsign-compare -DDYNAMIC_ANNOTATIONS_ENABLED=1 -
 gcc -pthread -shared ...
 ~~~
 
-where the --inplace option places the C-extension in current directory. 
-The end result is a .so file containing the C-extension which can be imported 
+where the `--inplace` option places the C-extension in the current directory.
+The end result is a .so file containing the C-extension that can be imported
 and used just the same as the pure Python module:
 
 ~~~python
@@ -80,12 +82,9 @@ from my_module import add
 z = add(4, 5)
 ~~~
 
-As the C-extension implements the fully dynamic Python code (just using the 
+As the C-extension implements the fully dynamic Python code (just using the
 Python C-API), transforming the pure Python module into C-extension gives
-normally only very modest speedups. However, as we will discuss in the 
-following steps, by adding Cython language extensions into .pyx (so it is no
-longer valid Python code) it is possible to achieve much more significant 
-performance improvements. 
-
-
-
+normally only very modest speedups. However, as we will discuss in the
+following steps, by adding Cython language extensions into the code (so it is
+no longer valid Python code) it is possible to achieve much more significant
+performance improvements.
