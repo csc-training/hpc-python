@@ -42,7 +42,7 @@ t1 = time.process_time()
 print("Time spent", t1 - t0)
 ~~~
 
-~~~
+~~~bash
 $ python timing.py
 Time spent 0.231697958
 ~~~
