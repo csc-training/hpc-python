@@ -50,9 +50,9 @@ are very flexible, but they are also very generic, which makes them not so
 well suited for extensive numerical computations. Actually, the implementation
 of the data structures (e.g. in the standard CPython interpreter) is often
 quite efficient when one needs to process different types of data. However,
-when one is processing only a single type of data such, for example only 
-floating point numbers, there is a lot of unnecessary overhead due to generic 
-nature of these data structures.
+when one is processing only a single type of data, for example only
+floating point numbers, there is a lot of unnecessary overhead due to the
+generic nature of these data structures.
 
 ## Multithreading
 
