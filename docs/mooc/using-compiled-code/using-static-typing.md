@@ -119,8 +119,11 @@ types. More information can be found in the
 
 ## Static typing in Mandelbrot kernel
 
-Let's investigate possible speed-up by introducing static typing to the
-**kernel** function in the **mandelbrot.pyx** module.
+We did earlier a performance analysis of Mandelbrot fractal which revealed 
+that the **kernel** function in module **mandelbrot.py** was the most time
+critical one. Thus,  let's make **mandelbrot.py** into Cython module
+**mandelbrot.pyx** and introducing static typing to the function
+**kernel**.
 
 Pure Python version was:
 
@@ -151,7 +154,8 @@ def kernel(double zr, double zi, double cr, double ci, double lim, int cutoff):
     return count
 ~~~
 
-When measuring now the performance, we obtain the following results:
+When comparing the performance of pure Python and Cythonized versions, 
+we obtain the following results:
 
   - Pure Python:  0.57 s
   - Static type declarations in the kernel: 14 ms

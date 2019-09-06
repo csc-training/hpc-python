@@ -23,11 +23,11 @@ cdef extern void add(double *a, double *b, double *c, int n)
 ~~~
 
 one could call `add` function within that file. In addition, the actual
-library or source needs to be included in **setup.py** when building the
-extension module with Cython.
+library or source implementing the function needs to be included in 
+**setup.py** when building the extension module with Cython.
 
 With the above construct, Cython will add the declaration to the generated
-.c file. However, when using libraries it is preferrable to have the actual
+.c file. However, when using libraries it is preferable to have the actual
 library header included in the generated file. This can be achieved with the
 following construct:
 

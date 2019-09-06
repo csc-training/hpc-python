@@ -174,3 +174,6 @@ bptr = ffi.cast("double *", ffi.from_buffer(b))
 
 lib.add(aptr, bptr, cptr, len(a))
 ~~~
+
+Beware that `aptr`, `bptr` and `cptr` resemble now in many ways C pointers,
+and if you deal carelessly with them you can get Segmentation faults!
