@@ -8,7 +8,7 @@ In this article we show how to speed up complex expressions with Numexpr.
 
 # Numexpr
 
-Complex expressions with large NumPy arrays present a bit of catch-22
+Complex expressions with large NumPy arrays present a bit of a catch-22
 situation performance-wise.
 
 On the one hand, using a one-liner for the expression is not a good idea due
