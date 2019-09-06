@@ -33,6 +33,32 @@ offset = sum(s[k] * n[k] for k in range(N))
 
 ![](../../img/ndarray-in-memory-offset.png)
 
+When one assigns a variable to a slice of another array 
+
+~~~python
+b = a[1:8:2, 3:12:3]
+~~~
+
+the variable `b` has the same raw data as `a`, but only different
+strides. Thus, changing the contents of `b` will also change the contents of
+`a`, i.e. `b` is view to `a` as discussed earlier.
+
+In addition to slicing NumPy allows indexing also with integer arrays or
+Boolean masks:
+
+~~~python
+a = np.arange(0.0, 1.0, 0.1)
+ind = np.array([1, 1, 0, 4])
+b = a[ind] # b = array([0.1, 0.1, 0. , 0.4])
+
+m = a > 0.5
+b = a[m] # b = array([0.6, 0.7, 0.8, 0.9])
+~~~
+
+In these cases `b` cannot be created just by modifying the strides, so `b` 
+will hold a copy of the data in `a`. Now, modifications of `b` are not
+affecting `a`.
+
 
 ## Attributes of an ndarray
 
