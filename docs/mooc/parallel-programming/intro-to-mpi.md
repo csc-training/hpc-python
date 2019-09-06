@@ -11,17 +11,17 @@ for distributed parallel computing called MPI and its key concepts.
 # Message passing interface
 
 Message Passing Interface (MPI) is an application programming interface (API)
-for communication between separate processes. The
-[MPI standard](https://www.mpi-forum.org/docs/) defines C and
-Fortran interfaces, but an unofficial Python interface is provided by
-[MPI for Python](https://mpi4py.readthedocs.io) (mpi4py).
+for communication between separate processes.
 
 MPI programs are extremely portable and can have good performance even on the
 largest of supercomputers. MPI is the most widely used approach for
 distributed parallel computing with compilers and libraries available on all
 typical computer architectures. Due to the widely available support, the same
 MPI program can run on a wide array of computers, from laptops to large
-supercomputers.
+supercomputers. 
+The [MPI standard](https://www.mpi-forum.org/docs/) defines C and
+Fortran interfaces, but an unofficial Python interface is provided by
+[MPI for Python](https://mpi4py.readthedocs.io) (mpi4py).
 
 From a programmer point of view, MPI is both flexible and comprehensive. It
 contains over 300 procedures, but often only a handful of procedures are

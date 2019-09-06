@@ -11,7 +11,7 @@ from Python code with the help of the CFFI package.
 
 Many high-performance libraries have nowadays also Python interfaces, and
 can thus be used directly from Python code. However, sometimes one might want
-to utilize a library that does not have a Python interface, or uses own code
+to utilize a library that does not have a Python interface, or use own code
 written in C or Fortran.
 
 Python standard defines a
