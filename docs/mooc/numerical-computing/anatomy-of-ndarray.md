@@ -33,7 +33,7 @@ offset = sum(s[k] * n[k] for k in range(N))
 
 ![](../../img/ndarray-in-memory-offset.png)
 
-When one assigns a variable to a slice of another array 
+When one assigns a variable to a slice
 
 ~~~python
 b = a[1:8:2, 3:12:3]
