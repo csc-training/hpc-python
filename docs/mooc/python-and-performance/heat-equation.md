@@ -46,9 +46,11 @@ $$
 \Delta t < \frac{1}{2 \alpha} \frac{(\Delta x \Delta y)^2}{(\Delta x)^2 (\Delta y)^2}
 $$
 
-The image below shows a result of numerical simulation where the initial state 
-is a cold object in hot surroundings (for us Finns this would be a soda bottle
-in the sauna) and we follow the time evolution for few hundres of time steps.
+The image below shows a result of numerical simulation where the initial state
+is a cold object in a hot surrounding (for us Finns this would be a soda bottle
+in a sauna) and we follow the time evolution for few hundres of time steps.
 
 ![Numerical solution](../../img/heat.png)
 
+Are you familiar with any other problems that have a similar numerical
+solution?
