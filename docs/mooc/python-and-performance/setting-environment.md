@@ -10,7 +10,7 @@ this course and download the exercise material.
 # Software
 
 In order to carry out the hands-on programming exercises, you need a working
-Python environment that contains a selection Python packages for scientific
+Python environment that contains a selection of Python packages for scientific
 and high-performance computing.
 
 The following software will be used in this course:
@@ -63,7 +63,7 @@ the required software.
        complete and you can already start Oracle VM VirtualBox in that step by
        clicking finish.
      - In some machines virtualization hardware extension may need to be 
-       enable in BIOS. Some instructions on how to achieve this can be found
+       enabled in BIOS. Some instructions on how to achieve this can be found
        [here](https://docs.fedoraproject.org/en-US/Fedora/13/html/Virtualization_Guide/sect-Virtualization-Troubleshooting-Enabling_Intel_VT_and_AMD_V_virtualization_hardware_extensions_in_BIOS.html).
 3. Start VirtualBox
 4. Import the Virtual Machine image
@@ -86,6 +86,10 @@ the required software.
    can open from the launcher panel on the left.
    ![Starting the terminal](../../img/terminal.png "Starting the terminal")
 
+     - There are several standard text editors (gedit, nano, emacs, vim)
+       available, if you are not familiar with any of these we recommend 
+       starting with *gedit*.
+
 
 # Exercise material
 
@@ -103,15 +107,24 @@ or to the Virtual Machine:
 
 1. **Recommended approach**: Fork the GitHub repository and clone your fork
      - You need to have a GitHub user account for this option
-     - After forking the repository (Fork button in the top right corner),
-       clone your fork e.g. with the command:
+     - Go to course repository in
+       [GitHub](https://github.com/csc-training/hpc-python) and **Sign in**
+     - Next, **Fork** the repository via the button in the top right corner.
+     - After forking the repository, open the Terminal and clone your fork 
+       with the command (using your own GitHub username):
+
        `git clone https://github.com/my-github-username/hpc-python.git`
+
        An easy way to get the URL for cloning, is to copy it from the green
        **Clone or download** button on the Github page of your fork.
-     - You can now push back to GitHub any work you do during the course
+     - No further usage of git is required in the course, but if you are 
+       familiar with it we strongly recommend *committing* often and *pushing*
+       your work back to your own GitHub.
 2. Clone the repository directly
-     - You can clone the repository directly with the command:
+     - Open the Terminal and clone the repository directly with the command:
+
        `git clone https://github.com/csc-training/hpc-python.git`
+
      - However, with this option, any changes you make will only be available
        locally and can not be pushed back to Github
 3. (Not recommended): If needed, you can also download all the material via

@@ -21,7 +21,7 @@ end of the region and by subtracting the two values one obtains the time spent
 in the region.
 
 Python standard library has a **time** module which provides various
-time-related function. In particular the `time.process_time` function can be
+time-related functions. In particular the `time.process_time` function can be
 used for measuring a specific region:
 
 ~~~python

@@ -50,14 +50,14 @@ are very flexible, but they are also very generic, which makes them not so
 well suited for extensive numerical computations. Actually, the implementation
 of the data structures (e.g. in the standard CPython interpreter) is often
 quite efficient when one needs to process different types of data. However,
-when one is processing only a single type of data (e.g. floating point
-numbers), there is a lot of unnecessary overhead due to generic nature of
-these data structures.
+when one is processing only a single type of data such, for example only 
+floating point numbers, there is a lot of unnecessary overhead due to generic 
+nature of these data structures.
 
 ## Multithreading
 
 The performance of a single CPU core has stagnated over the last ten years,
-and as such most of the speedup in modern CPUs is coming from using multiple
+and as such most of the speed-up in modern CPUs is coming from using multiple
 CPU cores, i.e. parallel processing. Parallel processing is normally based
 either on multiple threads or multiple processes. Unfortunately, the memory
 management of the standard CPython interpreter is not thread-safe, and it uses
