@@ -84,7 +84,7 @@ z = add(4, 5)
 
 As the C-extension implements the fully dynamic Python code (just using the
 Python C-API), transforming the pure Python module into C-extension gives
-normally only very modest speedups. However, as we will discuss in the
+normally only very modest speed-ups. However, as we will discuss in the
 following steps, by adding Cython language extensions into the code (so it is
 no longer valid Python code) it is possible to achieve much more significant
 performance improvements.

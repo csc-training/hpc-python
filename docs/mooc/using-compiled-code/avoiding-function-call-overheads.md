@@ -97,4 +97,4 @@ results:
   - Static type declarations in the kernel: 14 ms
   - Kernel as C-function: 9.6 ms
 
-In this case the speedup is not so drastic, but still a respectable 1.5.
+In this case the speed-up is not so drastic, but still a respectable 1.5.

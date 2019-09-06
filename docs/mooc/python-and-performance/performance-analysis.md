@@ -31,8 +31,8 @@ optimize the program. It is very typical that a program spents most of the
 time only in a small part of the program as exemplified by the common
 **90/10** rule: **90% of time is spent in 10% of the source code**. To
 illustrate this rule, speeding up the 10% part by a factor of 1000 results
-only in a 10% speedup for the program, while speeding up the 90% part by a
-factor of 10 gives a 500% speedup. The actual ratios differ case by case, but
+only in a 10% speed-up for the program, while speeding up the 90% part by a
+factor of 10 gives a 500% speed-up. The actual ratios differ case by case, but
 the general pattern is common.
 
 Thus, it is clear that when optimizing one should focus only in the
