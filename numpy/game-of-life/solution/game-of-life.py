@@ -52,11 +52,12 @@ opt, args = parser.parse_args()
 board = initialize(opt.dimension, opt.shape)
 
 plt.ion()
-plt.hold(False)
+plt.gca().clear()
 plt.imshow(board, cmap = plt.cm.prism)
 # pl.savefig('gof_initial.png')
 for iter in range(opt.niter):
     board = update(board)
+    plt.gca().clear()
     plt.imshow(board, cmap = plt.cm.prism)
     plt.title('Generation {0}'.format(iter))
     plt.draw()

@@ -31,7 +31,7 @@ def init_fields(filename):
     return field, field0
 
 def write_field(field, step):
-    plt.hold(False)
+    plt.gca().clear()
     plt.imshow(field)
     plt.axis('off')
     plt.savefig('heat_{0:03d}.png'.format(step))
