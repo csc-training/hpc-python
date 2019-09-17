@@ -170,7 +170,7 @@ c = np.zeros_like(a)
 # Pointer objects need to be passed to library
 aptr = ffi.cast("double *", ffi.from_buffer(a))
 bptr = ffi.cast("double *", ffi.from_buffer(b))
-bptr = ffi.cast("double *", ffi.from_buffer(b))
+cptr = ffi.cast("double *", ffi.from_buffer(c))
 
 lib.add(aptr, bptr, cptr, len(a))
 ~~~
