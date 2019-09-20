@@ -20,7 +20,7 @@ time. [Collective communication](one-to-many.md) will be discussed in more
 detail later, but let us focus now on sending and receiving data between two
 processes.
 
-![](../../img/communication-schematic.png)
+![](../../img/communication-schematic2.png)
 
 
 # Point-to-point communication
