@@ -99,23 +99,26 @@ print(b)
 # output: [-4.5  -2.25  0.    2.25  4.5]
 ~~~
 
-One can also create an array of a given shape and initialise it to zeros or
-ones using the handy functions **zeros** or **ones**.
+One can also create an array of a given shape and initialise it to zeros, 
+ones , or arbitrary value using the handy functions **zeros**,  **ones**, or 
+**full**.
 
 ~~~python
 c = numpy.zeros((4, 6), float)
 d = numpy.ones((2, 4))
+e = numpy.full((3, 2), 4.2)
 
 print(c.shape)
 print(d)
+print(e)
 # output:
 #   (4, 6)
 #   [[ 1.  1.  1.  1.]
 #    [ 1.  1.  1.  1.]]
+#   [[4.2 4.2]
+#    [4.2 4.2]
+#    [4.2 4.2]]
 ~~~
-
-To initialise to another value than 1, one can simply multiply the array
-created by `ones()` with the desired value.
 
 One can also create a truly empty array by using the function **empty**. This
 will create an array and allocate memory for it, but not assign any values to
@@ -123,6 +126,17 @@ it. In practice, this means that the values of an empty array are unspecified
 (whatever happened to be in the computer memory allocated to the array). Thus,
 if one uses `empty`, it is crucial to always assign values to all the
 elements before trying to use them.
+
+Sometimes one would like to create an array with the same shape as an existing
+array. In this case one can utilize the functions **zeros_like**, 
+**ones_like**, **full_like** and **empty_like**:
+
+~~~python
+a = numpy.zeros((4, 6), float)
+b = numpy.empty_like(a)
+c = numpy.ones_like(a)
+d = numpy.full_like(a, 9.1)
+~~~
 
 In addition to numbers, NumPy supports also storing non-numerical data, e.g.
 strings. For strings, the largest element determines the item size, so in
