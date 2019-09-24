@@ -163,7 +163,7 @@ quite simple, but in practice quite hard to follow. Dimensions of the two
 arrays are compared (starting from the trailing dimensions) and are deemed
 compatible if either one of them is 1 or if they are equal.
 
-The complexity starts to creep in with fact that the two arrays can also have
+The complexity starts to creep in with the fact that two arrays can also have
 different number of dimensions. Also, if one of the dimensions is 1, the array
 is "copied" in that dimension to match the other array.
 
