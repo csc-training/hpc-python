@@ -12,7 +12,7 @@ lang:   en
 - Numpy adds a new **array** data type
     - static, multidimensional
     - fast processing of arrays
-    - some linear algebra, random numbers
+    - tools for linear algebra, random numbers, *etc.*
 
 
 # Numpy arrays
@@ -24,20 +24,20 @@ lang:   en
 
 # Python list vs. NumPy array
 
-TODO: insert pic
+![](img/list-vs-array.svg)
 
 
 # Creating numpy arrays
 
 From a list:
 ```python
->>> import numpy as np
->>> a = np.array((1, 2, 3, 4), float)
+>>> import numpy
+>>> a = numpy.array((1, 2, 3, 4), float)
 >>> a
 array([ 1., 2., 3., 4.])
 
 >>> list1 = [[1, 2, 3], [4,5,6]]
->>> mat = np.array(list1, complex)
+>>> mat = numpy.array(list1, complex)
 >>> mat
 array([[ 1.+0.j, 2.+0.j, 3.+0.j],
        [ 4.+0.j, 5.+0.j, 6.+0.j]])
@@ -50,29 +50,58 @@ array([[ 1.+0.j, 2.+0.j, 3.+0.j],
 ```
 
 
-# Creating numpy arrays
+# Helper functions for creating arrays: 1
 
-More ways for creating arrays:
+- `arange` and `linspace` can generate ranges of numbers:
+
 ```python
->>> import numpy as np
->>> a = np.arange(10)
+>>> a = numpy.arange(10)
 >>> a
 array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
 
->>> b = np.linspace(-4.5, 4.5, 5)
+>>> b = numpy.arange(0.1, 0.2, 0.02)
 >>> b
+array([0.1 , 0.12, 0.14, 0.16, 0.18])
+
+>>> c = numpy.linspace(-4.5, 4.5, 5)
+>>> c
 array([-4.5 , -2.25, 0. , 2.25, 4.5 ])
-
->>> c = np.zeros((4, 6), float)
->>> c.shape
-(4, 6)
-
->>> d = np.ones((2, 4))
->>> d
-array([[ 1., 1., 1., 1.],
-       [ 1., 1., 1., 1.]])
 ```
 
+# Helper functions for creating arrays: 2
+
+- array with given shape initialized to `zeros`, `ones` or arbitrary
+  value (`full`):
+
+```python
+>>> a = numpy.zeros((4, 6), float)
+>>> a.shape
+(4, 6)
+
+>>> b = numpy.ones((2, 4))
+>>> b
+array([[ 1., 1., 1., 1.],
+       [ 1., 1., 1., 1.]])
+	   
+>>> c = numpy.full((2, 3), 4.2)
+>>> c
+array([[4.2, 4.2, 4.2],
+       [4.2, 4.2, 4.2]])
+```
+
+- Empty array (no values assigned) with `empty`
+
+# Helper functions for creating arrays: 3
+
+- Similar arrays as an existing one with `zeros_like`, `ones_like`, 
+  `full_like` and `empty_like`:
+
+```python
+>>> a = numpy.zeros((4, 6), float)
+>>> b = numpy.empty_like(a)
+>>> c = numpy.ones_like(a)
+>>> d = numpy.full_like(a, 9.1)
+```
 
 # Non-numeric data
 
@@ -80,7 +109,7 @@ array([[ 1., 1., 1., 1.],
   element determines the item size)
 
 ```python
->>> a = np.array(['foo', 'foo-bar'])
+>>> a = numpy.array(['foo', 'foo-bar'])
 >>> a
 array(['foo', 'foo-bar'], dtype='|U7')
 ```
@@ -89,28 +118,33 @@ array(['foo', 'foo-bar'], dtype='|U7')
 
 ```python
 >>> dna = 'AAAGTCTGAC'
->>> a = np.array(dna, dtype='c')
+>>> a = numpy.array(dna, dtype='c')
 >>> a
 array([b'A', b'A', b'A', b'G', b'T', b'C', b'T', b'G', b'A', b'C'],
       dtype='|S1')
 ```
 
 
-# Indexing of arrays
+# Accessing arrays
+
+<div class="column">
+- Simple indexing:
 
 ```python
->>> mat = np.array([[1, 2, 3], [4, 5, 6]])
+>>> mat = numpy.array([[1, 2, 3], [4, 5, 6]])
 >>> mat[0,2]
 3
 
 >>> mat[1,-2]
 5
 ```
+</div>
 
-# Slicing of arrays
+<div class="column">
+- Slicing:
 
 ```python
->>> a = np.arange(10)
+>>> a = numpy.arange(10)
 >>> a[2:]
 array([2, 3, 4, 5, 6, 7, 8, 9])
 
@@ -124,12 +158,14 @@ array([0, -1, -1, 3, 4, 5, 6, 7, 8, 9])
 >>> a[1:7:2]
 array([1, 3, 5])
 ```
-
+</div>
 
 # Slicing of arrays in multiple dimensions
 
+- Multidimensional arrays can be sliced along multiple dimensions
+- Values can be assigned to only part of the array
 ```python
->>> a = np.zeros((4, 4))
+>>> a = numpy.zeros((4, 4))
 >>> a[1:3, 1:3] = 2.0
 >>> a
 array([[ 0., 0., 0., 0.],
@@ -143,10 +179,10 @@ array([[ 0., 0., 0., 0.],
 
 - Simple assignment creates references to arrays
 - Slicing creates "views" to the arrays
-- Use copy() for real copying of arrays
+- Use `copy()` for real copying of arrays
 
 ```python
-a = np.arange(10)
+a = numpy.arange(10)
 b = a              # reference, changing values in b changes a
 b = a.copy()       # true copy
 
@@ -157,10 +193,10 @@ c = a[1:4].copy()  # true copy of subarray
 
 # Array manipulation
 
-- reshape : change the shape of array
+- `reshape` : change the shape of array
 
 ```python
->>> mat = np.array([[1, 2, 3], [4, 5, 6]])
+>>> mat = numpy.array([[1, 2, 3], [4, 5, 6]])
 >>> mat
 array([[1, 2, 3],
        [4, 5, 6]])
@@ -171,7 +207,7 @@ array([[1, 2],
        [5, 6]])
 ```
 
-- ravel : flatten array to 1-d
+- `ravel` : flatten array to 1-d
 
 ```python
 >>> mat.ravel()
@@ -181,26 +217,26 @@ array([1, 2, 3, 4, 5, 6])
 
 # Array manipulation
 
-- concatenate : join arrays together
+- `concatenate` : join arrays together
 
 ```python
->>> mat1 = np.array([[1, 2, 3], [4, 5, 6]])
->>> mat2 = np.array([[7, 8, 9], [10, 11, 12]])
->>> np.concatenate((mat1, mat2))
+>>> mat1 = numpy.array([[1, 2, 3], [4, 5, 6]])
+>>> mat2 = numpy.array([[7, 8, 9], [10, 11, 12]])
+>>> numpy.concatenate((mat1, mat2))
 array([[ 1, 2, 3],
        [ 4, 5, 6],
        [ 7, 8, 9],
        [10, 11, 12]])
 
->>> np.concatenate((mat1, mat2), axis=1)
+>>> numpy.concatenate((mat1, mat2), axis=1)
 array([[ 1, 2, 3,  7,  8,  9],
        [ 4, 5, 6, 10, 11, 12]])
 ```
 
-- split : split array to N pieces
+- `split` : split array to N pieces
 
 ```python
->>> np.split(mat1, 3, axis=1)
+>>> numpy.split(mat1, 3, axis=1)
 [array([[1], [4]]), array([[2], [5]]), array([[3], [6]])]
 ```
 
@@ -208,10 +244,10 @@ array([[ 1, 2, 3,  7,  8,  9],
 # Array operations
 
 - Most operations for numpy arrays are done element-wise
-  (+  -  \*  /  \*\*)
+  (`+`, `-`,  `*`,  `/`,  `**`)
 
 ```python
->>> a = np.array([1.0, 2.0, 3.0])
+>>> a = numpy.array([1.0, 2.0, 3.0])
 >>> b = 2.0
 >>> a * b
 array([ 2., 4., 6.])
@@ -255,19 +291,19 @@ TypeError: only length-1 arrays can be converted to Python scalars
 - Numpy provides functions for reading data from file and for writing data
   into the files
 - Simple text files
-    - numpy.loadtxt
-    - numpy.savetxt
+    - `numpy.loadtxt`
+    - `numpy.savetxt`
     - Data in regular column layout
     - Can deal with comments and different column delimiters
 
 
 # Random numbers
 
-- The module numpy.random provides several functions for constructing
+- The module `numpy.random` provides several functions for constructing
   random arrays
-    - random: uniform random numbers
-    - normal: normal distribution
-    - choice: random sample from given array
+    - `random`: uniform random numbers
+    - `normal`: normal distribution
+    - `choice`: random sample from given array
     - ...
 
 ```python
@@ -276,7 +312,7 @@ TypeError: only length-1 arrays can be converted to Python scalars
 array([[ 0.02909142, 0.90848 ],
        [ 0.9471314 , 0.31424393]])
 
->>> rnd.choice(np.arange(4), 10)
+>>> rnd.choice(numpy.arange(4), 10)
 array([0, 1, 1, 2, 1, 1, 2, 0, 2, 3])
 ```
 
@@ -291,10 +327,10 @@ array([0, 1, 1, 2, 1, 1, 2, 0, 2, 3])
     - Roots of polynomial: `numpy.roots`
 
 ```python
->>> x = np.linspace(-4, 4, 7)
+>>> x = numpy.linspace(-4, 4, 7)
 >>> y = x**2 + rnd.random(x.shape)
 >>>
->>> p = np.polyfit(x, y, 2)
+>>> p = numpy.polyfit(x, y, 2)
 >>> p
 array([ 0.96869003, -0.01157275, 0.69352514])
 ```
@@ -308,12 +344,12 @@ array([ 0.96869003, -0.01157275, 0.69352514])
 - Linear systems and matrix inversion: `linalg.solve`, `linalg.inv`
 
 ```python
->>> A = np.array(((2, 1), (1, 3)))
->>> B = np.array(((-2, 4.2), (4.2, 6)))
->>> C = np.dot(A, B)
+>>> A = numpy.array(((2, 1), (1, 3)))
+>>> B = numpy.array(((-2, 4.2), (4.2, 6)))
+>>> C = numpy.dot(A, B)
 >>>
->>> b = np.array((1, 2))
->>> np.linalg.solve(C, b) # solve C x = b
+>>> b = numpy.array((1, 2))
+>>> numpy.linalg.solve(C, b) # solve C x = b
 array([ 0.04453441, 0.06882591])
 ```
 
@@ -338,7 +374,7 @@ array([ 0.04453441, 0.06882591])
     - indexing scheme: how to locate an element
     - data type descriptor: how to interpret an element
 
-TODO: add pic
+![](img/ndarray-in-memory.svg){.center width=50%}
 
 
 # NumPy indexing
@@ -347,13 +383,17 @@ TODO: add pic
   array in a 1-dimensional block
 - NumPy uses **striding** where N-dimensional index ($n_0, n_1, ..., n_{N-1}$)
   corresponds to offset from the beginning of 1-dimensional block
+  
+$$
+offset = \sum_{k=0}^{N-1} s_k n_k, s_k \text{ is stride in dimension k}
+$$
 
-TODO: add pic 
 
+![](img/ndarray-in-memory-offset.svg){.center width=50%}
 
 # ndarray attributes
 
-`a = np.array(...)`
+`a = numpy.array(...)`
   : `a.flags`
     : various information about memory layout
 
@@ -376,11 +416,11 @@ TODO: add pic 
   boolean)
 
 ```python
->>> x = np.arange(10,1,-1)
+>>> x = numpy.arange(10,1,-1)
 >>> x
 array([10, 9, 8, 7, 6, 5, 4, 3, 2])
 
->>> x[np.array([3, 3, 1, 8])]
+>>> x[numpy.array([3, 3, 1, 8])]
 array([7, 7, 9, 2])
 ```
 
@@ -402,21 +442,26 @@ array([10, 9, 8])
 
 - `for` loops in Python are slow
 - Use "vectorized" operations when possible
-- Example: difference  (TODO: add pic)
+- Example: difference
     - for loop is ~80 times slower!
 
+<div class=column>
 ```python
 # brute force using a for loop
-arr = np.arange(1000)
-dif = np.zeros(999, int)
+arr = numpy.arange(1000)
+dif = numpy.zeros(999, int)
 for i in range(1, len(arr)):
     dif[i-1] = arr[i] - arr[i-1]
 
 # vectorized operation
-arr = np.arange(1000)
+arr = numpy.arange(1000)
 dif = arr[1:] - arr[:-1]
 ```
+</div>
 
+<div class=column>
+![](img/vectorised-difference.svg){.center width=90%}
+</div>
 
 # Broadcasting
 
@@ -448,13 +493,13 @@ array([[ 7., 22.],
 
 ```python
 # array containing 3d coordinates for 100 points
-points = np.random.random((100, 3))
-origin = np.array((1.0, 2.2, -2.2))
+points = numpy.random.random((100, 3))
+origin = numpy.array((1.0, 2.2, -2.2))
 dists = (points - origin)**2
-dists = np.sqrt(np.sum(dists, axis=1))
+dists = numpy.sqrt(numpy.sum(dists, axis=1))
 
 # find the most distant point
-i = np.argmax(dists)
+i = numpy.argmax(dists)
 print(points[i])
 ```
 
@@ -465,18 +510,16 @@ print(points[i])
   temporary arrays
 - Memory consumption can be higher than expected
 
-```python
-a = np.random.random((1024, 1024, 50))
-b = np.random.random((1024, 1024, 50))
+```{.python emphasize=5:5-5:11,5:15-5:21}
+a = numpy.random.random((1024, 1024, 50))
+b = numpy.random.random((1024, 1024, 50))
 
 # two temporary arrays will be created
 c = 2.0 * a - 4.5 * b
 
 # three temporary arrays will be created due to unnecessary parenthesis
-c = (2.0 * a - 4.5 * b) + 1.1 * (np.sin(a) + np.cos(b))
+c = (2.0 * a - 4.5 * b) + 1.1 * (numpy.sin(a) + numpy.cos(b))
 ```
-
-TODO: fix missing brackets (temp1, temp2)
 
 
 # Temporary arrays
@@ -484,14 +527,14 @@ TODO: fix missing brackets (temp1, temp2)
 - Broadcasting approaches can lead also to hidden temporary arrays
 - Example: pairwise distance of **M** points in 3 dimensions
     - Input data is M x 3 array
-    - Output is M x M array containing the distance between points i and j
+    - Output is M x M array containing the distance between points i
+      and j
+	- There is a temporary 1000 x 1000 x 3 array
 
-```python
-X = np.random.random((1000, 3))
-D = np.sqrt(((X[:, np.newaxis, :] - X) ** 2).sum(axis=-1))
+```{.python emphasize=2:17-2:44}
+X = numpy.random.random((1000, 3))
+D = numpy.sqrt(((X[:, numpy.newaxis, :] - X) ** 2).sum(axis=-1))
 ```
-
-TODO: fix missing bracket (Temporary 1000 x 1000 x 3 array)
 
 
 # Numexpr
@@ -505,8 +548,8 @@ TODO: fix missing bracket (Temporary 1000 x 1000 x 3 array)
 
 ```python
 import numexpr as ne
-x = np.random.random((1000000, 1))
-y = np.random.random((1000000, 1))
+x = numpy.random.random((1000000, 1))
+y = numpy.random.random((1000000, 1))
 poly = ne.evaluate("((.25*x + .75)*x - 1.5)*x - 2")
 ```
 
