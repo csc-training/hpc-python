@@ -1,12 +1,13 @@
-subroutine add(a, b, n)
+subroutine add(a, b, c, n)
 
   implicit none
 
   ! f2py understands only limited number of kind parameters
-  real(kind=8), intent(inout) :: a(n)
-  real(kind=8), intent(inout) :: b(n)
+  real(kind=8), intent(in) :: a(n)
+  real(kind=8), intent(in) :: b(n)
+  real(kind=8), intent(out) :: c(n)
   integer :: n
 
-  a = a + b
+  c = a + b
 
 end subroutine
