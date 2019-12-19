@@ -11,7 +11,7 @@ lang:   en
 - Extended Cython programming language
 - Tune readable Python code into plain C performance by adding static
   type declarations
-- Easy interfacing to external C libraries
+- Easy interfacing to external C/C++ libraries
 
 
 # Python overheads
@@ -45,27 +45,35 @@ In [1]: import mandel_cyt
 
 # Case study: Mandelbrot fractal
 
-- Pure Python: 2.71 s
-- Compiled with Cython: 2.61 s
+TODO: Fix layout
 
+- Pure Python: 5.55 s
+- Compiled with Cython: 4.87 s
+
+<div class=column>
 ```python
 def kernel(zr, zi, cr, ci, lim, cutoff):
     count = 0
 
-    while ((zr*zr + zi*zi) < (lim*lim)) and count < cutoff:
+    while ((zr*zr + zi*zi) < (lim*lim)) 
+	        and count < cutoff:
         zr = zr * zr - zi * zi + cr
         zi = zr * zr - zi * zi + cr
         count += 1
 
     return count
 ```
+</div>
+<div class=column>
+![](img/fractal.svg){.center width=80%}
+</div>
 
 
 # "Boxing"
 
 - In Python, everything is an object
 
-FIXME: missing figure
+![](img/unboxing-boxing.svg){.center width=90%}
 
 
 # Static type declarations
@@ -103,8 +111,8 @@ def integrate(f, double a, double b, int N):
 
 # Static type declarations
 
-- Pure Python: 2.71 s
-- Type declarations in kernel: 20.2 ms
+- Pure Python: 5.55 s
+- Type declarations in kernel: 100 ms
 
 
 # Function call overhead
@@ -118,8 +126,8 @@ def integrate(f, double a, double b, int N):
 
 # Using C functions
 
-- Static type declarations: 20.2 ms
-- Kernel as C function: 12.5 ms
+- Type declarations in kernel: 100 ms
+- Kernel as C function: 69 ms
 
 ```python
 cdef int kernel(double zr, double zi, ...):
@@ -177,10 +185,10 @@ def func(): # declarations can be made only in function scope
 
 # Final performance
 
-- Pure Python: 2.7 s
-- Static type declarations: 20.2 ms
-- Kernel as C function: 12.5 ms
-- Fast indexing and directives: 2.4 ms
+- Pure Python: 5.5 s
+- Static type declarations: 100 ms
+- Kernel as C function: 69 ms
+- Fast indexing and directives: 15 ms
 
 
 # Where to add types?
@@ -255,10 +263,10 @@ cdef func():
     - Existing libraries
     - Own code written in C or Fortran
 - Python C-API provides the most comprehensive way to extend Python
-- Cffi, cython, and f2py can provide easier approaches
+- CFFI, Cython, and f2py can provide easier approaches
 
 
-# cffi
+# CFFI
 
 - C Foreign Function Interface for Python
 - Interact with almost any C code
@@ -266,12 +274,12 @@ cdef func():
     - Can often be copy-pasted from headers / documentation
 - ABI and API modes
     - ABI does not require compilation
-    - API can be more robust
+    - API can be faster and more robust
     - Only ABI discussed here
 - Some understanding of C required
 
 
-# cffi example 1
+# CFFI example 1
 
 ```python
 from cffi import FFI
@@ -288,7 +296,7 @@ print(a)
 ```
 
 
-# cffi example 2
+# CFFI example 2
 
 ```python
 from cffi import FFI
@@ -316,6 +324,6 @@ lib.subtract(bptr, aptr, len(a))
 # Summary
 
 - External libraries can be interfaced in various ways
-- cffi provides easy interfacing to C libraries
+- CFFI provides easy interfacing to C libraries
     - System libraries and user libraries
     - Python can take care of some datatype conversions

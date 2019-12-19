@@ -23,16 +23,16 @@ lang:   en
 
 - Python **time** module can be used for measuring time spent in specific
   part of the program
-    - `time.time()`, `time.clock()`,
-    - In Python 3: `time.perf_counter()`, `time.process_time()`
+    - `time.perf_counter()` : include time spent in other processes
+	- `time.process_time()` : only time in current process
 
 ```python
 import time
 
-t0 = time.time()
+t0 = time.process_time()
 for n in range(niter):
     heavy_calculation()
-t1 = time.time()
+t1 = time.process_time()
 
 print('Time spent in heavy calculation', t1-t0)
 ```
