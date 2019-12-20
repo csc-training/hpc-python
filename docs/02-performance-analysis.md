@@ -12,6 +12,30 @@ lang:   en
 - Before starting to optimize application, one should measure where time is
   spent
     - Typically 90 % of time is spent in 10 % of application
+
+<div class=column>
+- Mind the algorithm!
+    - Recursive calculation of Fibonacci numbers
+</div>
+
+<div class=column>
+
+<small>
+
+|                                |   Speedup |
+|--------------------------------|-----------|
+| Pure Python                    | 1         |
+| Pure C                         | 126       |
+| Pure Python (better algorithm) | 24e6      |
+
+</small>
+
+</div>
+
+
+
+# Measuring application performance
+
 - Applications own timers
 - **timeit** module
 - **cProfile** module
