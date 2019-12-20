@@ -22,9 +22,8 @@ lang:   en
 
 # Processes and threads
 
-![](img/processes-threads-mpi.png)
+![](img/processes-threads-highlight-proc.svg){.center width=80%}
 
-FIXME: missing figure
 
 <div class="column">
 
@@ -51,8 +50,9 @@ FIXME: missing figure
     - execute the same program code and instructions
     - can reside in different nodes (or even in different computers)
 - The way to launch a MPI program depends on the system
-    - mpirun, mpiexec, aprun, srun,...
-    - aprun on sisu.csc.fi, srun on taito.csc.fi
+    - mpiexec, mpirun, srun, aprun, ...
+    - mpiexec/mpirun in training class
+	- srun on puhti.csc.fi
 
 
 # MPI rank
@@ -77,7 +77,7 @@ else:
   variables and data structures are *local* to the process
 - Processes can exchange data by sending and receiving messages
 
-FIXME: missing figure
+![](img/data-model.svg){.center width=90%}
 
 
 # MPI communicator
@@ -123,7 +123,7 @@ print("I am rank %d in group of %d processes" % (rank, size))
 # Running an example program
 
 ```bash
-$ mpirun -np 4 python3 hello.py
+$ mpiexec -n 4 python3 hello.py
 
 I am rank 2 in group of 4 processes
 I am rank 0 in group of 4 processes
@@ -147,20 +147,36 @@ print("I am rank %d in group of %d processes" % (rank, size))
 
 # MPI communication
 
-- MPI processes are independent, they communicate to coordinate work
+<div class="column">
+
+- Data is local to the MPI processes
+    - They need to *communicate* to coordinate work
 - Point-to-point communication
     - Messages are sent between two processes
 - Collective communication
     - Involving a number of processes at the same time
 
-FIXME: missing figure
+</div>
+
+<div class="column">
+
+![](img/communication-schematic.svg){.center width=50%}
+
+</div>
 
 
 # MPI point-to-point operations
 
 - One process *sends* a message to another process that *receives* it
 - Sends and receives in a program should match - one receive per send
-
+- Each message contains
+    - The actual *data* that is to be sent
+    - The *datatype* of each element of data
+    - The *number of elements* the data consists of
+    - An identification number for the message (*tag*)
+    - The ranks of the *source* and *destination* process
+- With **mpi4py** it is often enough to specify only *data* and
+  *source* and *destination* 
 
 # Sending and receiving data
 
@@ -219,72 +235,118 @@ elif rank == 1:
 
 # Typical point-to-point communication patterns
 
+![](img/comm_patt.svg){.center width=100%}
+
+<br>
+
 - Incorrect ordering of sends and receives may result in a deadlock
 
-FIXME: missing figure
+# Case study: parallel sum 
 
+<div class=column>
+![](img/case_study_left-01.svg){.center width=45%}
+</div>
 
-# Case study: parallel sum
-
-- Array originally on process #0 (P0)
+<div class=column>
+- Array initially on process #0 (P0)
 - Parallel algorithm
-  1. Scatter
-    - Half of the array is sent to process 1
-  2. Compute
-    - P0 & P1 sum independently their segments
-  3. Reduction
-    - Partial sum on P1 sent to P0
-    - P0 sums the partial sums
+    * **Scatter**  
+    Half of the array is sent to process 1
 
-FIXME: missing figure
+    * **Compute**  
+    P0 & P1 sum independently their segments
 
+    * **Reduction**  
+    Partial sum on P1 sent to P0
+    P0 sums the partial sums
 
-# Case study: parallel sum
+</div>
 
-- Step 1.1: Receive operation in scatter
-    - P1 posts a receive to receive half of the array from P0
+# Case study: parallel sum 
 
-FIXME: missing figure
+<div class=column>
+![](img/case_study_left-02.svg){.center width=45%}
+</div>
+<div class=coulumn>
 
+**Step 1.1**: Receive call in scatter
 
-# Case study: parallel sum
-
-- Step 1.2: Send operation in scatter
-    - P0 posts a send to send the lower part of the array to P1
-
-FIXME: missing figure
-
-
-# Case study: parallel sum
-
-- Step 2: Compute the sum in parallel
-    - P0 & P1 computes their parallel sums and store them locally
-
-FIXME: missing figure
+<p>
+![](img/case_study_right-01.svg){.center width=45%}
+<p>
+P1 issues a Recv to receive half of the array from P0
+</div>
 
 
-# Case study: parallel sum
+# Case study: parallel sum 
 
-- Step 3.1: Receive operation in reduction
-    - P0 posts a receive to receive partial sum
+<div class=column>
+![](img/case_study_left-03.svg){.center width=45%}
+</div>
+<div class=coulumn>
+**Step 1.2**: Send call in scatter
 
-FIXME: missing figure
+<p>
+![](img/case_study_right-02.svg){.center width=45%}
+<p>
+P0 issues an MPI_Send to send the lower part of the array to P1
+</div>
 
+# Case study: parallel sum 
 
-# Case study: parallel sum
+<div class=column>
+![](img/case_study_left-04.svg){.center width=45%}
+</div>
+<div class=coulumn>
+**Step 2**: Compute the sum in parallel
 
-- Step 3.2: send operation in reduction
-    - P1 posts a send with partial sum
+<p>
+![](img/case_study_right-03.svg){.center width=45%}
+<p>
+Both P0 & P1 compute their partial sums and store them locally
+</div>
 
-FIXME: missing figure
+# Case study: parallel sum 
 
+<div class=column>
+![](img/case_study_left-05.svg){.center width=45%}
+</div>
+<div class=coulumn>
+**Step 3.1**: Receive call in reduction
 
-# Case study: parallel sum
+<p>
+![](img/case_study_right-04.svg){.center width=45%}
+<p>
+P0 issues a Recv operation for receiving P1’s partial sum
+</div>
 
-- Step 3.3: compute final answer
-    - P0 sums the partial sums
+# Case study: parallel sum 
 
-FIXME: missing figure
+<div class=column>
+![](img/case_study_left-06.svg){.center width=45%}
+</div>
+<div class=coulumn>
+**Step 3.2**: Send call in reduction
+
+<p>
+![](img/case_study_right-05.svg){.center width=45%}
+<p>
+P1 sends the partial sum to P0
+</div>
+
+# Case study: parallel sum 
+
+<div class=column>
+![](img/case_study_left-07.svg){.center width=45%}
+</div>
+<div class=coulumn>
+**Step 3.3**: compute the final answer
+
+<p>
+![](img/case_study_right-06.svg){.center width=45%}
+<p>
+P0 computes the total sum
+</div>
 
 
 # Communicating NumPy arrays
@@ -411,7 +473,7 @@ compute(border_data)
 </div>
 <div class="column">
 
-FIXME: missing figure
+![](img/usage_pattern.svg){.center width=100%}
 
 </div>
 
@@ -476,7 +538,27 @@ Request.waitall(req)
 
 # Communicators
 
-FIXME: missing figure
+- The communicator determines the "communication universe" 
+    - The source and destination of a message is identified by process rank 
+      *within* the communicator
+- So far: `MPI.COMM_WORLD`
+- Processes can be divided into subcommunicators
+    - Task level parallelism with process groups performing separate tasks
+    - Collective communication within a group of processes
+    - Parallel I/O
+
+
+# Communicators
+
+<div class="column">
+- Communicators are dynamic
+- A task can belong simultaneously to several communicators
+    - Unique rank in each communicator
+</div>
+<div class="column">
+![](img/communicator.svg){.center width=80%}
+</div>
+
 
 
 # User-defined communicators
@@ -548,7 +630,7 @@ comm.Bcast(data, 0)
 
 - Send the same data from one process to all the other
 
-FIXME: missing figure
+![](img/mpi-bcast.svg){.center width=80%}
 
 
 # Broadcasting
@@ -580,7 +662,7 @@ comm.Bcast(data, root=0)
 - Send equal amount of data from one process to others
 - Segments A, B, ... may contain multiple elements
 
-FIXME: missing figure
+![](img/mpi-scatter.svg){.center width=80%}
 
 
 # Scattering
@@ -613,7 +695,7 @@ comm.Scatter(data, buffer, root=0)  # in-place modification
 - Collect data from all the process to one process
 - Segments A, B, ... may contain multiple elements
 
-FIXME: missing figure
+![](img/mpi-gather.svg){.center width=80%}
 
 
 # Gathering
@@ -642,8 +724,7 @@ comm.Gather(data, buffer, root=0) # in-place modification
 - Applies an operation over set of processes and places result in
   single process
 
-FIMXE: missing figure
-
+![](img/mpi-reduce.svg){.center width=80%}
 
 # Reduce operation
 
@@ -681,8 +762,8 @@ Alltoall
   : each process sends and receives to/from each other
 
 Alltoallv
-  : each process sends and receives different amount of data to/from
-    each other
+  : each process sends and receives different amount of data
+    
 
 
 # Non-blocking collectives
@@ -695,11 +776,6 @@ Alltoallv
     - mixing of blocking and non-blocking collectives is not allowed
 
 
-# Non-blocking collectives
-
-FIXME: missing figure
-
-- NOT SUPPORTED by MPI for Python
 
 
 # Common mistakes with collectives
