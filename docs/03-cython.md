@@ -42,15 +42,14 @@ $ python setup.py build_ext --inplace
 In [1]: import mandel_cyt
 ```
 
-
 # Case study: Mandelbrot fractal
 
-TODO: Fix layout
-
 - Pure Python: 5.55 s
-- Compiled with Cython: 4.87 s
+- Compilation with Cython: 4.87 s
+    - No interpretation but lots of calls to Python C-API 
 
 <div class="column">
+
 ```python
 def kernel(zr, zi, cr, ci, lim, cutoff):
     count = 0
@@ -63,9 +62,13 @@ def kernel(zr, zi, cr, ci, lim, cutoff):
 
     return count
 ```
+
 </div>
+
 <div class="column">
+
 ![](img/fractal.svg){.center width=80%}
+
 </div>
 
 
@@ -112,7 +115,30 @@ def integrate(f, double a, double b, int N):
 # Static type declarations
 
 - Pure Python: 5.55 s
-- Type declarations in kernel: 100 ms
+- Static type declarations in kernel: 100 ms
+
+<div class="column">
+
+```python
+def kernel(double zr, double zi, ...):
+    cdef int count = 0
+
+    while ((zr*zr + zi*zi) < (lim*lim)) 
+	        and count < cutoff:
+        zr = zr * zr - zi * zi + cr
+        zi = zr * zr - zi * zi + cr
+        count += 1
+
+    return count
+```
+
+</div>
+
+<div class="column">
+
+![](img/fractal.svg){.center width=80%}
+
+</div>
 
 
 # Function call overhead
@@ -120,24 +146,58 @@ def integrate(f, double a, double b, int N):
 - Function calls in Python can involve lots of checking and "boxing"
 - Overhead can be reduced by declaring functions to be C-functions
     - **cdef** keyword: functions can be called only from Cython
-    - **cpdef** keyword: generate also Python wrapper (can have additional
-    overhead in some cases)
+    - **cpdef** keyword: generate also Python wrapper 
+
+<div class="column">
+```python
+def integrate(f, a, b, N):
+    s = 0
+    dx = (b - a) / N
+    for i in range(N):
+        s += f(a + i * dx)
+    return s * dx
+```
+
+</div>
+<div class="column">
+
+```python
+cdef double integrate(f, double a, ...):
+    cdef double s = 0
+    cdef int i
+    cdef double dx = (b - a) / N
+    for i in range(N):
+        s += f(a + i * dx)
+    return s * dx
+```
+</div>
 
 
 # Using C functions
 
-- Type declarations in kernel: 100 ms
+- Static type declarations in kernel: 100 ms
 - Kernel as C function: 69 ms
+
+<div class="column">
 
 ```python
 cdef int kernel(double zr, double zi, ...):
     cdef int count = 0
-    while ((zr*zr + zi*zi) < (lim*lim)) and count < cutoff:
+    while ((zr*zr + zi*zi) < (lim*lim)) 
+	        and count < cutoff:
         zr = zr * zr - zi * zi + cr
         zi = zr * zr - zi * zi + cr
         count += 1
     return count
 ```
+
+</div>
+
+<div class="column">
+
+![](img/fractal.svg){.center width=80%}
+
+</div>
 
 
 # NumPy arrays with Cython
@@ -176,7 +236,6 @@ cimport numpy as cnp  # import for NumPY C-API
 import cython
 
 @cython.boundscheck(False)
-
 def func(): # declarations can be made only in function scope
     cdef cnp.ndarray[cnp.int_t, ndim=2] data
     data = np.empty((N, N), dtype=int)
@@ -208,7 +267,9 @@ $ firefox cython_module.html
 ```
 
 
-# HTML-report {.section}
+# HTML-report 
+
+TODO: Add screenshot
 
 # Profiling Cython code
 
