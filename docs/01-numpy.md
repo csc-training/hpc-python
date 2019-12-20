@@ -445,7 +445,7 @@ array([10, 9, 8])
 - Example: difference
     - for loop is ~80 times slower!
 
-<div class=column>
+<div class="column">
 ```python
 # brute force using a for loop
 arr = numpy.arange(1000)
@@ -459,7 +459,7 @@ dif = arr[1:] - arr[:-1]
 ```
 </div>
 
-<div class=column>
+<div class="column">
 ![](img/vectorised-difference.svg){.center width=90%}
 </div>
 

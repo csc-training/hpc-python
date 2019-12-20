@@ -50,7 +50,7 @@ TODO: Fix layout
 - Pure Python: 5.55 s
 - Compiled with Cython: 4.87 s
 
-<div class=column>
+<div class="column">
 ```python
 def kernel(zr, zi, cr, ci, lim, cutoff):
     count = 0
@@ -64,7 +64,7 @@ def kernel(zr, zi, cr, ci, lim, cutoff):
     return count
 ```
 </div>
-<div class=column>
+<div class="column">
 ![](img/fractal.svg){.center width=80%}
 </div>
 
