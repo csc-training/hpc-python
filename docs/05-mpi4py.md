@@ -52,7 +52,7 @@ lang:   en
 - The way to launch a MPI program depends on the system
     - mpiexec, mpirun, srun, aprun, ...
     - mpiexec/mpirun in training class
-	- srun on puhti.csc.fi
+    - srun on puhti.csc.fi
 
 
 # MPI rank
@@ -176,7 +176,7 @@ print("I am rank %d in group of %d processes" % (rank, size))
     - An identification number for the message (*tag*)
     - The ranks of the *source* and *destination* process
 - With **mpi4py** it is often enough to specify only *data* and
-  *source* and *destination* 
+  *source* and *destination*
 
 # Sending and receiving data
 
@@ -207,7 +207,7 @@ elif rank == 1:
   : `data`{.input}
     : Python object to send
 
-    `dest` {.input}
+    `dest`{.input}
     : destination rank
 
 </div>
@@ -241,112 +241,76 @@ elif rank == 1:
 
 - Incorrect ordering of sends and receives may result in a deadlock
 
-# Case study: parallel sum 
 
-<div class=column>
-![](img/case_study_left-01.svg){.center width=45%}
+# Case study: parallel sum
+
+<div class=column style="width:30%">
+![](img/parallel-sum-0.svg){.center width=70%}
 </div>
 
-<div class=column>
-- Array initially on process #0 (P0)
-- Parallel algorithm
-    * **Scatter**  
-    Half of the array is sent to process 1
+<div class=column style="width:68%">
+## Initial state
 
-    * **Compute**  
-    P0 & P1 sum independently their segments
+An array A containing floating point numbers read from a a file by the first
+MPI task (rank 0).
 
-    * **Reduction**  
-    Partial sum on P1 sent to P0
-    P0 sums the partial sums
+## Goal
 
-</div>
-
-# Case study: parallel sum 
-
-<div class=column>
-![](img/case_study_left-02.svg){.center width=45%}
-</div>
-<div class=coulumn>
-
-**Step 1.1**: Receive call in scatter
-
-<p>
-![](img/case_study_right-01.svg){.center width=45%}
-<p>
-P1 issues a Recv to receive half of the array from P0
+Calculate the total sum of all elements in array A in parallel.
 </div>
 
 
-# Case study: parallel sum 
+# Case study: parallel sum
 
-<div class=column>
-![](img/case_study_left-03.svg){.center width=45%}
-</div>
-<div class=coulumn>
-**Step 1.2**: Send call in scatter
-
-<p>
-![](img/case_study_right-02.svg){.center width=45%}
-<p>
-P0 issues an MPI_Send to send the lower part of the array to P1
+<div class=column style="width:30%">
+![](img/parallel-sum-0.svg){.center width=70%}
 </div>
 
-# Case study: parallel sum 
+<div class=column style="width:68%">
+## Parallel algorithm
 
-<div class=column>
-![](img/case_study_left-04.svg){.center width=45%}
-</div>
-<div class=coulumn>
-**Step 2**: Compute the sum in parallel
+<pre style="border:none; margin-top:1em; font-size:1em">
+1. Scatter the data
+   1.1. receive operation for scatter
+   1.2. send operation for scatter
+2. Compute partial sums in parallel
+3. Gather the partial sums
+   3.1. receive operation for gather
+   3.2. send operation for gather
+4. Compute the total sum
+</pre>
 
-<p>
-![](img/case_study_right-03.svg){.center width=45%}
-<p>
-Both P0 & P1 compute their partial sums and store them locally
-</div>
-
-# Case study: parallel sum 
-
-<div class=column>
-![](img/case_study_left-05.svg){.center width=45%}
-</div>
-<div class=coulumn>
-**Step 3.1**: Receive call in reduction
-
-<p>
-![](img/case_study_right-04.svg){.center width=45%}
-<p>
-P0 issues a Recv operation for receiving P1’s partial sum
 </div>
 
-# Case study: parallel sum 
 
-<div class=column>
-![](img/case_study_left-06.svg){.center width=45%}
-</div>
-<div class=coulumn>
-**Step 3.2**: Send call in reduction
+# Step 1.1: Receive operation for scatter
 
-<p>
-![](img/case_study_right-05.svg){.center width=45%}
-<p>
-P1 sends the partial sum to P0
-</div>
+![](img/parallel-sum-1.1.png){.center width=55%}
 
-# Case study: parallel sum 
 
-<div class=column>
-![](img/case_study_left-07.svg){.center width=45%}
-</div>
-<div class=coulumn>
-**Step 3.3**: compute the final answer
+# Step 1.2: Send operation for scatter
 
-<p>
-![](img/case_study_right-06.svg){.center width=45%}
-<p>
-P0 computes the total sum
-</div>
+![](img/parallel-sum-1.2.png){.center width=55%}
+
+
+# Step 2: Compute partial sums in parallel
+
+![](img/parallel-sum-2.png){.center width=55%}
+
+
+# Step 3.1: Receive operation for gather
+
+![](img/parallel-sum-3.1.png){.center width=55%}
+
+
+# Step 3.2: Send operation for gather
+
+![](img/parallel-sum-3.2.png){.center width=55%}
+
+
+# Step 4: Compute the total sum
+
+![](img/parallel-sum-4.png){.center width=55%}
 
 
 # Communicating NumPy arrays
@@ -359,7 +323,7 @@ P0 computes the total sum
     - `Send(data, dest)`
     - `Recv(data, source)`
     - note the difference in receiving: the data array has to exist at the
-    time of call
+      time of call
 
 
 # Send/receive a NumPy array
@@ -375,11 +339,11 @@ import numpy
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 
+data = numpy.empty(100, dtype=float)
 if rank == 0:
-    data = numpy.arange(100, dtype=float)
+    data[:] = numpy.arange(100, dtype=float)
     comm.Send(data, dest=1)
 elif rank == 1:
-    data = numpy.empty(100, dtype=float)
     comm.Recv(data, source=0)
 ```
 
@@ -392,10 +356,8 @@ elif rank == 1:
     - `MPI.PROC_NULL` can be used for *no destination/source*
 
 ```python
-# send buffer
 data = numpy.arange(10, dtype=float) * (rank + 1)
-# receive buffer
-buffer = numpy.empty(10, float)
+buffer = numpy.empty(data.shape, dtype=data.dtype)
 
 if rank == 0:
     dest, source = 1, 1
@@ -454,33 +416,7 @@ comm.Sendrecv(data, dest=dest, recvbuf=buffer, source=source)
     - e.g., receive `isend` with `recv`
 
 
-# Typical usage pattern
-
-<div class="column">
-
-```python
-request = comm.Irecv(ghost_data)
-
-request2 = comm.Isend(border_data)
-
-compute(ghost_independent_data)
-
-request.wait()
-
-compute(border_data)
-```
-
-</div>
-<div class="column">
-
-![](img/usage_pattern.svg){.center width=100%}
-
-</div>
-
-
-# Non-blocking send/receive
-
-- Interleaving communication and computation
+# Example: non-blocking send/receive
 
 ```python
 rank = comm.Get_rank()
@@ -510,18 +446,64 @@ elif rank == 1:
         - wait for all initiated requests to complete
     - `Request.waitany(requests)`
         - wait for any initiated request to complete
+- For example, assuming `requests` is a list of request objects, one can wait
+  for all of them to be finished with:
 
-```python
-from mpi4py.MPI import Request
+~~~python
+MPI.Request.waitall(requests)
+~~~
+
+
+# Example: non-blocking message chain
+
+<small>
+
+~~~python
+from mpi4py import MPI
+import numpy
+
+comm = MPI.COMM_WORLD
+rank = comm.Get_rank()
+size = comm.Get_size()
 
 data = numpy.arange(10, dtype=float) * (rank + 1)  # send buffer
-buffer = numpy.empty(10, float)                    # receive buffer
+buffer = numpy.zeros(10, dtype=float)              # receive buffer
 
+tgt = rank + 1
+src = rank - 1
 if rank == 0:
-    req = [comm.Isend(data, dest=1))]
-    req.append(comm.Irecv(buffer, source=1))
-Request.waitall(req)
-```
+    src = MPI.PROC_NULL
+if rank == size - 1:
+    tgt = MPI.PROC_NULL
+
+req = []
+req.append(comm.Isend(data, dest=tgt))
+req.append(comm.Irecv(buffer, source=src))
+
+MPI.Request.waitall(req)
+~~~
+
+</small>
+
+
+# Overlapping computation and communication
+
+<div class="column">
+~~~python
+request_in = comm.Irecv(ghost_data)
+request_out = comm.Isend(border_data)
+
+compute(ghost_independent_data)
+request_in.wait()
+
+compute(border_data)
+request_out.wait()
+~~~
+</div>
+
+<div class="column">
+![](img/non-blocking-pattern.png)
+</div>
 
 
 # Summary
@@ -538,8 +520,8 @@ Request.waitall(req)
 
 # Communicators
 
-- The communicator determines the "communication universe" 
-    - The source and destination of a message is identified by process rank 
+- The communicator determines the "communication universe"
+    - The source and destination of a message is identified by process rank
       *within* the communicator
 - So far: `MPI.COMM_WORLD`
 - Processes can be divided into subcommunicators
@@ -626,14 +608,14 @@ comm.Bcast(data, 0)
 </div>
 
 
-# Broadcasting
+# Broadcast
 
 - Send the same data from one process to all the other
 
 ![](img/mpi-bcast.svg){.center width=80%}
 
 
-# Broadcasting
+# Broadcast
 
 - Broadcast sends same data to all processes
 
@@ -657,7 +639,7 @@ comm.Bcast(data, root=0)
 ```
 
 
-# Scattering
+# Scatter
 
 - Send equal amount of data from one process to others
 - Segments A, B, ... may contain multiple elements
@@ -665,7 +647,7 @@ comm.Bcast(data, root=0)
 ![](img/mpi-scatter.svg){.center width=80%}
 
 
-# Scattering
+# Scatter
 
 - Scatter distributes data to processes
 
@@ -690,7 +672,7 @@ comm.Scatter(data, buffer, root=0)  # in-place modification
 ```
 
 
-# Gathering
+# Gather
 
 - Collect data from all the process to one process
 - Segments A, B, ... may contain multiple elements
@@ -698,7 +680,7 @@ comm.Scatter(data, buffer, root=0)  # in-place modification
 ![](img/mpi-gather.svg){.center width=80%}
 
 
-# Gathering
+# Gather
 
 - Gather pulls data from all processes
 
@@ -713,20 +695,19 @@ size = comm.Get_size()
 data = arange(10, dtype=float) * (rank + 1)
 buffer = zeros(size * 10, float)
 
-n = comm.gather(rank, root=0) # returns the value
-
+n = comm.gather(rank, root=0)     # returns the value
 comm.Gather(data, buffer, root=0) # in-place modification
 ```
 
 
-# Reduce operation
+# Reduce
 
 - Applies an operation over set of processes and places result in
   single process
 
 ![](img/mpi-reduce.svg){.center width=80%}
 
-# Reduce operation
+# Reduce
 
 - Reduce gathers data and applies an operation on it
 
@@ -741,8 +722,7 @@ size = comm.Get_size()
 data = arange(10 * size, dtype=float) * (rank + 1)
 buffer = zeros(size * 10, float)
 
-n = comm.reduce(rank, op=MPI.SUM, root=0) # returns the value
-
+n = comm.reduce(rank, op=MPI.SUM, root=0)     # returns the value
 comm.Reduce(data, buffer, op=MPI.SUM, root=0) # in-place modification
 ```
 
@@ -763,7 +743,7 @@ Alltoall
 
 Alltoallv
   : each process sends and receives different amount of data
-    
+
 
 
 # Non-blocking collectives
@@ -780,13 +760,15 @@ Alltoallv
 
 # Common mistakes with collectives
 
-- Using a collective operation within one branch of an if-test of the rank
-    - `if rank == 0: comm.bcast(...)`
+1. Using a collective operation within one branch of an if-else test based on
+   the rank of the process
+    - for example: `if rank == 0: comm.bcast(...)`
     - all processes in a communicator must call a collective routine!
-- Assuming that all processes making a collective call would complete at
-  the same time
-- Using the input buffer as the output buffer:
-    - `comm.Scatter(a, a, MPI.SUM)`
+2. Assuming that all processes making a collective call would complete at
+   the same time.
+3. Using the input buffer also as an output buffer:
+    - for example: `comm.Scatter(a, a, MPI.SUM)`
+    - always use different memory locations (arrays) for input and output!
 
 
 # Summary
@@ -809,13 +791,6 @@ Alltoallv
     - "A Python Introduction to Parallel Programming with MPI" *by Jeremy
       Bejarano* [http://materials.jeremybejarano.com/MPIwithPython/](http://materials.jeremybejarano.com/MPIwithPython/)
     - "mpi4py examples" *by Jörg Bornschein* [https://github.com/jbornschein/mpi4py-examples](https://github.com/jbornschein/mpi4py-examples)
-
-
-# mpi4py performance
-
-- Ping-pong test
-
-FIXME: missing figure
 
 
 # Summary
