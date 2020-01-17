@@ -72,8 +72,7 @@ size = comm.Get_size()
 data = arange(10 * size, dtype=float) * (rank + 1)
 buffer = zeros(size * 10, float)
 
-n = comm.reduce(rank, op=MPI.SUM, root=0) # returns the value
-
+n = comm.reduce(rank, op=MPI.SUM, root=0)     # returns the value
 comm.Reduce(data, buffer, op=MPI.SUM, root=0) # in-place modification
 ~~~
 
