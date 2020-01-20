@@ -269,7 +269,7 @@ $ firefox cython_module.html
 
 # HTML-report 
 
-TODO: Add screenshot
+![](img/annotate.jpg){.center width=80%}
 
 # Profiling Cython code
 
@@ -336,50 +336,112 @@ cdef func():
 - ABI and API modes
     - ABI does not require compilation
     - API can be faster and more robust
-    - Only ABI discussed here
+    - Only API discussed here
 - Some understanding of C required
 
 
-# CFFI example 1
+# Creating Python interface to C library
+
+- In API mode, CFFI is used for building a Python extension module
+that provides interface to the library
+- One needs to write a *build* script that specifies: 
+    - the library functions to be interfaced
+	- name of the Python extension
+	- instructions for compiling and linking
+- CFFI uses C compiler and creates the shared library
+- The extension module can then be used from Python code.
+  
+# Example: Python interface to C math library
+  
 
 ```python
 from cffi import FFI
+ffibuilder = FFI()
 
-ffi = FFI()
+ffibuilder.cdef("""
+    double sqrt(double x);   # list all the function prototypes from the
+    double sin(double x);    # library that we want to use
+                """)
 
-# Use sqrt from C standard math library
-lib = ffi.dlopen("libm.so")
-ffi.cdef("""float sqrtf(float x);""")
+ffibuilder.set_source("_my_math",  # name of the Python extension
+"""
+     #include <math.h>   // Some C source, often just include
+""",
+   library_dirs = [],  # location of library, not needed for C 
+                       # C standard library 
+   libraries = ['m']   # name of the library we want to interface
+)
 
-# Python takes care of proper datatype conversion
-a = lib.sqrtf(4)
-print(a)
+ffibuilder.compile(verbose=True)
 ```
 
+# Example: Python interface to C math library
 
-# CFFI example 2
+- Building the extension
+
+```bash
+python3 build_mymath.py
+generating ./_mymath.c
+running build_ext
+building '_mymath' extension
+...
+gcc -pthread -shared -Wl,-z,relro -g ./_mymath.o -L/usr/lib64 -lm -lpython3.6m
+-o ./_mymath.cpython-36m-x86_64-linux-gnu.so
+```
+
+- Using the extension
 
 ```python
-from cffi import FFI
-import numpy as np
+from _mymath import lib
 
-ffi = FFI()
+a = lib.sqrt(4.5)
+b = lib.sin(1.2)
+```
 
-lib = ffi.dlopen("./myclib.so") # Use functions from users own library
+- Python `float`s are automatically converted to C `double`s and back
 
-ffi.cdef("""void add(double *x, double *y, int n);""")
-ffi.cdef("""void subtract(double *x, double *y, int n);""")
+# Passing NumPy arrays to C code
+
+- Only simple scalar numbers can be automatically converted Python
+  objects and C types
+- In C, arrays are passed to functions as pointers
+- A "pointer" object to NumPy array can be obtained with `cast`
+  and `from_buffer` functions
+
+# Passing NumPy arrays to C code
+
+<div class="column">
+- C function adding two arrays
+
+```c
+// c = a + b
+void add(double *a, double *b, double *c, int n)
+{
+  for (int i=0; i<n; i++)
+     c[i] = a[i] + b[i];
+}
+```
+
+- Can be built into extension `add_module` with CFFI
+
+</div>
+
+<div class="column">
+- Obtaining "pointers" in Python
+
+```python
+from add_module import ffi, lib
 
 a = np.random.random((1000000,1))
-b = np.zeros_like(a)
-
-# "Pointer" objects need to be passed to library
 aptr = ffi.cast("double *", ffi.from_buffer(a))
-bptr = ffi.cast("double *", ffi.from_buffer(b))
+...
 
-lib.add(bptr, aptr, len(a))
-lib.subtract(bptr, aptr, len(a))
+lib.add(aptr, bptr, cptr, len(a))
 ```
+
+- "pointer" objects resemble C pointers and can result easily in
+Segmentation faults!
+</div>
 
 
 # Summary
@@ -388,3 +450,4 @@ lib.subtract(bptr, aptr, len(a))
 - CFFI provides easy interfacing to C libraries
     - System libraries and user libraries
     - Python can take care of some datatype conversions
+	- "pointer" objects are needed for NumPy arrays
