@@ -359,8 +359,8 @@ from cffi import FFI
 ffibuilder = FFI()
 
 ffibuilder.cdef("""
-    double sqrt(double x);   # list all the function prototypes from the
-    double sin(double x);    # library that we want to use
+    double sqrt(double x);  // list all the function prototypes from the
+    double sin(double x);   // library that we want to use
                 """)
 
 ffibuilder.set_source("_my_math",  # name of the Python extension
