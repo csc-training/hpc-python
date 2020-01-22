@@ -6,14 +6,7 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
-from cffi import FFI
-
-ffi = FFI()
-lib = ffi.dlopen("./libevolve.so")
-ffi.cdef("""
-         void evolve(double *u, double *u_previous, int nx, int ny,
-                     double a, double dt, double dx2, double dy2);
-         """)
+from _evolve import ffi, lib
 
 # Set the colormap
 plt.rcParams['image.cmap'] = 'BrBG'
