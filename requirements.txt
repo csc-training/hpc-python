@@ -1,0 +1,6 @@
+numpy
+mpi4py 
+matplotlib==2.2.4
+cython
+cffi
+numexpr
