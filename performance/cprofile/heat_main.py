@@ -1,63 +1,55 @@
 from __future__ import print_function
-import numpy as np
 import time
+import argparse
 
-import matplotlib
-matplotlib.use('Agg')
-import matplotlib.pyplot as plt
-
-from evolve import evolve
-
-# Set the colormap
-plt.rcParams['image.cmap'] = 'BrBG'
-
-# Basic variables
-a = 0.5          # Diffusion constant.
-
-# Grid spacings
-dx = 0.01
-dy = 0.01
-dx2 = dx**2
-dy2 = dy**2
-
-# For stability, this is the largest interval possible
-# for the size of the time-step:
-dt = dx2*dy2 / ( 2*a*(dx2+dy2) )
-
-def init_fields(filename):
-    # Read the initial temperature field from file
-    field = np.loadtxt(filename)
-    field0 = field.copy() # Array for field of previous time step
-    return field, field0
-
-def write_field(field, step):
-    plt.gca().clear()
-    plt.imshow(field)
-    plt.axis('off')
-    plt.savefig('heat_{0:03d}.png'.format(step))
-
-def iterate(field, field0, timesteps, image_interval):
-    for m in range(1, timesteps+1):
-        evolve(field, field0, a, dt, dx2, dy2)
-        if m % image_interval == 0:
-            write_field(field, m)
+from heat import init_fields, write_field, iterate
 
 
-def main():
-    timesteps = 200  # Number of time-steps to evolve system.
-    image_interval = 4000 # write frequency for png files
+def main(input_file='bottle.dat', a=0.5, dx=0.1, dy=0.1, 
+         timesteps=200, image_interval=4000):
 
-    field, field0 = init_fields('bottle.dat')
-    # Write initial field
+    # Initialise the temperature field
+    field, field0 = init_fields(input_file)
+
+    print("Heat equation solver")
+    print("Diffusion constant: {}".format(a))
+    print("Input file: {}".format(input_file))
+    print("Parameters")
+    print("----------")
+    print("  nx={} ny={} dx={} dy={}".format(field.shape[0], field.shape[1],
+                                             dx, dy))
+    print("  time steps={}  image interval={}".format(timesteps,
+                                                         image_interval))
+
+    # Plot/save initial field
     write_field(field, 0)
-    # iterate
+    # Iterate
     t0 = time.time()
-    iterate(field, field0, timesteps, image_interval)
+    iterate(field, field0, a, dx, dy, timesteps, image_interval)
     t1 = time.time()
-    # Write final field
+    # Plot/save final field
     write_field(field, timesteps)
 
-    print("Running time: {0}".format(t1-t0))
+    print("Simulation finished in {0} s".format(t1-t0))
 
 if __name__ == '__main__':
-    main()
+
+    # Process command line arguments
+    parser = argparse.ArgumentParser(description='Heat equation')
+    parser.add_argument('-dx', type=float, default=0.01,
+                        help='grid spacing in x-direction')
+    parser.add_argument('-dy', type=float, default=0.01,
+                        help='grid spacing in y-direction')
+    parser.add_argument('-a', type=float, default=0.5,
+                        help='diffusion constant')
+    parser.add_argument('-n', type=int, default=200,
+                        help='number of time steps')
+    parser.add_argument('-i', type=int, default=4000,
+                        help='image interval')
+    parser.add_argument('-f', type=str, default='bottle.dat', 
+                        help='input file')
+
+    args = parser.parse_args()
+
+    main(args.f, args.a, args.dx, args.dy, args.n, args.i)
+
