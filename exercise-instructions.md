@@ -39,7 +39,7 @@ In class room workstations, one needs to load the MPI environment before using
 mpi4py:
 
 ```
-% module load mpi/openmpi-x86_64
+% module load mpi
 ```
 
 After that MPI parallel Python programs can be launched with mpirun, e.g. to
@@ -49,11 +49,11 @@ run with 4 MPI tasks one issues
 % mpirun –np 4 python3 example.py
 ```
 
-In Taito one can launch interactive MPI programs with srun:
+In Puhti one can launch interactive MPI programs with srun:
 
 ```
 % srun -n4 python3 hello.py
 ```
 
-Note that for real production calculations in Taito one should use batch job
-scripts, see https://research.csc.fi/taito-user-guide
+Note that for real production calculations in Puhti one should use batch job
+scripts, see https://docs.csc.fi/computing/running/getting-started/
