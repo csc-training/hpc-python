@@ -2,5 +2,5 @@ from distutils.core import setup, Extension
 from Cython.Build import cythonize
 
 setup(
-     ext_modules=cythonize("evolve.pyx"),
+     ext_modules=cythonize("heat.pyx"),
 )
