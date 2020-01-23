@@ -37,6 +37,7 @@ Note: Algorithm is stable only when
 Implement two dimensional heat equation with NumPy using the initial
 temperature field in the file [bottle.dat](bottle.dat) (the file consists of a
 header and 200 x 200 data array). As a boundary condition use fixed values as
-given in the initial field. You can start from the skeleton code in the file
-[skeleton.py](skeleton.py).
+given in the initial field. The main program that is provided in
+[heat_main.py](heat_main.py) can be used as such, implement the required 
+functionality in the module [heat.py](heat.py) (look for **TODO**s).
 
