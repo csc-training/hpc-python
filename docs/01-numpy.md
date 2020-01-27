@@ -359,9 +359,10 @@ array([ 0.04453441, 0.06882591])
 - Normally, NumPy utilises high performance libraries in linear algebra
   operations
 - Example: matrix multiplication C = A * B matrix dimension 1000
-    - pure python: 522.30 s
-    - naive C:       1.50 s
-    - numpy.dot:     0.02 s
+    - pure python:           522.30 s
+    - naive C:                 1.50 s
+    - numpy.dot:               0.04 s
+    - library call from C:     0.04 s
 
 
 # Numpy advanced topics { .section }
