@@ -10,7 +10,7 @@ The external Python packages can be installed with **pip** by using the provided
 (aftter cloning the material) as
 
 ```bash
-$ cd hpc_python
+$ cd hpc-python
 $ pip3.4 install -r requirements.txt --user
 ```
 
