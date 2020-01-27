@@ -1,3 +1,25 @@
+## Course setup
+
+Download (clone) the exercise material with
+
+```bash
+$ git clone https://github.com/csc-training/hpc-python.git
+```
+The external Python packages can be installed with **pip** by using the provided 
+[requirements.txt](requirements.txt) file. In CSC classroom this can be done 
+(aftter cloning the material) as
+
+```bash
+$ cd hpc_python
+$ pip3.4 install -r requirements.txt --user
+```
+
+You can test that all packages are available by
+```bash
+$ cd test
+$ python3.4 test.py
+```
+
 ## General exercise instructions
 
 Simple exercises can be carried out directly in the interactive interpreter.
@@ -35,25 +57,10 @@ Look matplotlib documentation for additional information for visualisation.
 
 ### Parallel calculations
 
-In class room workstations, one needs to load the MPI environment before using
-mpi4py:
-
-```
-% module load mpi
-```
-
-After that MPI parallel Python programs can be launched with mpirun, e.g. to
+In class room workstations MPI parallel Python programs can be launched with mpiexec, e.g. to
 run with 4 MPI tasks one issues
 
 ```
-% mpirun –np 4 python3 example.py
+% mpiexec –n 4 python3.4 example.py
 ```
 
-In Puhti one can launch interactive MPI programs with srun:
-
-```
-% srun -n4 python3 hello.py
-```
-
-Note that for real production calculations in Puhti one should use batch job
-scripts, see https://docs.csc.fi/computing/running/getting-started/
