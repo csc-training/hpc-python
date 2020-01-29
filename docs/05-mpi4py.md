@@ -785,8 +785,8 @@ Alltoallv
 # On-line resources
 
 - Documentation for mpi4py is quite limited
-    - short on-line manual and API reference available at
-    http://pythonhosted.org/mpi4py/
+    - short on-line manual available at
+    [https://mpi4py.readthedocs.io/](https://mpi4py.readthedocs.io/)
 - Some good references:
     - "A Python Introduction to Parallel Programming with MPI" *by Jeremy
       Bejarano* [http://materials.jeremybejarano.com/MPIwithPython/](http://materials.jeremybejarano.com/MPIwithPython/)
