@@ -3,8 +3,8 @@
 ### Communicating general Python objects
 
 Write a simple program where two processes send and receive a message to/from
-each other using `send` and `recv`. The message content is a dictionary with a
-key `{‘rank’ : myrank}`  where myrank is the rank of the sending process.
+each other using `send` and `recv`. The message content is a dictionary 
+`{‘rank’ : myrank}`  where `myrank` is the rank of the sending process.
 After receiving a message, each process should print out the rank of the
 process and the value in the received dictionary.
 
