@@ -42,6 +42,7 @@ courses are stored in tags.
 ### Optimising with Cython
 
  - [Creating simple extension](cython/simple-extension)
+ - [Using static typing](cython/static-typing)
  - [Using C-functions](cython/c-functions)
  - [Optimising heat equation](cython/heat-equation)
 
