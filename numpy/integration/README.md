@@ -4,7 +4,7 @@ A simple method for evaluating integrals numerically is by the middle Riemann
 sum
 
 <!--- Equation
-S = \sum_{i=1}^n f(x'_i) \Delta x
+S = \int_a^b f(x) dx = \sum_{i=1}^n f(x'_i) \Delta x
 --->
 
 ![img](https://quicklatex.com/cache3/e2/ql_30419670e67bc2b3d039e8a9d8653de2_l3.png)
@@ -12,7 +12,7 @@ S = \sum_{i=1}^n f(x'_i) \Delta x
 with
 
 <!--- Equation
-x'_i = (x_i + x_{i-1}) / 2
+x'_i = (x_i + x_{i-1}) / 2; x_0 = a, x_n = b
 --->
 
 ![img](https://quicklatex.com/cache3/09/ql_f124fd5c831e873c6abd41160fae2d09_l3.png)
