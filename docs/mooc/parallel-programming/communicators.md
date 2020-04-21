@@ -21,7 +21,7 @@ communicator object.
 A single process can belong to multiple communicators and will have an
 *unique* ID (rank) in each of the communicators.
 
-![](../../img/communicators.png)
+![](../../img/communicator.svg)
 
 
 ## User-defined communicators
