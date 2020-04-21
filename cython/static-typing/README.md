@@ -17,5 +17,5 @@ reload the module). What happens when you now call the function with
 floating point arguments?
 
 Finally, try to declare arguments as floating point numbers (while keeping
-result as integer), what happens?
+`result` as integer), what happens?
 
