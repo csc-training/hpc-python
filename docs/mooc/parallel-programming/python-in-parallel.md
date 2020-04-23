@@ -11,7 +11,7 @@ Python has a rich ecosystem also for parallel computing, both standard
 library and third party packages provide tools for different parallel
 programming approaches.
 
-In this course we focus on the message passing approach (with the mpi4py
+In this course we focus on the message passing approach (with the **mpi4py**
 package), that is normally the most appropriate solution for tightly
 coupled parallel problems. In this article we review briefly some
 other parallel programming packages available for Python, which can be
@@ -40,7 +40,7 @@ want to run multiple I/O-bound tasks simultaneously.
 For parallel data analytics that needs to scale over multiple
 computers, one can utilize [Dask](https://dask.org/) or
 [PySpark](https://spark.apache.org/docs/latest/api/python/pyspark.html)
-third party packages. Dask is a Python library providing
+third party packages. **Dask** is a Python library providing
 advanced parallelism with easy to use interfaces (e.g. NumPy-like parallel
 Dask array). **PySpark** is a Python interface to Apache Spark, a
 general distributed cluster-computing framework for big data processing.
