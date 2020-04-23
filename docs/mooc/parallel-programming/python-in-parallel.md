@@ -41,8 +41,8 @@ For parallel data analytics that needs to scale over multiple
 computers, one can utilize [Dask](https://dask.org/) or
 [PySpark](https://spark.apache.org/docs/latest/api/python/pyspark.html)
 third party packages. Dask is a Python library providing
-advanced parallelism for analytics proving interfaces similar to
-e.g. NumPy. **PySpark** is a Python interface to Apache Spark, a
+advanced parallelism with easy to use interfaces (e.g. NumPy-like parallel
+Dask array). **PySpark** is a Python interface to Apache Spark, a
 general distributed cluster-computing framework for big data processing.
 
 We will now move on to learn message passing with Python in more
