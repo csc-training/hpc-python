@@ -5,6 +5,8 @@ Exercise material and model answers for the CSC course "Python in High Performan
 This master branch contains always the material for latest course, past
 courses are stored in tags.
 
+Online version of the course is run regularly in [FutureLearn](https://www.futurelearn.com/courses/python-in-hpc). 
+
 ## Exercises
 
 [General instructions](exercise-instructions.md)
