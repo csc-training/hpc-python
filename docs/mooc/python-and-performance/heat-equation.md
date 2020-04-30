@@ -43,7 +43,7 @@ $$
 Note: the algorithm is stable only when
 
 $$
-\Delta t < \frac{1}{2 \alpha} \frac{(\Delta x \Delta y)^2}{(\Delta x)^2 (\Delta y)^2}
+\Delta t < \frac{1}{2 \alpha} \frac{(\Delta x \Delta y)^2}{(\Delta x)^2 + (\Delta y)^2}
 $$
 
 The image below shows a result of numerical simulation where the initial state
