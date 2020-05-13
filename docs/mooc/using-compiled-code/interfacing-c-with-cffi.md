@@ -113,8 +113,8 @@ from cffi import FFI
 ffibuilder = FFI()
 
 ffibuilder.cdef("""
-    double sqrt(double x);   # list all the function prototypes from the
-    double sin(double x);    # library that we want to use
+    double sqrt(double x);   // list all the function prototypes from the
+    double sin(double x);    // library that we want to use
                 """)
 
 # set_source() gives the name of the python extension module to
@@ -123,8 +123,8 @@ ffibuilder.cdef("""
 # so it is often just the "#include".
 ffibuilder.set_source("_my_math",
 """
-    double sqrt(double x);   # we don't have a header, so function prototypes
-    double sin(double x);    # are provided directly
+    double sqrt(double x);   // we don't have a header, so function prototypes
+    double sin(double x);    // are provided directly
 """,
    sources = ['mymath.c'],
    library_dirs = [],
