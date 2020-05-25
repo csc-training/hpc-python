@@ -40,7 +40,7 @@ rank = comm.Get_rank()
 size = comm.Get_size()
 
 data = arange(10 * size, dtype=float) * (rank + 1)
-buffer = zeros(size * 10, float)
+buffer = empty(size * 10, float)
 
 n = comm.allreduce(rank, op=MPI.SUM) # returns the value
 
