@@ -67,10 +67,10 @@ rank = comm.Get_rank()
 
 if rank == 0:
     py_data = {'key1' : 0.0, 'key2' : 11}  # Python object
-    data = np.arange(8) / 10.              # numpy array
+    data = numpy.arange(8) / 10.              # numpy array
 else:
     py_data = None
-    data = np.zeros(8)
+    data = numpy.zeros(8)
 
 new_data = comm.bcast(py_data, root=0)
 comm.Bcast(data, root=0)

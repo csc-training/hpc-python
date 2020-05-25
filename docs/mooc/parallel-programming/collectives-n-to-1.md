@@ -63,7 +63,7 @@ received values:
 
 ~~~python
 from mpi4py import MPI
-from numpy import arange, empty
+from numpy import arange, zeros
 
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
