@@ -7,6 +7,8 @@ courses are stored in tags.
 
 Online version of the course is run regularly in [FutureLearn](https://www.futurelearn.com/courses/python-in-hpc). 
 
+Articles and videos of the course are also available in a simple form in this [site](docs/mooc/index.md).
+
 ## Exercises
 
 [General instructions](exercise-instructions.md)
