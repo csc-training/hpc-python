@@ -2,7 +2,7 @@
 
 ## Welcome to the course
 
-1. Welcome to Python in High Performance Computing (video)
+1. [Welcome to Python in High Performance Computing (video)](https://video.csc.fi/media/02-Python-for-HPC-Welcome-HIRES/0_elbgtamh)
 2. [Prerequisities and structure of the course](python-and-performance/prerequisities.md)
 3. How well do you know Python? (quiz)
 4. [Setting up the programming environment](python-and-performance/setting-environment.md)
