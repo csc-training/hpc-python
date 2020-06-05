@@ -2,14 +2,14 @@
 
 ## Welcome to the course
 
-1. [Welcome to Python in High Performance Computing (video)](https://video.csc.fi/media/02-Python-for-HPC-Welcome-HIRES/0_elbgtamh)
+1. [Welcome to Python in High Performance Computing (video)](https://video.csc.fi/media/t/0_elbgtamh)
 2. [Prerequisities and structure of the course](python-and-performance/prerequisities.md)
 3. How well do you know Python? (quiz)
 4. [Setting up the programming environment](python-and-performance/setting-environment.md)
 
 ## Performance challenges in Python
 
-5. Outline of Python performance issues (video)
+5. [Outline of Python performance issues (video)](https://video.csc.fi/media/t/0_s9lahndi)
 6. [Why are Python programs slow?](python-and-performance/performance-bottlenecks.md)
 7. Experiences about performance of Python programs (discussion)
 
@@ -18,7 +18,7 @@
 8. [Where program spends time?](python-and-performance/performance-analysis.md)
 9. [Using applications own timers](python-and-performance/using-own-timers.md)
 10. [Measuring small code snippets with timeit](python-and-performance/using-timeit.md)
-11. Using cProfile (video)
+11. [Using cProfile (video)](https://video.csc.fi/media/t/0_yevcle07)
 12. [Introducing heat equation](python-and-performance/heat-equation.md)
 13. [Hands-on: Performance analysis of heat equation solver](../../performance/cprofile/)
 14. Pros and cons of various performance analysis approaches (discussion)
@@ -32,8 +32,8 @@
 
 ## Using NumPy
 
-1. Welcome to week 2 (video)
-2. Differences between Python lists and NumPy arrays (video)
+1. [Welcome to week 2 (video)](https://video.csc.fi/media/t/0_gzg3gomf)
+2. [Differences between Python lists and NumPy arrays (video)](https://video.csc.fi/media/t/0_ftg323rh)
 3. [Creating and accessing NumPy arrays](numerical-computing/creating-and-accessing.md)
 4. [Hands-on: Array creation](../../numpy/array-creation/)
 5. [Hands-on: Array slicing](../../numpy/array-slicing/)
@@ -76,13 +76,13 @@
 
 ## Using Cython
 
-1. Welcome to week 3 (video)
+1. [Welcome to week 3 (video)](https://video.csc.fi/media/t/0_5snt9bv1)
 2. [What is Cython?](using-compiled-code/what-is-cython.md)
 3. [Creating Cython modules](using-compiled-code/creating-cython-modules.md)
 4. [Hands-on: Creating a simple Cython extension](../../cython/simple-extension/)
 5. [Using static typing](using-compiled-code/using-static-typing.md)
 6. [Avoiding function call overheads](using-compiled-code/avoiding-function-call-overheads.md)
-7. Where to add types? (video)
+7. [Where to add types? (video)](https://video.csc.fi/media/t/0_mdbo85x2)
 8. [Using NumPy with Cython](using-compiled-code/numpy-and-cython.md)
 9. [Hands-on: Cythonizing heat equation solver](../../cython/heat-equation/)
 10. How much speed up is possible with Cython? (discussion)
@@ -106,14 +106,14 @@
 
 ## Introduction to parallel programming
 
-1. Welcome to week 4 (video)
+1. [Welcome to week 4 (video)](https://video.csc.fi/media/t/0_mzrawdbh)
 2. [Parallel programming concepts](parallel-programming/concepts.md)
-3. Processes and threads (video)
+3. [Processes and threads (video)](https://video.csc.fi/media/t/0_9il37s2b)
 
 ## Message passing with Python
 
 4. [Introduction to MPI](parallel-programming/intro-to-mpi.md)
-5. Execution and data model in MPI (video)
+5. [Execution and data model in MPI (video)](https://video.csc.fi/media/t/0_yn26xva0)
 6. [Case study: Parallel sum](parallel-programming/parallel-sum.md)
 7. [Hands-on: Hello world](../../mpi/hello-world/)
 
@@ -140,4 +140,4 @@
 
 21. [Week 4 summary](parallel-programming/summary.md)
 22. [Bonus hands-on: Parallel heat equation solver](../../mpi/heat-equation/)
-
+23. [Course summary (video)](https://video.csc.fi/media/t/0_ulbifpy7)
