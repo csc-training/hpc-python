@@ -1,8 +1,11 @@
-from mandel import compute_mandel as compute_mandel_py
-from mandel_cyt import compute_mandel as compute_mandel_cyt
 import numpy as np
 import matplotlib.pyplot as plt
 import sys
+from mandel import compute_mandel as compute_mandel_py
+try:
+    from mandel_cyt import compute_mandel as compute_mandel_cyt
+except ImportError:
+    pass
 
 def plot_mandel(mandel):
     plt.imshow(mandel)
@@ -20,7 +23,10 @@ def main(version='py'):
         mandel_func = compute_mandel_py
     elif version == 'cyt': 
         print("Using Cython")
-        mandel_func = compute_mandel_cyt
+        try:
+            mandel_func = compute_mandel_cyt
+        except NameError as ex:
+            raise RuntimeError("Cython extension missing") from ex
     else:
         raise RuntimeError("Unknown version")
 
