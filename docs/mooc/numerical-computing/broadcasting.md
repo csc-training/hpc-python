@@ -275,6 +275,6 @@ distances = (points - origin)**2
 distances = numpy.sqrt(numpy.sum(distances, axis=1))
 
 # find the most distant point
-i = np.argmax(dists)
+i = numpy.argmax(distances)
 print(points[i])
 ~~~
