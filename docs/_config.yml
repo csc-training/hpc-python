@@ -1,0 +1,13 @@
+# Book settings
+title: Python in HPC
+author: Enkovaara, Louhivuori et al.
+logo: img/fractal.svg
+repository:
+  url: https://github.com/csc-training/hpc-python
+html:
+  use_repository_button: true
+copyright: "2020, CC-BY-NC-SA 4.0"  # Copyright year to be placed in the footer
+
+latex:
+  latex_documents:
+    targetname: book.tex

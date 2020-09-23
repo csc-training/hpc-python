@@ -19,3 +19,9 @@ pdfs: $(PDFS)
 .PHONY: clean
 clean:
 	-/bin/rm -f *.html *.pdf *~
+
+book:
+	jupyter-book build .
+
+serve:
+	python -m http.server --directory _build/html
