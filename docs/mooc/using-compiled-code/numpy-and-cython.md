@@ -25,7 +25,7 @@ declarations are made for NumPy arrays, indexing can be as fast as indexing
 C arrays.
 
 
-## Compile time defitions for NumPy
+## Compile time definitions for NumPy
 
 In order to create more efficient C-code for NumPy arrays, additional
 declarations are needed. To start with, one uses the Cython `cimport`
