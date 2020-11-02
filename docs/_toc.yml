@@ -1,0 +1,57 @@
+- file: mooc/index
+
+- part: Welcome
+  chapters:
+  - file: mooc/python-and-performance/prerequisities.md
+  - file: mooc/python-and-performance/setting-environment.md
+
+- part: Python and Performance
+  chapters:
+  - file: mooc/python-and-performance/performance-bottlenecks.md
+  - file: mooc/python-and-performance/performance-analysis.md
+  - file: mooc/python-and-performance/using-own-timers.md
+  - file: mooc/python-and-performance/using-timeit.md
+  - file: mooc/python-and-performance/heat-equation.md
+  - file: mooc/python-and-performance/summary.md
+
+- part: Numerical computing
+  chapters:
+  - file: mooc/numerical-computing/creating-and-accessing.md
+  - file: mooc/numerical-computing/simple-operations.md
+  - file: mooc/numerical-computing/vectorised-operations.md
+  - file: mooc/numerical-computing/broadcasting.md
+  - file: mooc/numerical-computing/file-io.md
+  - file: mooc/numerical-computing/random-numbers.md
+  - file: mooc/numerical-computing/linear-algebra.md
+  - file: mooc/numerical-computing/anatomy-of-ndarray.md
+  - file: mooc/numerical-computing/temporary-arrays.md
+  - file: mooc/numerical-computing/numexpr.md
+  - file: mooc/numerical-computing/summary.md
+
+- part: Using compiled code and libraries
+  chapters:
+  - file: mooc/using-compiled-code/what-is-cython.md
+  - file: mooc/using-compiled-code/creating-cython-modules.md
+  - file: mooc/using-compiled-code/using-static-typing.md
+  - file: mooc/using-compiled-code/avoiding-function-call-overheads.md
+  - file: mooc/using-compiled-code/numpy-and-cython.md
+  - file: mooc/using-compiled-code/profiling-cython.md
+  - file: mooc/using-compiled-code/interfacing-c-with-cffi.md
+  - file: mooc/using-compiled-code/interfacing-c-with-cython.md
+  - file: mooc/using-compiled-code/interfacing-fortran.md
+  - file: mooc/using-compiled-code/summary.md
+
+- part: Parallel Computing
+  chapters:
+  - file: mooc/parallel-programming/concepts.md
+  - file: mooc/parallel-programming/intro-to-mpi.md
+  - file: mooc/parallel-programming/parallel-sum.md
+  - file: mooc/parallel-programming/send-receive.md
+  - file: mooc/parallel-programming/send-receive-array.md
+  - file: mooc/parallel-programming/non-blocking.md
+  - file: mooc/parallel-programming/communicators.md
+  - file: mooc/parallel-programming/collectives-1-to-n.md
+  - file: mooc/parallel-programming/collectives-n-to-1.md
+  - file: mooc/parallel-programming/collectives-n-to-n.md
+  - file: mooc/parallel-programming/python-in-parallel.md
+  - file: mooc/parallel-programming/summary.md
