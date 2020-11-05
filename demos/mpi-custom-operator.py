@@ -1,6 +1,13 @@
 from mpi4py import MPI
 
 def add(x,y):
+    """
+    Add a new point to the graph
+
+    Args:
+        x: (int): write your description
+        y: (int): write your description
+    """
     return x+y
 
 comm = MPI.COMM_WORLD

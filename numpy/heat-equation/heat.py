@@ -27,12 +27,25 @@ def iterate(field, field0, a, dx, dy, timesteps, image_interval):
 # (to a new) file after each 'image_interval' iteration
 
 def init_fields(filename):
+    """
+    Create a list of fields for a given filename.
+
+    Args:
+        filename: (str): write your description
+    """
 # TODO: Read the initial temperature field from file
 # Create also a copy of the field for the previous time step
 
     return field, field0
 
 def write_field(field, step):
+    """
+    Writes a field.
+
+    Args:
+        field: (todo): write your description
+        step: (int): write your description
+    """
     plt.gca().clear()
     plt.imshow(field)
     plt.axis('off')

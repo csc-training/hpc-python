@@ -1,6 +1,13 @@
 from multiprocessing import Process, Queue
 
 def f(q, i):
+    """
+    Prints the first item )
+
+    Args:
+        q: (dict): write your description
+        i: (int): write your description
+    """
     while True:
         x = q.get()
         if x is None:

@@ -7,6 +7,17 @@ from heat_cffi import init_fields, write_field, iterate
 
 def main(input_file='bottle.dat', a=0.5, dx=0.1, dy=0.1, 
          timesteps=200, image_interval=4000):
+    """
+    Main function.
+
+    Args:
+        input_file: (str): write your description
+        a: (int): write your description
+        dx: (int): write your description
+        dy: (int): write your description
+        timesteps: (float): write your description
+        image_interval: (int): write your description
+    """
 
     # Initialise the temperature field
     field, field0 = init_fields(input_file)

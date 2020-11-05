@@ -50,18 +50,37 @@ def evolve(u, u_previous, a, dt, dx2, dy2):
     u_previous[:] = u[:]
 
 def init_fields(filename):
+    """
+    Extract fields from filename.
+
+    Args:
+        filename: (str): write your description
+    """
     # Read the initial temperature field from file
     field = np.loadtxt(filename)
     field0 = field.copy() # Array for field of previous time step
     return field, field0
 
 def write_field(field, step):
+    """
+    Writes a field.
+
+    Args:
+        field: (todo): write your description
+        step: (int): write your description
+    """
     plt.gca().clear()
     plt.imshow(field)
     plt.axis('off')
     plt.savefig('heat_{0:03d}.png'.format(step))
 
 def exchange(field):
+    """
+    Exchange the field of a field.
+
+    Args:
+        field: (str): write your description
+    """
     # TODO: select border rows from the field and add MPI calls to
     #       exchange them with the neighbouring tasks
     # send down, receive from up
@@ -74,6 +93,16 @@ def exchange(field):
     comm.Sendrecv(...)
 
 def iterate(field, local_field, local_field0, timesteps, image_interval):
+    """
+    Iterate through a local field.
+
+    Args:
+        field: (str): write your description
+        local_field: (str): write your description
+        local_field0: (str): write your description
+        timesteps: (float): write your description
+        image_interval: (int): write your description
+    """
     for m in range(1, timesteps+1):
         exchange(local_field0)
         evolve(local_field, local_field0, a, dt, dx2, dy2)
@@ -85,6 +114,11 @@ def iterate(field, local_field, local_field0, timesteps, image_interval):
 
 
 def main():
+    """
+    Main function.
+
+    Args:
+    """
     # Read and scatter the initial temperature field
     if rank == 0:
         field, field0 = init_fields('bottle.dat')

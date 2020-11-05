@@ -2,6 +2,12 @@ from mpi4py import MPI
 from numpy import arange, empty
 
 def calculate_something(rank):
+    """
+    Calculate the rank of each rank
+
+    Args:
+        rank: (int): write your description
+    """
     print("Calculating something at rank %d ..." % rank)
     for i in range(1000):
         x = i*5.2 + i**2

@@ -2,6 +2,12 @@ from multiprocessing import Pool
 import time
 
 def f(x):
+    """
+    Return a function f ( x ).
+
+    Args:
+        x: (int): write your description
+    """
     return x**2
 
 pool = Pool(8)
