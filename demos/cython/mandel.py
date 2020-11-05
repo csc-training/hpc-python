@@ -12,6 +12,17 @@ def kernel(zr, zi, cr, ci, lim, cutoff):
     return count
 
 def compute_mandel(cr, ci, N, bound=1.5, lim=1000., cutoff=1e6):
+    """
+    Compute a 2delelelel of - > _.
+
+    Args:
+        cr: (todo): write your description
+        ci: (todo): write your description
+        N: (todo): write your description
+        bound: (todo): write your description
+        lim: (todo): write your description
+        cutoff: (float): write your description
+    """
     mandel = np.empty((N, N), dtype=int)
     grid_x = np.linspace(-bound, bound, N)
     t0 = time()

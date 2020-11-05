@@ -1,6 +1,13 @@
 from multiprocessing import Process, Array
 
 def squared(a, i):
+    """
+    Squared version of get_squared.
+
+    Args:
+        a: (todo): write your description
+        i: (float): write your description
+    """
     a.acquire()
     a[i] = i * i
     a.release()

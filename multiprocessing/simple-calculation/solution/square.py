@@ -1,6 +1,12 @@
 from multiprocessing import Process
 
 def squared(x):
+    """
+    Squared distance between x.
+
+    Args:
+        x: (float): write your description
+    """
     print(x**2)
 
 # create parallel processes

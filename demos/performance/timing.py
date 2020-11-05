@@ -2,6 +2,12 @@ import numpy as np
 from time import perf_counter
 
 def calculate(a):
+    """
+    Calculate the sum of a vector
+
+    Args:
+        a: (float): write your description
+    """
     result = np.exp(a) * np.sin(a)
     return result
 

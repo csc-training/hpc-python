@@ -1,6 +1,13 @@
 from multiprocessing import Process, Manager
 
 def squared(a, i):
+    """
+    Squared version of numpy array.
+
+    Args:
+        a: (float): write your description
+        i: (float): write your description
+    """
     a[i] = a[i] * a[i]
 
 manager = Manager()

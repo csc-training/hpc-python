@@ -2,6 +2,13 @@ from multiprocessing import Process, Pipe
 from fasta import Fasta
 
 def count(pipe, letter):
+    """
+    Count the number of letter
+
+    Args:
+        pipe: (todo): write your description
+        letter: (todo): write your description
+    """
     txt = pipe.recv()
     n = txt.count(letter)
     pipe.send(n)

@@ -8,11 +8,23 @@ except ImportError:
     pass
 
 def plot_mandel(mandel):
+    """
+    R plot a matplotlib.
+
+    Args:
+        mandel: (str): write your description
+    """
     plt.imshow(mandel)
     plt.axis('off')
     plt.show()
 
 def main(version='py'):
+    """
+    Main function.
+
+    Args:
+        version: (str): write your description
+    """
     kwargs = dict(cr=0.285, ci=0.01,
                   N=200,
                   bound=1.5)

@@ -2,6 +2,13 @@ import numpy as np
 
 # Generate N element long random character array from given alphabet
 def generate_string(N, alphabet='ACGT'):
+    """
+    Generate a random string.
+
+    Args:
+        N: (int): write your description
+        alphabet: (float): write your description
+    """
     base = np.array(alphabet, dtype='c')
     # Draw N random samples from alphabet
     dna = np.random.choice(base, N)

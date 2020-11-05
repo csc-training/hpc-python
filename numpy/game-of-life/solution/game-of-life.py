@@ -12,6 +12,13 @@ parser.add_option('-n', '--niter', type='int', default=50,
                   help='Number of iterations')
 
 def initialize(size, shape='cross'):
+    """
+    Initialize a board.
+
+    Args:
+        size: (int): write your description
+        shape: (int): write your description
+    """
     if shape == 'random':
         board = np.random.rand(size, size).round(0).astype(int)
     elif shape == 'cross':
@@ -27,6 +34,12 @@ def initialize(size, shape='cross'):
     return board
 
 def update(board):
+    """
+    Update the board.
+
+    Args:
+        board: (array): write your description
+    """
     # number of neighbours that each square has
     neighbours = np.zeros(board.shape)
     neighbours[1:, 1:] += board[:-1, :-1]

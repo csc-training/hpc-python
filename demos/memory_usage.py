@@ -2,6 +2,11 @@ import numpy as np
 import os
 
 def maxmem():
+    """
+    Return the maximum number of genes.
+
+    Args:
+    """
     # Check maximum memory from /proc/
     # Based on Python Cookbook
     # http://code.activestate.com/recipes/286222/

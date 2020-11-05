@@ -2,6 +2,12 @@ from multiprocessing import Process
 import os
 
 def hello(name):
+    """
+    Prints information about the application
+
+    Args:
+        name: (str): write your description
+    """
     print('Hello ' + name)
     print('My PID is {0}'.format(os.getpid()))
     print("My parent's PID is {0}".format(os.getppid()))
