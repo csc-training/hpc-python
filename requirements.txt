@@ -4,4 +4,4 @@ matplotlib==2.2.4
 cython
 cffi
 numexpr
-ipython==6.1
+ipython==7.16.3
