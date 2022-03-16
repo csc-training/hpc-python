@@ -3,21 +3,20 @@
 Download (clone) the exercise material with
 
 ```bash
-$ git clone https://github.com/csc-training/hpc-python.git
+$ git clone -b norbis-inf9380 https://github.com/csc-training/hpc-python.git
 ```
 The external Python packages can be installed with **pip** by using the provided 
-[requirements.txt](requirements.txt) file. In CSC classroom this can be done 
-(aftter cloning the material) as
+[requirements.txt](requirements.txt) file as 
 
 ```bash
 $ cd hpc-python
-$ pip3.4 install -r requirements.txt --user
+$ pip3 install -r requirements.txt --user
 ```
 
 You can test that all packages are available by
 ```bash
 $ cd test
-$ python3.4 test.py
+$ python3 test.py
 ```
 
 ## General exercise instructions
