@@ -3,7 +3,7 @@
 Download (clone) the exercise material with
 
 ```bash
-$ git clone https://github.com/csc-training/hpc-python.git
+$ git clone -b mooc https://github.com/csc-training/hpc-python.git
 ```
 The external Python packages can be installed with **pip** by using the provided 
 [requirements.txt](requirements.txt) file. In CSC classroom this can be done 
