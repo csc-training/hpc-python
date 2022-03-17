@@ -5,6 +5,16 @@ Download (clone) the exercise material with
 ```bash
 $ git clone -b norbis-inf9380 https://github.com/csc-training/hpc-python.git
 ```
+
+### Python environment in Educloud Fox cluster
+
+In Fox cluster the Python environment with all the required packages can be taken into use by issuing
+```
+module load SciPy-bundle/2019.10-foss-2019b-Python-3.7.4
+```
+
+### Installing required packages in a laptop
+
 The external Python packages can be installed with **pip** by using the provided 
 [requirements.txt](requirements.txt) file as 
 
@@ -12,6 +22,8 @@ The external Python packages can be installed with **pip** by using the provided
 $ cd hpc-python
 $ pip3 install -r requirements.txt --user
 ```
+
+### Testing required packages
 
 You can test that all packages are available by
 ```bash
