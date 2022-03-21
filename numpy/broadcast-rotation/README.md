@@ -11,7 +11,7 @@ R =
 \end{pmatrix}
 --->
 
-![img](http://quicklatex.com/cache3/9c/ql_ee4015bef241c06a5119104118f9a19c_l3.png)
+![img](../img/rotation-matrix.png)
 
 where θ is the angle of rotation (in radians). Start from the x-y coordinates
 in the file points_circle.dat and rotate them by 90°. Utilize broadcasting for
