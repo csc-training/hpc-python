@@ -13,6 +13,12 @@ In Fox cluster the Python environment with all the required packages can be take
 module load SciPy-bundle/2019.10-foss-2019b-Python-3.7.4
 ```
 
+Some of the exercises use `matplotlib`, which can installed with
+```
+module load Pillow/6.2.1-GCCcore-8.3.0
+pip3 install --user matplotlib
+```
+
 ### Installing required packages in a laptop
 
 The external Python packages can be installed with **pip** by using the provided 
