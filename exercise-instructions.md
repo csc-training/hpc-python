@@ -11,11 +11,11 @@ $ git clone -b norbis-inf9380 https://github.com/csc-training/hpc-python.git
 In Fox cluster the Python environment with all the required packages can be taken into use by issuing
 ```
 module load SciPy-bundle/2019.10-foss-2019b-Python-3.7.4
+module load Pillow/6.2.1-GCCcore-8.3.0
 ```
 
 Some of the exercises use `matplotlib`, which can installed with
 ```
-module load Pillow/6.2.1-GCCcore-8.3.0
 pip3 install --user matplotlib
 ```
 
