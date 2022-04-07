@@ -16,8 +16,8 @@ def initialize(size, shape='cross'):
         board = np.random.rand(size, size).round(0).astype(int)
     elif shape == 'cross':
         board = np.zeros((size, size), int)
-        board[size/2,:] = 1
-        board[:,size/2] = 1
+        board[size//2,:] = 1
+        board[:,size//2] = 1
     else:
         raise NotImplementedError('Unknown initial shape')
 
