@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2019 CSC - IT Center for Science Ltd. <www.csc.fi>
+#
+# SPDX-License-Identifier: MIT
+
 import numpy as np
 import numpy.ma as ma
 import matplotlib.pyplot as plt

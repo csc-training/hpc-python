@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2019 CSC - IT Center for Science Ltd. <www.csc.fi>
+
+SPDX-License-Identifier: CC-BY-NC-SA-4.0
+-->
+
 ## Message chain
 
 Write a simple program where every MPI task sends data to the next one. Let

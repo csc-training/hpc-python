@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2019 CSC - IT Center for Science Ltd. <www.csc.fi>
+#
+# SPDX-License-Identifier: MIT
+
 from optparse import OptionParser
 import numpy as np
 import matplotlib.pyplot as plt

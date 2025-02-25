@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2019 CSC - IT Center for Science Ltd. <www.csc.fi>
+#
+# SPDX-License-Identifier: MIT
+
 import numpy as np
 
 a1 = np.random.random((10,3))

@@ -1,3 +1,7 @@
+! SPDX-FileCopyrightText: 2019 CSC - IT Center for Science Ltd. <www.csc.fi>
+!
+! SPDX-License-Identifier: MIT
+
 subroutine evolve(u, u_previous, nx, ny, a, dt, dx2, dy2)
 
    implicit none

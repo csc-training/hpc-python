@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2019 CSC - IT Center for Science Ltd. <www.csc.fi>
+#
+# SPDX-License-Identifier: MIT
+
 from ase.build import molecule
 from gpaw import GPAW
 import cProfile

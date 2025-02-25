@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2019 CSC - IT Center for Science Ltd. <www.csc.fi>
+#
+# SPDX-License-Identifier: MIT
+
 from fib import fibonacci
 from fib_py import fibonacci as fibonacci_py, fibonacci_cached
 from timeit import repeat

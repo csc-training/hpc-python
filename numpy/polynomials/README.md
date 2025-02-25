@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2019 CSC - IT Center for Science Ltd. <www.csc.fi>
+
+SPDX-License-Identifier: CC-BY-NC-SA-4.0
+-->
+
 ## Polynomials
 
 Fit a second order polynomial to the data of previous exercises by using

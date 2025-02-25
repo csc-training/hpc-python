@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2019 CSC - IT Center for Science Ltd. <www.csc.fi>
+#
+# SPDX-License-Identifier: MIT
+
 import numpy as np
 
 my_list = [[j +1 + (i + 1) / 10 for i in range(8)] for j in range(8)]

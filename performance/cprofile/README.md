@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2019 CSC - IT Center for Science Ltd. <www.csc.fi>
+
+SPDX-License-Identifier: CC-BY-NC-SA-4.0
+-->
+
 ## Using cProfile
 
 In this exercise we analyze the performance of heat equation solver with cProfile.

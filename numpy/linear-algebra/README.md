@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2019 CSC - IT Center for Science Ltd. <www.csc.fi>
+
+SPDX-License-Identifier: CC-BY-NC-SA-4.0
+-->
+
 ## Linear algebra
 
 1. Construct two symmetric 2x2 matrices **A** and **B**.

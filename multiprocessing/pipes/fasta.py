@@ -1,4 +1,9 @@
 #!/usr/bin/python
+
+# SPDX-FileCopyrightText: 2019 CSC - IT Center for Science Ltd. <www.csc.fi>
+#
+# SPDX-License-Identifier: MIT
+
 # -*- coding: ISO-8859-1 -*-
 """
 Simple parser for Fasta sequence files.
